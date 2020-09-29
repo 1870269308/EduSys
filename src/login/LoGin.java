@@ -5,5 +5,6 @@ public class LoGin {
 		System.out.println("hello word");
 		System.out.println("dhusjkscj");
 		System.out.println("sdfsd  sf sdf sd");
+		System.out.println("╪ссм");
 	}
 }
