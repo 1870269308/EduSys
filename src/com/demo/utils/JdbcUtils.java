@@ -41,9 +41,9 @@ public final class JdbcUtils {
 	static{
 		//¼ÓÔØÇý¶¯
 		try {
-			///EaManager/src/com/wenbiao/db.properties
+			//EduSys/src/com/demo/db.properties
 			Properties prop=new Properties();
-			prop.load(new BufferedInputStream(new FileInputStream("src//com//wenbiao//db.properties")));
+			prop.load(new BufferedInputStream(new FileInputStream("src/com/demo/db.properties")));
 			url=prop.getProperty("url");
 			user=prop.getProperty("user");
 			password=prop.getProperty("password");
