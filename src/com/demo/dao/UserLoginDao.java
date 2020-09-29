@@ -29,7 +29,7 @@ public User login(Connection con, User user) throws SQLException {
 		if(rs.next()) {
 			resultUser = new User();
 			resultUser.setId(rs.getInt("id")); 
-			resultUser.setUsername(rs.getString("username"));
+			resultUser.setUserName(rs.getString("username"));
 			resultUser.setPassword(rs.getString("password"));
 			resultUser.setRole(rs.getString("role"));
 		}
