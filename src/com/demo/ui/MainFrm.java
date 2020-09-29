@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 @Getter
 @Setter
-public class MainFrm {
+public class MainFrm { 
 
 	private JFrame frame;
 
