@@ -110,8 +110,9 @@ public class registerFrm{
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();//窗体消失
-				LogOnFrm login=new LogOnFrm();
-				login.getFrame().setVisible(true);
+				//返回登录界面
+				//LogOnFrm login=new LogOnFrm();
+				//login.getFrame().setVisible(true);
 			}
 		});
 		btnNewButton_1_1.setBounds(441, 352, 131, 27);
