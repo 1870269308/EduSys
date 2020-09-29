@@ -193,6 +193,7 @@ public class Longin {
 			  String role = rdbtnNewRadioButton_man.getText();
 			  System.out.println(role);
 			  
+
 			  User user = new User(0,userName, password, role); 
 				Connection con = null; 
 				try {
@@ -213,6 +214,7 @@ public class Longin {
 		if(rdbtnNewRadioButton_stu.isSelected()) {
 			String role = rdbtnNewRadioButton_stu.getText();			  
 			  User user = new User(0,userName, password, role); 
+
 				Connection con = null; 
 				try {
 					//这里获取连接

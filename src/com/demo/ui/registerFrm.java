@@ -147,7 +147,9 @@ public class registerFrm{
 			return;
 		}
 		UserDao userDao=new UserDaoImpl();
-		userDao.register(new User(1,"oo","123","用户"));//TODO
+
+		userDao.register(new User(null,userName,passwordOne,"用户"));//TODO
+		
 		resetValueActionPerformed(e);
 		JOptionPane.showMessageDialog(null, "注册成功，请登录");
 	}
