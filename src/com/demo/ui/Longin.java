@@ -34,6 +34,15 @@ public class Longin {
 	private JRadioButton rdbtnNewRadioButton_stu = new JRadioButton("\u7528\u6237");
 	private JButton btnNewButton_login = new JButton("\u767B\u5F55");
 
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
 	/**
 	 * Launch the application.
 	 */
