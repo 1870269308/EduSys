@@ -19,6 +19,16 @@ public class Index {
 	private JFrame frame;
 	private JTextField textField;
 
+	
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
 	/**
 	 * Launch the application.
 	 */
@@ -81,5 +91,8 @@ public class Index {
 		textField.setBounds(216, 81, 329, 178);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		
+		//…Ë÷√¥∞ÃÂæ”÷–
+		frame.setLocationRelativeTo(null);
 	}
 }

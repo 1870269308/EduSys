@@ -27,6 +27,15 @@ public class registerFrm{
 	private JTextField passwordOneText;
 	private JTextField passwordTwoText;
 
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
 	/**
 	 * Launch the application.
 	 */
@@ -148,7 +157,7 @@ public class registerFrm{
 		}
 		UserDao userDao=new UserDaoImpl();
 
-		userDao.register(new User(null,userName,passwordOne,"用户"));//TODO
+		userDao.register(new User(0,userName,passwordOne,"用户"));//TODO
 		
 		resetValueActionPerformed(e);
 		JOptionPane.showMessageDialog(null, "注册成功，请登录");

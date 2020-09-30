@@ -78,5 +78,8 @@ public class Login {
 		JButton btnNewButton_1 = new JButton("\u6CE8\u518C");
 		btnNewButton_1.setBounds(358, 247, 113, 27);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		//…Ë÷√¥∞ÃÂæ”÷–
+		frame.setLocationRelativeTo(null);
 	}
 }

@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import com.demo.Index;
 import com.demo.dao.UserLoginDao;
 import com.demo.pojo.User;
 import com.demo.utils.JdbcUtils;
@@ -89,14 +90,16 @@ public class Longin {
 		pswtext.setBounds(265, 146, 166, 28);
 		frame.getContentPane().add(pswtext);
 		
-		rdbtnNewRadioButton_stu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(rdbtnNewRadioButton_stu.isSelected()){
-				  String radioText = rdbtnNewRadioButton_stu.getText();
-				  System.out.println(radioText);
-				}
-			}
-		});
+//		rdbtnNewRadioButton_stu.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				if(rdbtnNewRadioButton_stu.isSelected()){
+//				  String radioText = rdbtnNewRadioButton_stu.getText();
+//				  System.out.println(radioText);
+//				}
+//			}
+//		});
+		
+		
 		
 		
 		//按钮监听事件
@@ -114,7 +117,8 @@ public class Longin {
 			}
 		});
 		
-		//按钮监听事件
+		
+		//登录按钮监听事件
 		rdbtnNewRadioButton_stu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/*
@@ -122,7 +126,9 @@ public class Longin {
 				 */
 				btnNewButton_login.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						loginAction(e); 
+						loginAction(e);
+					//	LogOnFrm login=new LogOnFrm();
+					//	login.getFrame().setVisible(true);
 					}
 				});
 			}
@@ -165,11 +171,26 @@ public class Longin {
 		btnNewButton_reset.setBounds(266, 258, 113, 27);
 		frame.getContentPane().add(btnNewButton_reset);
 		
+		/**
+		 * 注册按钮
+		 */
 		JButton btnNewButton_register = new JButton("\u5B66\u751F\u6CE8\u518C");
+		
+		btnNewButton_register.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				LogOnFrm login=new LogOnFrm();
+				//	login.getFrame().setVisible(true);
+				registerFrm regist = new registerFrm(); 
+				regist.getFrame().setVisible(true);
+			}
+		});
+		
 		btnNewButton_register.setBounds(423, 258, 113, 27);
 		frame.getContentPane().add(btnNewButton_register);
+		
+		//设置窗体居中
+		frame.setLocationRelativeTo(null);
 	}
-	
 	
 	
 	/**
@@ -189,10 +210,11 @@ public class Longin {
 			JOptionPane.showMessageDialog(null, "密码不能为空!");
 			return;
 		}
+		
+		
 		if(rdbtnNewRadioButton_man.isSelected()){
 			  String role = rdbtnNewRadioButton_man.getText();
 			  System.out.println(role);
-			  
 
 			  User user = new User(0,userName, password, role); 
 				Connection con = null; 
@@ -204,6 +226,11 @@ public class Longin {
 					User currentUser = userDao.login(con, user);
 					if(currentUser!=null) {
 						JOptionPane.showMessageDialog(null, "登录成功");
+						//跳转
+						Index index = new Index(); 
+						index.getFrame().setVisible(true);
+						frame.setVisible(false); 
+						
 					}else {
 						JOptionPane.showMessageDialog(null, "用户名或密码，角色有误");
 					}
@@ -224,8 +251,15 @@ public class Longin {
 					User currentUser = userDao.login(con, user);
 					if(currentUser!=null) {
 						JOptionPane.showMessageDialog(null, "登录成功");
+						//TODO  这里跳转学生主页面
 						
-						//TODO  这里跳转页面
+						
+						Index index = new Index(); 
+						index.getFrame().setVisible(true);
+						frame.setVisible(false); 
+						
+						
+						
 					}else {
 						JOptionPane.showMessageDialog(null, "用户名或密码，角色有误");
 					}
