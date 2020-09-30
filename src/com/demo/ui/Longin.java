@@ -24,6 +24,7 @@ import com.demo.utils.StringUtils;
 
 public class Longin {
 
+	
 	private JFrame frame;
 	private JTextField usertext;
 	private JTextField pswtext;
