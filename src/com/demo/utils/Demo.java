@@ -237,14 +237,8 @@ public class Demo {
 		Object[] params2= {0};
 		List<Column> cc=(List<Column>)queryForBean(sql2,params2,new BeanListResultSethandler<Column>(Column.class));
 		System.out.println(cc);
-		
-		
 	}
-	
-	
-	
-	
-}
+ }
 
 class Column{
 	private int id;

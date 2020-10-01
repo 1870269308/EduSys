@@ -33,7 +33,7 @@ public final class JdbcUtils {
 	private static String user="";
 	private static String password="";
 	private static String driver="";
-	private static int initCount=10;
+	private static int initCount= 10;
 	
 	//准备一串connection  pools池子
 	private static LinkedList<Connection> pools=new LinkedList<Connection>();
@@ -51,7 +51,7 @@ public final class JdbcUtils {
 			initCount=Integer.parseInt(prop.getProperty("initCount"));
 			Class.forName(driver);
 			
-			//初始化10条connection
+			//初始化2条connection
 			for(int i=0;i<initCount;i++) {
 				Connection conn=createConnection();
 				pools.add(proxy(conn));
