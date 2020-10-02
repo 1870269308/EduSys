@@ -17,13 +17,14 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import com.demo.Index;
-import com.demo.dao.UserLoginDao;
+import com.demo.dao.impl.UserLoginDao;
 import com.demo.pojo.User;
 import com.demo.utils.JdbcUtils;
 import com.demo.utils.StringUtils;
 
 public class Longin {
 
+	
 	private JFrame frame;
 	private JTextField usertext;
 	private JTextField pswtext;
@@ -108,9 +109,6 @@ public class Longin {
 //			}
 //		});
 		
-		
-		
-		
 		//按钮监听事件
 		rdbtnNewRadioButton_man.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -136,8 +134,6 @@ public class Longin {
 				btnNewButton_login.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						loginAction(e);
-					//	LogOnFrm login=new LogOnFrm();
-					//	login.getFrame().setVisible(true);
 					}
 				});
 			}
@@ -261,14 +257,9 @@ public class Longin {
 					if(currentUser!=null) {
 						JOptionPane.showMessageDialog(null, "登录成功");
 						//TODO  这里跳转学生主页面
-						
-						
 						Index index = new Index(); 
 						index.getFrame().setVisible(true);
 						frame.setVisible(false); 
-						
-						
-						
 					}else {
 						JOptionPane.showMessageDialog(null, "用户名或密码，角色有误");
 					}

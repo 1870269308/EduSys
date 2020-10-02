@@ -1,4 +1,4 @@
-package com.demo.dao;
+package com.demo.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserLoginDao {
-public User login(Connection con, User user) throws SQLException {
+	public User login(Connection con, User user) throws SQLException {
 		
 		User resultUser = null;
 		
