@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import com.demo.dao.QuestionDao;
 import com.demo.dao.ScoreDao;
 import com.demo.utils.ExcelExporter;
 import com.demo.utils.JdbcUtil;
@@ -79,8 +81,19 @@ public class AdminFrm {
 		JMenu mnNewMenu = new JMenu("\u9898\u5E93\u7BA1\u7406");
 		mnNewMenu.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 20));
 		menuBar.add(mnNewMenu);
-
+		
+		//添加
 		JMenuItem mntmNewMenuItem = new JMenuItem("\u6DFB\u52A0\u8BD5\u9898");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 跳转到修改删除界面
+				// 销毁该界面
+				frame.dispose();
+				new AddTitleFrm().getFrame().setVisible(true);
+			}
+		});
 		mntmNewMenuItem.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
 		mnNewMenu.add(mntmNewMenuItem);
 		// 修改 删除
