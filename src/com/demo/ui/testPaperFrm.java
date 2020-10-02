@@ -88,8 +88,8 @@ public class testPaperFrm {
 				System.out.println(id);
 				updateQuestionFrm uq=new updateQuestionFrm(id);
 				//frame.setVisible(false);
-				JFrame m=uq.getFrame();//显示修改界面
-				System.out.println(m);
+				//JFrame m=uq.getFrame();//显示修改界面
+				//System.out.println(m);
 			}
 		});
 		btnNewButton.setFont(new Font("宋体", Font.PLAIN, 20));

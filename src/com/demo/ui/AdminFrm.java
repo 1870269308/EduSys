@@ -16,6 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import com.demo.Index;
 import com.demo.dao.QuestionDao;
 import com.demo.dao.ScoreDao;
 import com.demo.utils.ExcelExporter;
@@ -194,6 +195,15 @@ public class AdminFrm {
 		frame.getContentPane().add(btnD);
 
 		JButton btnNewButton_2 = new JButton("\u8FD4\u56DE\u4E3B\u754C\u9762");
+		//返回主页
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//销毁本窗口
+				frame.dispose();
+				//显示主窗口
+				new Index().getFrame().setVisible(true);				
+			}
+		});
 		btnNewButton_2.setFont(new Font("宋体", Font.PLAIN, 18));
 		btnNewButton_2.setBounds(38, 364, 129, 27);
 		frame.getContentPane().add(btnNewButton_2);

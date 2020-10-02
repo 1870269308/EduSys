@@ -20,7 +20,6 @@ public class Question {
 	private String keyA;
 	private String keyB;
 	private String keyC;
-	private String ketD;
 	private String keyD;
 	private String remarks;
 	
@@ -39,7 +38,7 @@ public class Question {
 	@Override
 	public String toString() {
 		return "Question [id=" + id + ", title=" + title + ", keyvalue=" + keyvalue + ", keyA=" + keyA + ", keyB="
-				+ keyB + ", keyC=" + keyC + ", ketD=" + ketD + ", remarks=" + remarks + "]";
+				+ keyB + ", keyC=" + keyC + ", ketD=" + ", remarks=" + remarks + "]";
 	}
 	
 	
