@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import com.demo.ui.Exam;
+import com.demo.ui.AdminFrm;
 
 public class ListenerExam implements ActionListener{
 	private JFrame frame;
@@ -15,7 +15,7 @@ public class ListenerExam implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		Exam window1 = new Exam();
+		AdminFrm window1 = new AdminFrm();
 		frame.setVisible(false);
 		window1.getFrame().setVisible(true);		
 	}
