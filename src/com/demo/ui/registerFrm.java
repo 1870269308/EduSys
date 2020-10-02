@@ -12,6 +12,7 @@ import com.demo.dao.impl.UserDaoImpl;
 import com.demo.pojo.User;
 import com.demo.utils.StringUtils;
 
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -120,8 +121,8 @@ public class registerFrm{
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();//窗体消失
 				//返回登录界面
-				//LogOnFrm login=new LogOnFrm();
-				//login.getFrame().setVisible(true);
+				Longin login=new Longin();
+				login.getFrame().setVisible(true);
 			}
 		});
 		btnNewButton_1_1.setBounds(441, 352, 131, 27);
@@ -150,17 +151,21 @@ public class registerFrm{
 			JOptionPane.showMessageDialog(null, "密码不能为空");
 			return;
 		}
-		if(Integer.valueOf(passwordOne)!=Integer.valueOf(passwordTwo)) {
-			JOptionPane.showMessageDialog(null, "两次输入密码不一致，请重新输入");
-			resetValueActionPerformed(e);
-			return;
-		}
+//		if(Integer.valueOf(passwordOne)!=Integer.valueOf(passwordTwo)) {
+//			JOptionPane.showMessageDialog(null, "两次输入密码不一致，请重新输入");
+//			resetValueActionPerformed(e);
+//			return;
+//		}
 		UserDao userDao=new UserDaoImpl();
 
 		userDao.register(new User(0,userName,passwordOne,"用户"));//TODO
 		
 		resetValueActionPerformed(e);
-		JOptionPane.showMessageDialog(null, "注册成功，请登录");
+		int result=JOptionPane.showConfirmDialog(null,"注册成功，是否返回登录界面");
+		if(result==0) {
+			frame.dispose();//界面消失
+			new Longin().getFrame().setVisible(true);//显示新界面
+		}
 	}
 
 	/**

@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import com.demo.ui.Login;
+import com.demo.ui.Longin;
 
 public class listenerExit implements ActionListener{
 	private JFrame frame;
@@ -15,7 +15,7 @@ public class listenerExit implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		Login window1 = new Login();
+		Longin window1 = new Longin();
 		frame.setVisible(false);
 		window1.getFrame().setVisible(true);		
 	}
