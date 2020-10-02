@@ -24,6 +24,7 @@ import com.demo.utils.StringUtils;
 
 public class Longin {
 
+	
 	private JFrame frame;
 	private JTextField usertext;
 	private JTextField pswtext;
@@ -34,7 +35,6 @@ public class Longin {
 	private JRadioButton rdbtnNewRadioButton_stu = new JRadioButton("\u7528\u6237");
 	private JButton btnNewButton_login = new JButton("\u767B\u5F55");
 
-	
 	
 	public JFrame getFrame() {
 		return frame;

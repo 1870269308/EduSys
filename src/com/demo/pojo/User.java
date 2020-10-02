@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Setter
-@Getter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+//@Setter
+//@Getter
+//@ToString
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Builder
 
 public class User {
 
