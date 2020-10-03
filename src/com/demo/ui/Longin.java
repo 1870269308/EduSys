@@ -150,13 +150,13 @@ public class Longin {
 		
 		
 		
-		rdbtnNewRadioButton_stu.setBounds(202, 203, 78, 27);
+		rdbtnNewRadioButton_stu.setBounds(224, 203, 78, 27);
 		frame.getContentPane().add(rdbtnNewRadioButton_stu);
 		
 		
 		
 		
-		rdbtnNewRadioButton_man.setBounds(355, 203, 96, 27);
+		rdbtnNewRadioButton_man.setBounds(329, 203, 96, 27);
 		frame.getContentPane().add(rdbtnNewRadioButton_man);
 		
 		
@@ -164,7 +164,9 @@ public class Longin {
 		ButtonGroup group=new ButtonGroup();
 		group.add(rdbtnNewRadioButton_man);
 		group.add(rdbtnNewRadioButton_stu);
-		btnNewButton_login.setBackground(Color.GRAY);
+		
+		
+		//btnNewButton_login.setBackground(Color.GRAY);
 		btnNewButton_login.setIcon(new ImageIcon(Longin.class.getResource("/images/\u767B\u5F55.png")));
 		
 		
