@@ -13,6 +13,7 @@ import manager.indexListener.ListenerCourse;
 import manager.indexListener.ListenerExam;
 import manager.indexListener.listenerExit;
 import test.Menu;
+import test01.Randoms;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -70,11 +71,14 @@ public class Index {
 		JButton btnNewButton = new JButton("\u4E0A\u8BFE\u70B9\u540D");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 //				//随机点名类
-//				Randoms random = new Randoms(); 
+				Randoms random = new Randoms(); 
 //				//调用其中的窗体方法
-//				random.getFrame().setVisible(true);
-//				frame.setVisible(false);
+				JFrame jf=random.getFrame();//.setVisible(true);
+				System.out.println(jf);
+				//random.setVisible(true);
+				//frame.setVisible(false);
 			}
 		});
 		

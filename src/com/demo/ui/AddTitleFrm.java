@@ -41,6 +41,8 @@ public class AddTitleFrm {
 	private JTextField key;
 	private JTextField keyRemask;
 
+	
+	
 	/**
 	 * Launch the application.
 	 */

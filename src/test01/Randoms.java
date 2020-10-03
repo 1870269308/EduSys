@@ -8,6 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.demo.Index;
+
 import java.awt.event.ActionListener;
 import java.util.Random;
 import java.awt.event.ActionEvent;
@@ -19,6 +22,16 @@ public class Randoms extends JFrame {
 	JButton start,stop; // 开始、停止按钮
 	JLabel rs; //显示结果
 	JFrame frame;
+	Randoms random = null; 
+	
+
+	public Randoms getRandom() {
+		return random;
+	}
+
+	public void setRandom(Randoms random) {
+		this.random = random;
+	}
 
 	public JFrame getFrame() {
 		return frame;
@@ -48,6 +61,7 @@ public class Randoms extends JFrame {
 	
 	 
 	static boolean isSotp = true; //判断当前状态
+	private JButton btnNewButton;
 	public Randoms() {
 		init();
 	}
@@ -78,6 +92,24 @@ public class Randoms extends JFrame {
 		rs.setFont(new Font("宋体", Font.BOLD, 34));//设置结果样式
 		rs.setForeground(Color.black);
 		getContentPane().add(jp2,BorderLayout.SOUTH);
+		
+		/**
+		 * 返回主页面跳转功能
+		 */
+		btnNewButton = new JButton("\u8FD4\u56DE\u4E3B\u9875\u9762");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				frame.setVisible(false);
+				Index index = new Index(); 
+				index.getFrame().setVisible(true);
+				
+			}
+		});
+		
+		
+		jp2.add(btnNewButton);
 	}
 	
 	//监听函数

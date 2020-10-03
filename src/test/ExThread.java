@@ -19,15 +19,8 @@ public class ExThread extends Thread{
 	boolean isSotp;
 	int n;
 	String a="";
-	//ArrayList<String> array=new ArrayList<String>();
-	//Vector 类可以实现可增长的对象数组。 与数组一样，它包含可以使用整数索引进行访问的组件。
 	Vector vector=new Vector();
 	int getn;
-	/*ExThread(JLabel rs,int n,boolean a){
-	this.rs = rs;
-	this.n = n;
-	isSotp=a;
-	}*/
 	void setbool(boolean a){isSotp=a;};
 	void setint(int a){n=a;};
 	
