@@ -8,12 +8,11 @@ import java.awt.Button;
 import javax.swing.JTextField;
 
 import com.demo.ui.Longin;
+import com.demo.ui.RandomCall;
 
 import manager.indexListener.ListenerCourse;
 import manager.indexListener.ListenerExam;
 import manager.indexListener.listenerExit;
-import test.Menu;
-import test01.Randoms;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -23,8 +22,6 @@ public class Index {
 	private JFrame frame;
 	private JTextField textField;
 
-	
-	
 	public JFrame getFrame() {
 		return frame;
 	}
@@ -73,12 +70,9 @@ public class Index {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 //				//随机点名类
-				Randoms random = new Randoms(); 
-//				//调用其中的窗体方法
-				JFrame jf=random.getFrame();//.setVisible(true);
-				System.out.println(jf);
-				//random.setVisible(true);
-				//frame.setVisible(false);
+				RandomCall random = new RandomCall(); 
+				random.getFrame().setVisible(true);
+				frame.setVisible(false);
 			}
 		});
 		

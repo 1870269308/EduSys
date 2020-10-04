@@ -43,6 +43,15 @@ public class AdminFrm {
 	JdbcUtil dbUtil = new JdbcUtil();
 	ScoreDao scoreDao = new ScoreDao();
 
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
 	/**
 	 * Launch the application.
 	 */
