@@ -121,11 +121,26 @@ public class AdminFrm {
 		menuBar.add(mnNewMenu_1);
 
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("\u6DFB\u52A0\u7528\u6237");
+		//添加用户
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//跳转到添加用户界面AddUser
+				frame.setVisible(false);
+				new AddUserFrm().getFrame().setVisible(true);
+			}
+		});
 		mntmNewMenuItem_2.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/add.png")));
 		mntmNewMenuItem_2.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
 		mnNewMenu_1.add(mntmNewMenuItem_2);
 
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("\u5220\u9664\u7528\u6237");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//跳转删除界面
+				frame.setVisible(false);
+				new DeleteUserFrm().getFrame().setVisible(true);
+			}
+		});
 		mntmNewMenuItem_3.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/dl.png")));
 		mntmNewMenuItem_3.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
 		mnNewMenu_1.add(mntmNewMenuItem_3);
@@ -245,7 +260,7 @@ public class AdminFrm {
          */
 		 //显示窗体，可以选择导出位置
 		 FileDialog fd = new FileDialog(frame, "保存成绩信息", FileDialog.SAVE);
-		 //设置位置
+		 //设置窗体大小
 		 fd.setLocation(500, 350);
 		 //显示
 	     fd.setVisible(true);  
@@ -259,7 +274,6 @@ public class AdminFrm {
          } catch (IOException ex) {
              ex.printStackTrace();
          }
-		
 	}
 
 	// 查询

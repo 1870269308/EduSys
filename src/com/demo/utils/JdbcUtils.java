@@ -90,7 +90,7 @@ public final class JdbcUtils {
 	}
 	
 	public static Connection getConnection() throws SQLException {
-		return pools.removeFirst();
+		return (Connection)pools.removeFirst();
 	}
 	
 	public static void close(Connection conn,Statement statmenet,ResultSet rs) {

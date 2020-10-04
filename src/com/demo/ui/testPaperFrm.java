@@ -240,6 +240,7 @@ public class testPaperFrm {
 		String keyC=keyCText.getText();
 		String keyD=keyDText.getText();
 		String remarks=remarksText.getText();
+		//判断是否为空
 		if(StringUtils.isEmpty(id)) {
 			JOptionPane.showMessageDialog(null, "请选择要修改的试题");
 			return;
@@ -292,6 +293,8 @@ public class testPaperFrm {
 		try {
 			conn=dbUtil.getConnection();
 			ResultSet rs=questionDao.query(conn);
+			//System.out.println(rs);
+			//com.mysql.jdbc.JDBC42ResultSet@5e75ddd3
 			while(rs.next()) {
 				//设置一个集合
 				Vector v=new Vector();

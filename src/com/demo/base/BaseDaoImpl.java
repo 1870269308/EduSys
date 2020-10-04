@@ -3,13 +3,19 @@ package com.demo.base;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
+import com.demo.utils.JdbcUtil;
+import com.demo.utils.JdbcUtils;
 import com.demo.utils.QueryRunner;
-import com.mysql.jdbc.Connection;
+
 
 
 public class BaseDaoImpl<T> implements BaseDao<T>{
 	private QueryRunner qr=new QueryRunner();
+	private JdbcUtil dbUtil=new JdbcUtil();
 	private Class clazz;
 	public BaseDaoImpl() {
 		//拿到父类类型
@@ -139,6 +145,95 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		}
 		// Object[] params = {t.getId(),t.getName(),t.getAge(),t.getPid()};
 		qr.execute(sql, params);
+	}
+
+
+	@Override
+	public void add(T t) {
+		Object[] params=null;
+		//字符串拼接
+		StringBuilder sb=new StringBuilder("");
+		String preStr="insert into ";
+		sb.append(preStr);
+		String tableName=this.clazz.getSimpleName().toLowerCase();
+		sb.append("`"+tableName+"` ");
+		Field[] fs=this.clazz.getDeclaredFields();
+		params=new Object[fs.length];
+		String sqlTemp="( ";
+		for(Field f:fs) {
+			f.setAccessible(true);
+			String column=f.getName();
+			sqlTemp+=column+",";
+		}
+		sqlTemp=sqlTemp.substring(0,sqlTemp.length()-1)+") ";
+		//insert into person id,name,age,pid
+		sb.append(sqlTemp);
+		sb.append(" values (");
+		//?
+		sqlTemp="";
+		for(int i=0;i<fs.length;i++) {
+			sqlTemp+="?,";
+		}
+		sqlTemp=sqlTemp.substring(0,sqlTemp.length()-1);
+		sb.append(sqlTemp);
+		sb.append(")");
+		String sql=sb.toString();
+		System.out.println(sql);
+		//对象的getter方法的调用
+		for(int i=0;i<fs.length;i++) {
+			fs[i].setAccessible(true);
+			try {
+				params[i]=fs[i].get(t);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+//		Object[] params= {t.getId(),t.getName(),t.getAge(),t.getPid()};
+		qr.execute(sql, params);
+		
+	}
+
+
+	@Override
+	public void delete(int id) {
+		Object[] params= {id};
+		//字符串拼接
+		StringBuilder sb=new StringBuilder("");
+		String preStr="delete from ";
+		sb.append(preStr);
+		String tableName=this.clazz.getSimpleName().toLowerCase();
+		sb.append("`"+tableName+"` ");
+		//delete from 表名
+		String sqlTemp="where id=?";
+		sb.append(sqlTemp);
+		String sql=sb.toString();
+		System.out.println(sql);
+		qr.execute(sql, params);
+		
+	}
+
+
+	@Override
+	public ResultSet query() {
+		//字符串拼接
+		StringBuilder sb=new StringBuilder("");
+		String preStr="select * from ";
+		sb.append(preStr);
+		String tableName=this.clazz.getSimpleName().toLowerCase();
+		sb.append("`"+tableName+"` ");
+		//delete from 表名
+		String sql=sb.toString();
+		Connection conn=null;
+		try {
+			conn=dbUtil.getConnection();
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ResultSet rsm=ps.executeQuery();
+			//conn.close();  TODo
+			return rsm;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 
