@@ -60,7 +60,7 @@ public class Index {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 648, 354);
+		frame.setBounds(100, 100, 938, 542);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -78,26 +78,26 @@ public class Index {
 			}
 		});
 		
-		btnNewButton.setBounds(33, 44, 113, 27);
+		btnNewButton.setBounds(33, 88, 113, 27);
 		frame.getContentPane().add(btnNewButton);
 		
 		//课表安排
 		JButton btnNewButton_1 = new JButton("\u8BFE\u8868\u5B89\u6392");
 		ListenerCourse lc=new ListenerCourse(frame);
 		btnNewButton_1.addActionListener(lc);
-		btnNewButton_1.setBounds(33, 102, 113, 27);
+		btnNewButton_1.setBounds(33, 224, 113, 27);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		//考试系统
 		JButton btnNewButton_2 = new JButton("\u8003\u8BD5\u7CFB\u7EDF");
 		ListenerExam le=new ListenerExam(frame);
 		btnNewButton_2.addActionListener(le);
-		btnNewButton_2.setBounds(33, 161, 113, 27);
+		btnNewButton_2.setBounds(33, 369, 113, 27);
 		frame.getContentPane().add(btnNewButton_2);
 		listenerExit lx=new listenerExit(frame);
 		
 		textField = new JTextField();
-		textField.setBounds(216, 81, 329, 178);
+		textField.setBounds(210, 88, 637, 332);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
@@ -111,7 +111,7 @@ public class Index {
 				frame.setVisible(false);
 			}
 		});
-		btnNewButton_3.setBounds(486, 29, 113, 27);
+		btnNewButton_3.setBounds(734, 44, 113, 27);
 		frame.getContentPane().add(btnNewButton_3);
 		
 		//设置窗体居中

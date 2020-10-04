@@ -19,6 +19,7 @@ import lombok.Setter;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 @Getter
 @Setter
 public class registerFrm{
@@ -97,6 +98,7 @@ public class registerFrm{
 		frame.getContentPane().add(passwordTwoText);
 		
 		JButton btnNewButton = new JButton("\u6CE8\u518C");
+		btnNewButton.setIcon(new ImageIcon(registerFrm.class.getResource("/images/add.png")));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//注册
@@ -108,6 +110,7 @@ public class registerFrm{
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("\u91CD\u7F6E");
+		btnNewButton_1.setIcon(new ImageIcon(registerFrm.class.getResource("/images/de.png")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				resetValueActionPerformed(e);
@@ -117,6 +120,7 @@ public class registerFrm{
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("\u8FD4\u56DE\u767B\u5F55\u754C\u9762");
+		btnNewButton_1_1.setIcon(new ImageIcon(registerFrm.class.getResource("/images/out.png")));
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();//窗体消失
@@ -125,7 +129,7 @@ public class registerFrm{
 				login.getFrame().setVisible(true);
 			}
 		});
-		btnNewButton_1_1.setBounds(441, 352, 131, 27);
+		btnNewButton_1_1.setBounds(441, 352, 148, 27);
 		frame.getContentPane().add(btnNewButton_1_1);
 		
 		//设置窗体居中

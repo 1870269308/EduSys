@@ -10,9 +10,8 @@ import lombok.ToString;
 
 @Setter
 @Getter
-@ToString
 @NoArgsConstructor
-@AllArgsConstructor
+
 public class Question {
 	private int id;
 	private String title;
@@ -23,9 +22,9 @@ public class Question {
 	private String keyD;
 	private String remarks;
 	
-	public Question(String title, String keyvalue, String keyA, String keyB, String keyC, String keyD,
+	public Question(int id, String title, String keyvalue, String keyA, String keyB, String keyC, String keyD,
 			String remarks) {
-		super();
+		this.id = id;
 		this.title = title;
 		this.keyvalue = keyvalue;
 		this.keyA = keyA;
@@ -35,11 +34,18 @@ public class Question {
 		this.remarks = remarks;
 	}
 	
+	
 	@Override
 	public String toString() {
 		return "Question [id=" + id + ", title=" + title + ", keyvalue=" + keyvalue + ", keyA=" + keyA + ", keyB="
 				+ keyB + ", keyC=" + keyC + ", ketD=" + ", remarks=" + remarks + "]";
 	}
+
+
+
+
+
+
 	
 	
 }

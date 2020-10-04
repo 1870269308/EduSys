@@ -84,6 +84,62 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		
 		
 	}
+	public void udpate(T t) {//修改
+		//update person set name='老孟',age=104,pid='10086' where id=8;
+		// 参数列表
+		Object[] params = null;
+		// 字符串拼接
+		StringBuilder sb = new StringBuilder();
+		String preStr = "update ";
+		sb.append(preStr);
+		// 获取数据库表名并转为小写(这里的getSimpleName 是返回该类名的简称 如Person再将其转换为小写)
+		String tableName = this.clazz.getSimpleName().toLowerCase();
+		// 同时注意这里的表明可能为关键字，所以需要转义
+		sb.append(" `"+tableName+"` set ");
+		Field[] fields = this.clazz.getDeclaredFields();
+		// 参数列表的长度就是该对象的属性个数长度
+		params = new Object[fields.length];
+		// 接着拼接
+		String tempStr = "";
+		// 遍历字段拼接字段名
+		for(Field field:fields) {
+			// 首先还是设置可访问
+			field.setAccessible(true);
+			if("id".equals(field.getName())) {
+				continue;
+			}
+			tempStr += field.getName() + "=?, ";
+		}
+		// 拼接  由于最后还多一个","所以需要去掉","
+		tempStr = tempStr.substring(0, tempStr.length()-2);
+		// 接着追加到StringBuilder中 
+		sb.append(tempStr+" where id = ?");
+		// 转换为sql语句
+		String sql = sb.toString();
+		// 根据传入对象的get方法调用
+		// 定义一个指针用来操作参数放置的顺序
+		int ptr = 0;
+		for(int i = 0;i < fields.length;i++) {
+			// 指针自增
+			// 同样设置可访问
+			fields[i].setAccessible(true);
+			try {
+				// 由于这里的id需要放在最后 ， 所以需要在这里操作一下(这里只写了根据id进行查询，如果需要可以根据其他的条件修改)
+				if("id".equals(fields[i].getName())) {
+					// 将id放在最后一个位置
+					params[fields.length-1] = fields[i].get(t);
+					// 所以这里需要减一
+					continue;
+				}
+				params[ptr] = fields[i].get(t);
+				ptr += 1;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// Object[] params = {t.getId(),t.getName(),t.getAge(),t.getPid()};
+		qr.execute(sql, params);
+	}
 
 
 }

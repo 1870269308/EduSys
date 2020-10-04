@@ -22,17 +22,17 @@ import com.demo.utils.StringUtils;
 
 import lombok.Getter;
 import lombok.Setter;
+import javax.swing.ImageIcon;
 
 /**
  * @author anus
  *
  */
-@Setter
-@Getter
+
 public class AddTitleFrm {
 
 	private JFrame frame;
-	private JTextField textld;
+	private JTextField textId;
 	private JTextField keya;
 	private JTextField keyb;
 	private JTextField keyc;
@@ -40,6 +40,15 @@ public class AddTitleFrm {
 	private JTextField titleText;
 	private JTextField key;
 	private JTextField keyRemask;
+	
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
 
 	/**
 	 * Launch the application.
@@ -84,10 +93,10 @@ public class AddTitleFrm {
 		lblNewLabel_1.setBounds(45, 57, 91, 38);
 		frame.getContentPane().add(lblNewLabel_1);
 
-		textld = new JTextField();
-		textld.setBounds(150, 64, 346, 24);
-		frame.getContentPane().add(textld);
-		textld.setColumns(10);
+		textId = new JTextField();
+		textId.setBounds(150, 64, 346, 24);
+		frame.getContentPane().add(textId);
+		textId.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("\u9898   \u76EE");
 		lblNewLabel_2.setFont(new Font("宋体", Font.PLAIN, 18));
@@ -158,6 +167,7 @@ public class AddTitleFrm {
 		frame.getContentPane().add(lblNewLabel_4_3_1);
 
 		JButton titleAdd = new JButton("\u6DFB\u52A0");
+		titleAdd.setIcon(new ImageIcon(AddTitleFrm.class.getResource("/images/add.png")));
 		titleAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// 添加
@@ -169,6 +179,7 @@ public class AddTitleFrm {
 		frame.getContentPane().add(titleAdd);
 
 		JButton titleReset = new JButton("\u91CD\u7F6E");
+		titleReset.setIcon(new ImageIcon(AddTitleFrm.class.getResource("/images/de.png")));
 		titleReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// 重置
@@ -180,6 +191,7 @@ public class AddTitleFrm {
 		frame.getContentPane().add(titleReset);
 
 		JButton exitTitle = new JButton("\u9000\u51FA");
+		exitTitle.setIcon(new ImageIcon(AddTitleFrm.class.getResource("/images/out.png")));
 		exitTitle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// 返回管理员考试子系统主界面
@@ -202,6 +214,8 @@ public class AddTitleFrm {
 		keyRemask.setColumns(10);
 		keyRemask.setBounds(150, 443, 346, 24);
 		frame.getContentPane().add(keyRemask);
+		//设置窗体居中
+		frame.setLocationRelativeTo(null);
 	}
 
 	/**
@@ -212,6 +226,7 @@ public class AddTitleFrm {
 	protected void addAction(ActionEvent e) {
 		// 获取文本框内容
 		// 获取题目
+		String id=textId.getText();
 		String title = titleText.getText().trim();
 		// 获取答案
 		String keyvalue = key.getText().trim();
@@ -238,7 +253,7 @@ public class AddTitleFrm {
 //		System.out.println(title+"--"+keyvalue+"--"+keyA+"--"+keyB+"--"+keyC+"--"+keyD+"--"+remarks);
 		QuestionDao1 questionDao=new QuestionDao1Impl();
 		
-		questionDao.register(new Question(title,keyvalue,keyA,keyB,keyC,keyD,remarks));
+		questionDao.register(new Question(Integer.valueOf(id),title,keyvalue,keyA,keyB,keyC,keyD,remarks));
 		
 	}
 	

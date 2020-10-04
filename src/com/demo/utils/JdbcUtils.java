@@ -34,7 +34,7 @@ public final class JdbcUtils {
 	private static String password="";
 	private static String driver="";
 
-	private static int initCount=1;
+	private static int initCount=10;
 
 
 	

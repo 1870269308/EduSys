@@ -30,6 +30,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 @Setter
 @Getter
@@ -80,11 +81,13 @@ public class AdminFrm {
 		frame.getContentPane().add(menuBar);
 
 		JMenu mnNewMenu = new JMenu("\u9898\u5E93\u7BA1\u7406");
+		mnNewMenu.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/question.png")));
 		mnNewMenu.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 20));
 		menuBar.add(mnNewMenu);
 		
 		//添加
 		JMenuItem mntmNewMenuItem = new JMenuItem("\u6DFB\u52A0\u8BD5\u9898");
+		mntmNewMenuItem.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/add.png")));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			
 			@Override
@@ -99,6 +102,7 @@ public class AdminFrm {
 		mnNewMenu.add(mntmNewMenuItem);
 		// 修改 删除
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("\u4FEE\u6539/\u5220\u9664\u8BD5\u9898");
+		mntmNewMenuItem_1.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/dl.png")));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// 跳转到修改删除界面
@@ -112,14 +116,17 @@ public class AdminFrm {
 		mnNewMenu.add(mntmNewMenuItem_1);
 
 		JMenu mnNewMenu_1 = new JMenu("\u7528\u6237\u7BA1\u7406");
+		mnNewMenu_1.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/user.png")));
 		mnNewMenu_1.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 20));
 		menuBar.add(mnNewMenu_1);
 
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("\u6DFB\u52A0\u7528\u6237");
+		mntmNewMenuItem_2.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/add.png")));
 		mntmNewMenuItem_2.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
 		mnNewMenu_1.add(mntmNewMenuItem_2);
 
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("\u5220\u9664\u7528\u6237");
+		mntmNewMenuItem_3.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/dl.png")));
 		mntmNewMenuItem_3.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
 		mnNewMenu_1.add(mntmNewMenuItem_3);
 
@@ -149,6 +156,7 @@ public class AdminFrm {
 		textField.setColumns(10);
 
 		JButton btnNewButton = new JButton("\u67E5\u8BE2");
+		btnNewButton.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/query.png")));
 		// 查询时间
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -183,6 +191,7 @@ public class AdminFrm {
 		scrollPane.setViewportView(table);
 
 		JButton btnD = new JButton("\u5BFC\u51FA\u8868\u683C");
+		btnD.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/exporter.png")));
 		//导出表格
 		btnD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -191,10 +200,11 @@ public class AdminFrm {
 			}
 		});
 		btnD.setFont(new Font("宋体", Font.PLAIN, 18));
-		btnD.setBounds(38, 272, 129, 27);
+		btnD.setBounds(38, 272, 152, 27);
 		frame.getContentPane().add(btnD);
 
 		JButton btnNewButton_2 = new JButton("\u8FD4\u56DE\u4E3B\u754C\u9762");
+		btnNewButton_2.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/out.png")));
 		//返回主页
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -205,10 +215,11 @@ public class AdminFrm {
 			}
 		});
 		btnNewButton_2.setFont(new Font("宋体", Font.PLAIN, 18));
-		btnNewButton_2.setBounds(38, 364, 129, 27);
+		btnNewButton_2.setBounds(38, 364, 152, 27);
 		frame.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_1 = new JButton("\u5237\u65B0");
+		btnNewButton_1.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/de.png")));
 		//刷新
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

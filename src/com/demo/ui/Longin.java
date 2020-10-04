@@ -21,19 +21,20 @@ import com.demo.dao.impl.UserLoginDao;
 import com.demo.pojo.User;
 import com.demo.utils.JdbcUtils;
 import com.demo.utils.StringUtils;
+import javax.swing.JPasswordField;
 
 public class Longin {
 
 	
 	private JFrame frame;
 	private JTextField usertext;
-	private JTextField pswtext;
 	
 	private JdbcUtils dbutil = new JdbcUtils();
 	private UserLoginDao userDao = new UserLoginDao(); 
 	private JRadioButton rdbtnNewRadioButton_man = new JRadioButton("\u7BA1\u7406\u5458");
 	private JRadioButton rdbtnNewRadioButton_stu = new JRadioButton("\u7528\u6237");
 	private JButton btnNewButton_login = new JButton("\u767B\u5F55");
+	private JPasswordField pswtext;
 
 	
 	public JFrame getFrame() {
@@ -94,11 +95,6 @@ public class Longin {
 		JLabel lblNewLabel_1_1 = new JLabel("\u5BC6 \u7801\uFF1A");
 		lblNewLabel_1_1.setBounds(173, 149, 72, 23);
 		frame.getContentPane().add(lblNewLabel_1_1);
-		
-		pswtext = new JTextField();
-		pswtext.setColumns(10);
-		pswtext.setBounds(265, 146, 166, 28);
-		frame.getContentPane().add(pswtext);
 		
 //		rdbtnNewRadioButton_stu.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -192,6 +188,10 @@ public class Longin {
 		
 		btnNewButton_register.setBounds(423, 258, 113, 27);
 		frame.getContentPane().add(btnNewButton_register);
+		
+		pswtext = new JPasswordField();
+		pswtext.setBounds(265, 144, 166, 28);
+		frame.getContentPane().add(pswtext);
 		
 		//…Ë÷√¥∞ÃÂæ”÷–
 		frame.setLocationRelativeTo(null);
