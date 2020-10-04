@@ -21,7 +21,13 @@ import com.demo.dao.impl.UserLoginDao;
 import com.demo.pojo.User;
 import com.demo.utils.JdbcUtils;
 import com.demo.utils.StringUtils;
+
 import javax.swing.JPasswordField;
+
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.UIManager;
+
 
 public class Longin {
 
@@ -73,18 +79,22 @@ public class Longin {
 	 */
 	private void initialize() {
 		frame = new JFrame("教务管理系统");
+		frame.getContentPane().setBackground(UIManager.getColor("Button.background"));
+		frame.setBackground(Color.LIGHT_GRAY);
 		frame.setType(Type.UTILITY);
 		frame.setBounds(100, 100, 632, 368);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("\u6559\u52A1\u7BA1\u7406\u7CFB\u7EDF");
+		lblNewLabel.setIcon(new ImageIcon(Longin.class.getResource("/images/\u6559\u52A1\u7CFB\u7EDF.png")));
 		lblNewLabel.setFont(new Font("宋体", Font.BOLD, 20));
-		lblNewLabel.setBounds(227, 37, 141, 36);
+		lblNewLabel.setBounds(202, 34, 201, 36);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u7528\u6237\u540D\uFF1A");
-		lblNewLabel_1.setBounds(173, 98, 72, 23);
+		lblNewLabel_1.setIcon(new ImageIcon(Longin.class.getResource("/images/\u7528\u6237.png")));
+		lblNewLabel_1.setBounds(155, 98, 96, 23);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		usertext = new JTextField();
@@ -93,7 +103,8 @@ public class Longin {
 		usertext.setColumns(10);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("\u5BC6 \u7801\uFF1A");
-		lblNewLabel_1_1.setBounds(173, 149, 72, 23);
+		lblNewLabel_1_1.setIcon(new ImageIcon(Longin.class.getResource("/images/\u5BC6\u7801 (1).png")));
+		lblNewLabel_1_1.setBounds(155, 149, 78, 23);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
 //		rdbtnNewRadioButton_stu.addActionListener(new ActionListener() {
@@ -138,13 +149,13 @@ public class Longin {
 		
 		
 		
-		rdbtnNewRadioButton_stu.setBounds(184, 203, 108, 27);
+		rdbtnNewRadioButton_stu.setBounds(224, 203, 78, 27);
 		frame.getContentPane().add(rdbtnNewRadioButton_stu);
 		
 		
 		
 		
-		rdbtnNewRadioButton_man.setBounds(319, 203, 157, 27);
+		rdbtnNewRadioButton_man.setBounds(329, 203, 96, 27);
 		frame.getContentPane().add(rdbtnNewRadioButton_man);
 		
 		
@@ -152,6 +163,10 @@ public class Longin {
 		ButtonGroup group=new ButtonGroup();
 		group.add(rdbtnNewRadioButton_man);
 		group.add(rdbtnNewRadioButton_stu);
+		
+		
+		//btnNewButton_login.setBackground(Color.GRAY);
+		btnNewButton_login.setIcon(new ImageIcon(Longin.class.getResource("/images/\u767B\u5F55.png")));
 		
 		
 		btnNewButton_login.setBounds(101, 258, 113, 27);
@@ -162,6 +177,7 @@ public class Longin {
 		 * 重置按钮
 		 */
 		JButton btnNewButton_reset = new JButton("\u91CD\u7F6E");
+		btnNewButton_reset.setIcon(new ImageIcon(Longin.class.getResource("/images/\u91CD\u7F6E.png")));
 		btnNewButton_reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				resetValueAction(e);
@@ -169,13 +185,14 @@ public class Longin {
 		});
 		
 		
-		btnNewButton_reset.setBounds(266, 258, 113, 27);
+		btnNewButton_reset.setBounds(265, 258, 113, 27);
 		frame.getContentPane().add(btnNewButton_reset);
 		
 		/**
 		 * 注册按钮
 		 */
 		JButton btnNewButton_register = new JButton("\u5B66\u751F\u6CE8\u518C");
+		btnNewButton_register.setIcon(new ImageIcon(Longin.class.getResource("/images/\u6CE8\u518C.png")));
 		
 		btnNewButton_register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -186,7 +203,7 @@ public class Longin {
 			}
 		});
 		
-		btnNewButton_register.setBounds(423, 258, 113, 27);
+		btnNewButton_register.setBounds(426, 258, 113, 27);
 		frame.getContentPane().add(btnNewButton_register);
 		
 		pswtext = new JPasswordField();

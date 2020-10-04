@@ -4,10 +4,11 @@ import javax.swing.JFrame;
 
 public class Menu {
 	
-
-
 	public static void main(String[] args) { //主程序
-		
+		start();
+	}
+	
+	private static void start() {
 		Randoms n = new Randoms();
 		
 		//生成一个监听事件对象

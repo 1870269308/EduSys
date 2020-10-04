@@ -8,6 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.demo.Index;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -20,8 +23,19 @@ public class Randoms extends JFrame {
 	
 	JPanel jp1,jp2;
 	ExListener listener;
+	Randoms random; 
 	 
+	
+	public Randoms getRandom() {
+		return random;
+	}
+
+	public void setRandom(Randoms random) {
+		this.random = random;
+	}
+
 	static boolean isSotp = true; //判断当前状态
+	private JButton btnNewButton;
 	public Randoms() {
 		init();
 	}
@@ -50,6 +64,19 @@ public class Randoms extends JFrame {
 		rs.setFont(new Font("宋体", 1, 30));//设置结果样式
 		rs.setForeground(Color.RED);
 		getContentPane().add(jp2,BorderLayout.SOUTH);
+		
+		btnNewButton = new JButton("\u8FD4\u56DE\u4E3B\u9875\u9762");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Index index = new Index(); 
+				index.getFrame().setVisible(true);
+				
+				random.setVisible(false);
+				
+			}
+		});
+		
+		jp2.add(btnNewButton);
 	}
 	
 	//监听函数

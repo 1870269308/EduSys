@@ -21,13 +21,6 @@ public class FromEx implements ExListener {
 		stop=J2;
 		this.rs=rs;
 		this.isSotp=isSotp;
-		
-//		try {
-//			//将rs与线程绑定  创建新的线程
-//			t= new ExThread(rs);
-//		} catch (IOException e) {
-//		//	e.printStackTrace();
-//		}
 	}
 	
 	//响应事件
