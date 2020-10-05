@@ -16,7 +16,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import com.demo.Index;
 import com.demo.dao.QuestionDao;
 import com.demo.dao.ScoreDao;
 import com.demo.utils.ExcelExporter;

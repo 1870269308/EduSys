@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import com.demo.Index;
 import com.demo.dao.impl.UserLoginDao;
 import com.demo.pojo.User;
 import com.demo.utils.JdbcUtils;
@@ -149,13 +148,13 @@ public class Longin {
 		
 		
 		
-		rdbtnNewRadioButton_stu.setBounds(224, 203, 78, 27);
+		rdbtnNewRadioButton_stu.setBounds(230, 203, 78, 27);
 		frame.getContentPane().add(rdbtnNewRadioButton_stu);
 		
 		
 		
 		
-		rdbtnNewRadioButton_man.setBounds(329, 203, 96, 27);
+		rdbtnNewRadioButton_man.setBounds(358, 203, 96, 27);
 		frame.getContentPane().add(rdbtnNewRadioButton_man);
 		
 		
@@ -247,9 +246,10 @@ public class Longin {
 					//这里将用户输入的信息和数据库中的信息比对
 					User currentUser = userDao.login(con, user);
 					if(currentUser!=null) {
+												
 						JOptionPane.showMessageDialog(null, "登录成功");
 						//跳转
-						Index index = new Index(); 
+						Index index = new Index(currentUser); 
 						index.getFrame().setVisible(true);
 						frame.setVisible(false); 
 						
@@ -273,6 +273,7 @@ public class Longin {
 					User currentUser = userDao.login(con, user);
 					if(currentUser!=null) {
 						JOptionPane.showMessageDialog(null, "登录成功");
+						
 						//TODO  这里跳转学生主页面
 						Index index = new Index(); 
 						index.getFrame().setVisible(true);
