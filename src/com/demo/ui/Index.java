@@ -1,21 +1,26 @@
 package com.demo.ui;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
 import javax.swing.JButton;
-import java.awt.Button;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.demo.pojo.User;
+import com.demo.ui.AdminFrm;
+import com.demo.ui.CourseFrm;
+import com.demo.ui.Longin;
+import com.demo.ui.RandomCall;
+import com.demo.ui.feedback;
+import com.demo.ui.myCalendar;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JDesktopPane;
 
 public class Index {
 
 	private JFrame frame;
-	private JTextField textField;
 	private static User userMessage = new User();
 
 	public JFrame getFrame() {
@@ -102,11 +107,6 @@ public class Index {
 		btnNewButton_4.addActionListener(lf);
 		btnNewButton_4.setBounds(33, 362, 113, 27);
 		frame.getContentPane().add(btnNewButton_4);
-		
-		textField = new JTextField();
-		textField.setBounds(210, 88, 637, 332);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
 
 		JButton btnNewButton_3 = new JButton("\u9000\u51FA\u767B\u5F55");
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -118,8 +118,15 @@ public class Index {
 		});
 		btnNewButton_3.setBounds(734, 44, 113, 27);
 		frame.getContentPane().add(btnNewButton_3);
-
-		// 设置窗体居中
+		
+		JDesktopPane desktopPane = new JDesktopPane();
+		desktopPane.setBounds(268, 99, 585, 372);
+		frame.getContentPane().add(desktopPane);
+		myCalendar mycalendar=new myCalendar();
+		mycalendar.setBounds(0, 0, 585, 372);
+		desktopPane.add(mycalendar);
+		mycalendar.setVisible(true);
+		//设置窗体居中
 		frame.setLocationRelativeTo(null);
 	}
 }
