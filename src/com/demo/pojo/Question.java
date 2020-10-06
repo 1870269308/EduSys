@@ -1,5 +1,6 @@
 package com.demo.pojo;
 
+import java.util.Date;
 
 // ‘Ã‚¿‡
 import lombok.AllArgsConstructor;
@@ -21,7 +22,17 @@ public class Question {
 	private String keyC;
 	private String keyD;
 	private String remarks;
-	
+
+	private Date joinTime;
+
+	public Date getJoinTime() {
+		return joinTime;
+	}
+
+	public void setJoinTime(Date joinTime) {
+		this.joinTime = joinTime;
+	}
+
 	public Question(int id, String title, String keyvalue, String keyA, String keyB, String keyC, String keyD,
 			String remarks) {
 		this.id = id;
@@ -33,19 +44,11 @@ public class Question {
 		this.keyD = keyD;
 		this.remarks = remarks;
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		return "Question [id=" + id + ", title=" + title + ", keyvalue=" + keyvalue + ", keyA=" + keyA + ", keyB="
 				+ keyB + ", keyC=" + keyC + ", ketD=" + ", remarks=" + remarks + "]";
 	}
 
-
-
-
-
-
-	
-	
 }

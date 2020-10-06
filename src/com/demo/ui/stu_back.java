@@ -1,23 +1,13 @@
 package com.demo.ui;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
-import java.awt.BorderLayout;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.JTextPane;
-
-import org.junit.Test;
-
-
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.awt.event.ActionEvent;
 
 public class stu_back {
 
@@ -63,7 +53,9 @@ public class stu_back {
 		JButton button = new JButton("\u8003\u8BD5");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//todo
+				//关闭当前界面
+				frame.dispose();
+				new StuSelectUi().getFrame().setVisible(true);
 			}
 		});
 		button.setBounds(44, 124, 93, 23);
