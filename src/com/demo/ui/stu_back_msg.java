@@ -75,6 +75,18 @@ public class stu_back_msg {
 		textArea.setBounds(176, 44, 191, 170);
 		frame.getContentPane().add(textArea);
 		
+		JButton button_1 = new JButton("\u8FD4\u56DE");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//点击按钮返回学生反馈界面
+				frame.dispose();
+				stu_back bk=new stu_back();
+				bk.getFrame().setVisible(true);
+			}
+		});
+		button_1.setBounds(24, 228, 93, 23);
+		frame.getContentPane().add(button_1);
+		
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String msg=textArea.getText();//获取文本域的内容
