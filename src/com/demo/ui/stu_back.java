@@ -68,6 +68,7 @@ public class stu_back {
 			public void actionPerformed(ActionEvent e) {
 				//关闭当前界面
 				frame.dispose();
+				//跳转到学生选择的试题界面
 				new StuSelectUi(userMessage).getFrame().setVisible(true);
 			}
 		});
