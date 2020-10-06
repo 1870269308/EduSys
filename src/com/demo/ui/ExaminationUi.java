@@ -59,6 +59,14 @@ public class ExaminationUi {
 	// 实现倒计时
 	ClockDispaly mt;// 考试倒计时
 
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
 	/**
 	 * Launch the application.
 	 */

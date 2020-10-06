@@ -21,6 +21,16 @@ public class stu_back {
 	private JFrame frame;
 	private static User userMessage = new User();
 
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+
 	/**
 	 * Launch the application.
 	 */
@@ -68,6 +78,7 @@ public class stu_back {
 			public void actionPerformed(ActionEvent e) {
 				//关闭当前界面
 				frame.dispose();
+				//跳转到学生选择的试题界面
 				new StuSelectUi(userMessage).getFrame().setVisible(true);
 			}
 		});
