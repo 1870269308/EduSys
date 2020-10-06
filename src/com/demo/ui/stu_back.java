@@ -9,6 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class stu_back {
 
 	private JFrame frame;
