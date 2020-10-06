@@ -41,6 +41,14 @@ public class StuSelectUi {
 	private PaperDao pd=new PaperDaoImpl();
 	private String selectId;
 	private static User userMessage = new User();
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
 
 	/**
 	 * Launch the application.

@@ -30,6 +30,55 @@ public class Course {
 		Thursday = thursday;
 		Friday = friday;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getFriday() {
+		return Friday;
+	}
+	public void setFriday(String friday) {
+		Friday = friday;
+	}
+	public String getSection() {
+		return section;
+	}
+	public void setSection(String section) {
+		this.section = section;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public String getMonday() {
+		return Monday;
+	}
+	public void setMonday(String monday) {
+		Monday = monday;
+	}
+	public String getTuesday() {
+		return Tuesday;
+	}
+	public void setTuesday(String tuesday) {
+		Tuesday = tuesday;
+	}
+	public String getWednesday() {
+		return Wednesday;
+	}
+	public void setWednesday(String wednesday) {
+		Wednesday = wednesday;
+	}
+	public String getThursday() {
+		return Thursday;
+	}
+	public void setThursday(String thursday) {
+		Thursday = thursday;
+	}
 
+	 
 	
 }

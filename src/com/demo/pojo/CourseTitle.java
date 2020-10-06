@@ -14,5 +14,18 @@ import lombok.ToString;
 public class CourseTitle {
 	private Integer id;
 	private String Title;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return Title;
+	}
+	public void setTitle(String title) {
+		Title = title;
+	}
+	
 	
 }
