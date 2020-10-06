@@ -21,6 +21,16 @@ public class stu_back {
 	private JFrame frame;
 	private static User userMessage = new User();
 
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+
 	/**
 	 * Launch the application.
 	 */
