@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 import com.demo.ui.Longin;
 import com.demo.ui.RandomCall;
+import com.demo.ui.myCalendar;
 
 import manager.indexListener.ListenerCourse;
 import manager.indexListener.ListenerExam;
@@ -16,11 +17,12 @@ import manager.indexListener.listenerExit;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
+import javax.swing.JDesktopPane;
 
 public class Index {
 
 	private JFrame frame;
-	private JTextField textField;
 
 	public JFrame getFrame() {
 		return frame;
@@ -94,11 +96,6 @@ public class Index {
 		frame.getContentPane().add(btnNewButton_2);
 		listenerExit lx=new listenerExit(frame);
 		
-		textField = new JTextField();
-		textField.setBounds(210, 88, 637, 332);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
 		JButton btnNewButton_3 = new JButton("\u9000\u51FA\u767B\u5F55");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -112,6 +109,13 @@ public class Index {
 		btnNewButton_3.setBounds(734, 44, 113, 27);
 		frame.getContentPane().add(btnNewButton_3);
 		
+		JDesktopPane desktopPane = new JDesktopPane();
+		desktopPane.setBounds(268, 99, 585, 372);
+		frame.getContentPane().add(desktopPane);
+		myCalendar mycalendar=new myCalendar();
+		mycalendar.setBounds(0, 0, 585, 372);
+		desktopPane.add(mycalendar);
+		mycalendar.setVisible(true);
 		//…Ë÷√¥∞ÃÂæ”÷–
 		frame.setLocationRelativeTo(null);
 	}
