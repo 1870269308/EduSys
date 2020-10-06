@@ -80,7 +80,7 @@ public class stu_back_msg {
 			public void actionPerformed(ActionEvent e) {
 				//点击按钮返回学生反馈界面
 				frame.dispose();
-				stu_back bk=new stu_back();
+				stu_back bk=new stu_back(userMessage);
 				bk.getFrame().setVisible(true);
 			}
 		});
