@@ -179,6 +179,9 @@ class listenerFeed implements ActionListener {
 	public listenerFeed(JFrame frame) {
 		this.frame = frame;
 	}
+	
+	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
