@@ -24,6 +24,7 @@ import com.demo.dao.PaperDao;
 import com.demo.dao.ScoreDao;
 import com.demo.dao.impl.PaperDaoImpl;
 import com.demo.pojo.Paper;
+import com.demo.pojo.User;
 import com.demo.utils.JdbcUtil;
 
 import lombok.Getter;
@@ -39,6 +40,7 @@ public class StuSelectUi {
 	private JTable table;
 	private PaperDao pd=new PaperDaoImpl();
 	private String selectId;
+	private static User userMessage = new User();
 
 	/**
 	 * Launch the application.
@@ -60,6 +62,11 @@ public class StuSelectUi {
 	 * Create the application.
 	 */
 	public StuSelectUi() {
+		initialize();
+	}
+	public StuSelectUi(User userMessage) {
+
+		this.userMessage = userMessage;
 		initialize();
 	}
 
@@ -130,7 +137,7 @@ public class StuSelectUi {
 		//关闭当前窗口
 		frame.dispose();
 		ExaminationUi.examId=Integer.parseInt(textField.getText());
-		ExaminationUi window=new ExaminationUi();
+		ExaminationUi window=new ExaminationUi(userMessage);
 		window.frame.setVisible(true);
 	}
 

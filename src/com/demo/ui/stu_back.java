@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
+import com.demo.pojo.User;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +19,7 @@ import lombok.Setter;
 public class stu_back {
 
 	private JFrame frame;
+	private static User userMessage = new User();
 
 	/**
 	 * Launch the application.
@@ -40,6 +43,11 @@ public class stu_back {
 	public stu_back() {
 		initialize();
 	}
+	public stu_back(User userMessage) {
+
+		this.userMessage = userMessage;
+		initialize();
+	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -60,7 +68,7 @@ public class stu_back {
 			public void actionPerformed(ActionEvent e) {
 				//关闭当前界面
 				frame.dispose();
-				new StuSelectUi().getFrame().setVisible(true);
+				new StuSelectUi(userMessage).getFrame().setVisible(true);
 			}
 		});
 		button.setBounds(44, 124, 93, 23);

@@ -16,12 +16,16 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import com.demo.pojo.Question;
+import com.demo.pojo.User;
 import com.demo.utils.BeanListResultSethandler;
 import com.demo.utils.QueryRunner;
 
 public class ExaminationUi {
 
 	JFrame frame;
+	private static User userMessage = new User();
+	//获取到学生姓名
+	private String name;
 	private JTextField nowNumField;
 	private JTextField totalCountField;
 	private JTextField answerCountField;
@@ -77,7 +81,11 @@ public class ExaminationUi {
 	public ExaminationUi() {
 		initialize();
 	}
+	public ExaminationUi(User userMessage) {
 
+		this.userMessage = userMessage;
+		initialize();
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -260,8 +268,9 @@ public class ExaminationUi {
 	//将分数传入scoer表中
 	public void transferTable() {
 		//成绩id,加入时间，总成绩，试卷id，
-		String sql="insert into score value(null,\"孤街\",?,?,?,?)";
-		Object[] obj= {singleScore,moreScore,score,inserTime};
+		String sql="insert into score value(null,?,?,?,?,?)";
+		name=userMessage.getUserName();
+		Object[] obj= {name,singleScore,moreScore,score,inserTime};
 		System.out.println(sql);
 		new QueryRunner().execute(sql, obj);
 	}
