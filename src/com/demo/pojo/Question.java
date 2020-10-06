@@ -1,5 +1,6 @@
 package com.demo.pojo;
 
+import java.util.Date;
 
 // ‘Ã‚¿‡
 import lombok.AllArgsConstructor;
@@ -21,7 +22,83 @@ public class Question {
 	private String keyC;
 	private String keyD;
 	private String remarks;
+
 	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getKeyvalue() {
+		return keyvalue;
+	}
+
+	public void setKeyvalue(String keyvalue) {
+		this.keyvalue = keyvalue;
+	}
+
+	public String getKeyA() {
+		return keyA;
+	}
+
+	public void setKeyA(String keyA) {
+		this.keyA = keyA;
+	}
+
+	public String getKeyB() {
+		return keyB;
+	}
+
+	public void setKeyB(String keyB) {
+		this.keyB = keyB;
+	}
+
+	public String getKeyC() {
+		return keyC;
+	}
+
+	public void setKeyC(String keyC) {
+		this.keyC = keyC;
+	}
+
+	public String getKeyD() {
+		return keyD;
+	}
+
+	public void setKeyD(String keyD) {
+		this.keyD = keyD;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	private Date joinTime;
+
+	public Date getJoinTime() {
+		return joinTime;
+	}
+
+	public void setJoinTime(Date joinTime) {
+		this.joinTime = joinTime;
+	}
+
 	public Question(int id, String title, String keyvalue, String keyA, String keyB, String keyC, String keyD,
 			String remarks) {
 		this.id = id;
@@ -33,19 +110,11 @@ public class Question {
 		this.keyD = keyD;
 		this.remarks = remarks;
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		return "Question [id=" + id + ", title=" + title + ", keyvalue=" + keyvalue + ", keyA=" + keyA + ", keyB="
 				+ keyB + ", keyC=" + keyC + ", ketD=" + ", remarks=" + remarks + "]";
 	}
 
-
-
-
-
-
-	
-	
 }

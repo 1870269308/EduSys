@@ -14,7 +14,7 @@ import com.demo.utils.QueryRunner;
 
 
 public class BaseDaoImpl<T> implements BaseDao<T>{
-	private QueryRunner qr=new QueryRunner();
+	protected QueryRunner qr=new QueryRunner();
 	private JdbcUtil dbUtil=new JdbcUtil();
 	private Class clazz;
 	public BaseDaoImpl() {
@@ -90,6 +90,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		
 		
 	}
+	@Override
 	public void udpate(T t) {//修改
 		//update person set name='老孟',age=104,pid='10086' where id=8;
 		// 参数列表
@@ -236,6 +237,42 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		return null;
 	}
 
+	//课程表使用：通过id查询
+	@Override
+	public void update(T t) {
+		Object[] params = null;
+		// 字符串拼接
+		StringBuilder sb = new StringBuilder("");
+		String preStr = "update ";
+		sb.append(preStr);
+		String tableName = this.clazz.getSimpleName();
+		sb.append("`" + tableName + "` ");
 
+		String preStr1 = " set ";
+
+		// 获取字段
+		Field[] fs = this.clazz.getDeclaredFields();
+		params = new Object[fs.length + 1];// 每个字段：多增加一个id字段用于判断
+		for (Field f : fs) {
+			f.setAccessible(true);
+			String column = f.getName();// 列名
+			preStr1 += column + "=?,";
+		}
+		preStr1 = preStr1.substring(0, preStr1.length() - 1);
+		sb.append(preStr1 + " where id=?");
+
+		String sql = sb.toString();
+		// System.out.println(sql);
+		// 对象的getter方法的调用,把每个字段的值填入params中，最后一个放id
+		for (int i = 0; i < fs.length; i++) {
+			try {
+				fs[i].setAccessible(true);
+				params[i] = fs[i].get(t);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		qr.execute1(sql, params);		
+	}
 }
 

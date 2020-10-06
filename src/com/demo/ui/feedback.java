@@ -4,11 +4,13 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class Course {
+import lombok.Getter;
+@Getter
+public class feedback {
 
 	private JFrame frame;
-	
 
+	
 	public JFrame getFrame() {
 		return frame;
 	}
@@ -24,7 +26,7 @@ public class Course {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Course window = new Course();
+					feedback window = new feedback();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +38,7 @@ public class Course {
 	/**
 	 * Create the application.
 	 */
-	public Course() {
+	public feedback() {
 		initialize();
 	}
 

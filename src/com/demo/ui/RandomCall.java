@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 
-import com.demo.Index;
+import com.demo.pojo.User;
 import com.demo.thread.RandomThread;
 
 import java.awt.Font;
@@ -23,7 +23,7 @@ public class RandomCall {
 	private JLabel lblNewLabel_1;
 	private Boolean isStop; 
 	private RandomThread rt;
-
+	
 	public JFrame getFrame() {
 		return frame;
 	}
@@ -54,7 +54,7 @@ public class RandomCall {
 	public RandomCall() {
 		initialize();
 	}
-
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
