@@ -123,7 +123,7 @@ public class stu_back {
 		lable.setVisible(true);
 		textPane.add(lable);
 		
-		JButton button_2 = new JButton("\u8FD4\u56DE");
+		JButton button_2 = new JButton("\u9000\u51FA\u767B\u5F55");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//·µ»ØÖ÷Ò³Ãæ

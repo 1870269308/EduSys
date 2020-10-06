@@ -96,6 +96,13 @@ public class feedback {
 		frame.getContentPane().add(button);
 
 		JButton button_1 = new JButton("\u8FD4\u56DE");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//∑µªÿµΩindex“≥√Ê
+				frame.dispose();
+				new Index().getFrame().setVisible(true);
+			}
+		});
 		button_1.setBounds(3, 192, 93, 23);
 		frame.getContentPane().add(button_1);
 		
