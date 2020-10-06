@@ -275,7 +275,7 @@ public class Longin {
 						JOptionPane.showMessageDialog(null, "登录成功");
 						
 						//TODO  这里跳转学生主页面
-						Index index = new Index(); 
+						stu_back index = new stu_back(currentUser); 
 						index.getFrame().setVisible(true);
 						frame.setVisible(false); 
 					}else {
