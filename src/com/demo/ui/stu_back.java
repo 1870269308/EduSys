@@ -79,7 +79,7 @@ public class stu_back {
 			public void actionPerformed(ActionEvent e) {
 				// 跳转的窗口
 				frame.dispose();//窗体消失,跳转到反馈页面
-				stu_back_msg msg=new stu_back_msg();
+				stu_back_msg msg=new stu_back_msg(userMessage);//将stu_back的usermessage传入到该页面
 				msg.getFrame().setVisible(true);
 			}
 		});
