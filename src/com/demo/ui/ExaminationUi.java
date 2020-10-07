@@ -373,17 +373,17 @@ public class ExaminationUi {
 			String remark = p.getRemarks();
 			inserTime=p.getJoinTime();
 			// 获取到试题信息
-			s = title + "\n" + keyA + "\n" + keyB + "\n" + keyC + "\n" + keyD;
+			s = title + "\n" + "A、"+keyA + "\n" + "B、"+keyB + "\n" + "C、"+keyC + "\n" +"D、"+ keyD;
 //			System.out.println(s);
 			// 创建一个集合来存放题目信息
 			suStr.add(s);
-			System.out.println(suStr);
+//			System.out.println(suStr);
 			// 创建一个集合来存放答案
 			answer.add(keyvalue);
 //			System.out.println(answer);
 			// 创建一个集合来存放题目类型
 			remak.add(remark);
-			System.out.println(remak);
+//			System.out.println(remak);
 		}
 	}
 
