@@ -42,9 +42,9 @@ public class ExaminationUi {
 	// 设置题目的初始值
 	int p = 0;
 	// 题目的总数记录
-	int num = 5;
+	int num = 4;
     private int nowNumber = 0;//当前题号
-    private int totalCount = 5;//题目总数
+    private int totalCount = 4;//题目总数
     private int answerCount = 0;//已答
     private int unanswerCount = totalCount;//未答
 	// 使用来保存试题信息
@@ -276,9 +276,9 @@ public class ExaminationUi {
 	//将分数传入scoer表中
 	public void transferTable() {
 		//成绩id,加入时间，总成绩，试卷id，
-		String sql="insert into score value(null,?,?,?,?,?)";
+		String sql="insert into score value(null,?,?,?,?,now())";
 		name=userMessage.getUserName();
-		Object[] obj= {name,singleScore,moreScore,score,inserTime};
+		Object[] obj= {name,singleScore,moreScore,score};
 		System.out.println(sql);
 		new QueryRunner().execute(sql, obj);
 	}
@@ -349,10 +349,10 @@ public class ExaminationUi {
 //			System.out.println(s);
 			// 创建一个集合来存放题目信息
 			suStr.add(s);
-//			System.out.println(suStr);
+			System.out.println(suStr);
 			// 创建一个集合来存放答案
 			answer.add(keyvalue);
-			System.out.println(answer);
+//			System.out.println(answer);
 			// 创建一个集合来存放题目类型
 			remak.add(remark);
 			System.out.println(remak);
