@@ -80,7 +80,7 @@ public class feedback {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 647, 344);
+		frame.setBounds(100, 100, 647, 386);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		dtm =new DefaultTableModel(
@@ -99,7 +99,7 @@ public class feedback {
 				
 			}
 		});
-		button.setBounds(63, 59, 93, 23);
+		button.setBounds(10, 10, 93, 23);
 		frame.getContentPane().add(button);
 
 		JButton button_1 = new JButton("\u8FD4\u56DE");
@@ -110,7 +110,7 @@ public class feedback {
 				new Index().getFrame().setVisible(true);
 			}
 		});
-		button_1.setBounds(63, 202, 93, 23);
+		button_1.setBounds(130, 10, 93, 23);
 		frame.getContentPane().add(button_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
