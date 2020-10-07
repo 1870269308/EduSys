@@ -12,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import com.demo.dao.FeedbackDao;
+import com.demo.pojo.FeedBack;
 import com.demo.pojo.User;
 import com.demo.utils.JdbcUtil;
 
@@ -29,6 +30,7 @@ public class feedback {
 	private DefaultTableModel dtm;
 	private JTable table;
 	private static User userMessage = new User();
+	private static FeedBack FeedMessage=new FeedBack();
 	JdbcUtil dbUtil = new JdbcUtil();
 	FeedbackDao FeedbackDao = new FeedbackDao();
 	
@@ -68,7 +70,11 @@ public class feedback {
 		this.userMessage = userMessage;
 		initialize();
 	}
+	public feedback(FeedBack FeedMessage) {
 
+		this.FeedMessage = FeedMessage;
+		initialize();
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -120,6 +126,8 @@ public class feedback {
 			}
 		));
 		scrollPane.setViewportView(table);
+		//窗口居中
+		frame.setLocationRelativeTo(null);
 	}
 	//填充表格
 	private void fillFeedback() {
