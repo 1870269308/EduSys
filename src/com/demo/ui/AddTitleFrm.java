@@ -13,7 +13,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import com.demo.dao.QuestionDao;
 import com.demo.dao.QuestionDao1;
 import com.demo.dao.impl.QuestionDao1Impl;
 import com.demo.pojo.Question;
