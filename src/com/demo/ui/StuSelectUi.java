@@ -30,7 +30,6 @@ import com.demo.utils.JdbcUtil;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Setter
 @Getter
 public class StuSelectUi {
@@ -38,10 +37,10 @@ public class StuSelectUi {
 	private JFrame frame;
 	private JTextField textField;
 	private JTable table;
-	private PaperDao pd=new PaperDaoImpl();
+	private PaperDao pd = new PaperDaoImpl();
 	private String selectId;
 	private static User userMessage = new User();
-	
+
 	public JFrame getFrame() {
 		return frame;
 	}
@@ -72,6 +71,7 @@ public class StuSelectUi {
 	public StuSelectUi() {
 		initialize();
 	}
+
 	public StuSelectUi(User userMessage) {
 
 		this.userMessage = userMessage;
@@ -82,7 +82,9 @@ public class StuSelectUi {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		
+		//界面名称
+		frame = new JFrame("试卷选择界面");
 		frame.setBounds(100, 100, 777, 543);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -123,7 +125,7 @@ public class StuSelectUi {
 		btnNewButton_1.setFont(new Font("宋体", Font.PLAIN, 18));
 		btnNewButton_1.setBounds(502, 48, 113, 27);
 		frame.getContentPane().add(btnNewButton_1);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(34, 118, 681, 285);
 		frame.getContentPane().add(scrollPane);
@@ -134,18 +136,21 @@ public class StuSelectUi {
 		scrollPane.setViewportView(table);
 		// 初始化表数据
 		fillTable();
+		// 窗口居中
+		frame.setLocationRelativeTo(null);
 	}
-	//开始考试
+
+	// 开始考试
 	private void startPerformed() {
-		//判断是否选择试题
-		if(textField.getText().equals("")) {
+		// 判断是否选择试题
+		if (textField.getText().equals("")) {
 			JOptionPane.showMessageDialog(frame, "请选择要考试的试卷");
 			return;
 		}
-		//关闭当前窗口
+		// 关闭当前窗口
 		frame.dispose();
-		ExaminationUi.examId=Integer.parseInt(textField.getText());
-		ExaminationUi window=new ExaminationUi(userMessage);
+		ExaminationUi.examId = Integer.parseInt(textField.getText());
+		ExaminationUi window = new ExaminationUi(userMessage);
 		window.frame.setVisible(true);
 	}
 
@@ -159,67 +164,68 @@ public class StuSelectUi {
 		DefaultTableModel model = (DefaultTableModel) tm;
 		// 清空表中的数据
 		model.setRowCount(0);
-		//取到结果集中的数据
-		//取出表中的id内容
-		List<Paper> datas=pd.gettableDatas();
-		for(Paper p:datas) {
-			Vector lineData=new Vector();
+		// 取到结果集中的数据
+		// 取出表中的id内容
+		List<Paper> datas = pd.gettableDatas();
+		for (Paper p : datas) {
+			Vector lineData = new Vector();
 			lineData.add(p.getId());
 			lineData.add(p.getPaperName());
 			lineData.add(p.getJionDate());
 			model.addRow(lineData);
 		}
 		System.out.println("刷新成功");
-		//表格上的点击事件
+		// 表格上的点击事件
 		mouseClicked();
 	}
-	//鼠标点击事件
+
+	// 鼠标点击事件
 	private void mouseClicked() {
 		table.addMouseListener(new MouseListener() {
-			//重写表格点击事件
+			// 重写表格点击事件
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//获取单元格
-				//列数
-				int columnCount=table.getSelectedColumn();
-				//行数
-				int rowCount=table.getSelectedRow();
-				//得到单元格内容
-				Object value =table.getValueAt(rowCount, columnCount);
-				//获取行信息
-				DefaultTableModel model=(DefaultTableModel) table.getModel();
-				//获取到表中所有的数据
-				Vector v=model.getDataVector();
-				//行数据转换为字符串
-				String str =v.get(rowCount).toString();
-				//得到这一行的试卷名称
-				String examNamestr=str.split(",")[0].substring(1);
-				//将得到的字段传到文本框中
+				// 获取单元格
+				// 列数
+				int columnCount = table.getSelectedColumn();
+				// 行数
+				int rowCount = table.getSelectedRow();
+				// 得到单元格内容
+				Object value = table.getValueAt(rowCount, columnCount);
+				// 获取行信息
+				DefaultTableModel model = (DefaultTableModel) table.getModel();
+				// 获取到表中所有的数据
+				Vector v = model.getDataVector();
+				// 行数据转换为字符串
+				String str = v.get(rowCount).toString();
+				// 得到这一行的试卷名称
+				String examNamestr = str.split(",")[0].substring(1);
+				// 将得到的字段传到文本框中
 				textField.setText(examNamestr);
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 		});
@@ -245,17 +251,17 @@ public class StuSelectUi {
 			System.out.println(selectId);
 			return;
 		}
-		int selectNum=Integer.parseInt(selectId);
-		List<Paper> datas=pd.getSelectDatas(selectNum);
-		for(Paper p:datas) {
-			Vector lineData=new Vector();
+		int selectNum = Integer.parseInt(selectId);
+		List<Paper> datas = pd.getSelectDatas(selectNum);
+		for (Paper p : datas) {
+			Vector lineData = new Vector();
 			lineData.add(p.getId());
 			lineData.add(p.getPaperName());
 			lineData.add(p.getJionDate());
 			model.addRow(lineData);
 		}
 		System.out.println("刷新成功");
-		//表格内的鼠标点击事件鼠标
+		// 表格内的鼠标点击事件鼠标
 		mouseClicked();
 
 	}

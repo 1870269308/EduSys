@@ -42,9 +42,9 @@ public class ExaminationUi {
 	// 设置题目的初始值
 	int p = 0;
 	// 题目的总数记录
-	int num = 5;
+	int num = 4;
     private int nowNumber = 0;//当前题号
-    private int totalCount = 5;//题目总数
+    private int totalCount = 4;//题目总数
     private int answerCount = 0;//已答
     private int unanswerCount = totalCount;//未答
 	// 使用来保存试题信息
@@ -259,11 +259,24 @@ public class ExaminationUi {
 		JButton submitButton = new JButton("\u63D0\u4EA4\u8BD5\u5377");
 		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// 拿到分数
-				score = showScore();
-				//
-				transferTable();
-				submitButton.setEnabled(false);
+//				int value = JOptionPane.showConfirmDialog(ExaminationUi.this, "确认提交？");
+//				if(value==0) {
+//					//所有按钮 
+//				}
+				//提示是否确认提交试卷
+				JOptionPane.showConfirmDialog(null, "确认提交？");
+				
+					// 拿到分数
+					score = showScore();
+					
+					//将考试结果放入数据库
+					transferTable();
+					//所有按钮失效
+					submitButton.setEnabled(false);
+					nextButton.setEnabled(false);
+					prevButton.setEnabled(false);
+								
+				
 			}
 		});
 		submitButton.setBounds(722, 13, 113, 27);
@@ -271,14 +284,28 @@ public class ExaminationUi {
 
 		// 调用并设置倒计时时间
 		mt = new ClockDispaly(realTimeLabel, 60);
-
+		
+		JButton exitBtn = new JButton("\u9000\u51FA\u8003\u8BD5");
+		exitBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//关闭当前界面
+				frame.dispose();
+				//跳转到学生主界面
+				stu_back atu=new stu_back();
+				atu.getFrame().setVisible(true);
+			}
+		});
+		exitBtn.setBounds(722, 461, 113, 27);
+		frame.getContentPane().add(exitBtn);
+		//窗口居中
+		frame.setLocationRelativeTo(null);
 	}
 	//将分数传入scoer表中
 	public void transferTable() {
 		//成绩id,加入时间，总成绩，试卷id，
-		String sql="insert into score value(null,?,?,?,?,?)";
+		String sql="insert into score value(null,?,?,?,?,now())";
 		name=userMessage.getUserName();
-		Object[] obj= {name,singleScore,moreScore,score,inserTime};
+		Object[] obj= {name,singleScore,moreScore,score};
 		System.out.println(sql);
 		new QueryRunner().execute(sql, obj);
 	}
@@ -319,7 +346,8 @@ public class ExaminationUi {
 		int right=singleRight+moreRight;
 		//错题
 		int error=singleError+moreError;
-		JOptionPane.showMessageDialog(null, "答对了" + right + "题，答错了" + error + "题,总分是"+score);
+//		JOptionPane.showMessageDialog(null, "答对了" + right + "题，答错了" + error + "题,总分是"+score);
+		textArea.setText("答对了" + right + "题，答错了" + error + "题,总分是"+score);
 		return score;
 	}
 
@@ -345,17 +373,17 @@ public class ExaminationUi {
 			String remark = p.getRemarks();
 			inserTime=p.getJoinTime();
 			// 获取到试题信息
-			s = title + "\n" + keyA + "\n" + keyB + "\n" + keyC + "\n" + keyD;
+			s = title + "\n" + "A、"+keyA + "\n" + "B、"+keyB + "\n" + "C、"+keyC + "\n" +"D、"+ keyD;
 //			System.out.println(s);
 			// 创建一个集合来存放题目信息
 			suStr.add(s);
 //			System.out.println(suStr);
 			// 创建一个集合来存放答案
 			answer.add(keyvalue);
-			System.out.println(answer);
+//			System.out.println(answer);
 			// 创建一个集合来存放题目类型
 			remak.add(remark);
-			System.out.println(remak);
+//			System.out.println(remak);
 		}
 	}
 
@@ -372,11 +400,13 @@ class ClockDispaly extends Thread {
 	private JLabel leftTime;
 	private int testTime;
 
+
 	public ClockDispaly(JLabel lt, int time) {
 		leftTime = lt;
 		testTime = time * 60;
 	}
-
+	
+	
 	// 开始运行
 	public void run() {
 		// 控制时间的格式

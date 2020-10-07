@@ -15,6 +15,7 @@ import lombok.ToString;
 
 public class Question {
 	private int id;
+	private int subjectId;
 	private String title;
 	private String keyvalue;
 	private String keyA;
@@ -22,7 +23,7 @@ public class Question {
 	private String keyC;
 	private String keyD;
 	private String remarks;
-
+	private Date joinTime;
 	
 	
 	public int getId() {
@@ -89,7 +90,7 @@ public class Question {
 		this.remarks = remarks;
 	}
 
-	private Date joinTime;
+	
 
 	public Date getJoinTime() {
 		return joinTime;
@@ -98,10 +99,22 @@ public class Question {
 	public void setJoinTime(Date joinTime) {
 		this.joinTime = joinTime;
 	}
-
 	public Question(int id, String title, String keyvalue, String keyA, String keyB, String keyC, String keyD,
 			String remarks) {
 		this.id = id;
+		this.title = title;
+		this.keyvalue = keyvalue;
+		this.keyA = keyA;
+		this.keyB = keyB;
+		this.keyC = keyC;
+		this.keyD = keyD;
+		this.remarks = remarks;
+	}
+	
+	public Question(int id,int subjectId, String title, String keyvalue, String keyA, String keyB, String keyC, String keyD,
+			String remarks) {
+		this.id = id;
+		this.subjectId=subjectId;
 		this.title = title;
 		this.keyvalue = keyvalue;
 		this.keyA = keyA;
