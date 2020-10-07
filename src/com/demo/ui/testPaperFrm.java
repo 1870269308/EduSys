@@ -7,9 +7,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import com.demo.dao.QuestionDao;
 import com.demo.dao.QuestionDao1;
+import com.demo.dao.UserManageDao;
 import com.demo.dao.impl.QuestionDao1Impl;
+import com.demo.dao.impl.UserManageDaoImpl;
 import com.demo.pojo.Question;
 import com.demo.utils.JdbcUtil;
 import com.demo.utils.StringUtils;
@@ -41,7 +42,6 @@ public class testPaperFrm {
 	private JFrame frame;
 	private JTable questionTable;
 	JdbcUtil dbUtil=new JdbcUtil();
-	QuestionDao questionDao=new QuestionDao();
 	private JTextField idText;
 	private JTextField keyAText;
 	private JTextField keyBText;
@@ -299,8 +299,8 @@ public class testPaperFrm {
 		Connection conn=null;
 		//JdbcUtils dbUtils=new JdbcUtils();
 		try {
-			conn=dbUtil.getConnection();
-			ResultSet rs=questionDao.query(conn);
+			QuestionDao1 questionDao=new QuestionDao1Impl();
+			ResultSet rs = questionDao.query();
 			//System.out.println(rs);
 			//com.mysql.jdbc.JDBC42ResultSet@5e75ddd3
 			while(rs.next()) {
@@ -346,20 +346,16 @@ public class testPaperFrm {
 		//表格模型
 		DefaultTableModel dtm=(DefaultTableModel) questionTable.getModel();
 
-		Connection conn=null;
+		QuestionDao1 questionDao=null;
 		try {
-			conn=dbUtil.getConnection();
-			//删除数据库的内容
-			//选中表格id删除
-			questionDao.delete(conn,id);
+			questionDao=new QuestionDao1Impl();
+			questionDao.delete(id);
 			JOptionPane.showMessageDialog(null, "删除成功！");
 			//删除表格一行数据
 			dtm.removeRow(ids);
 		}catch(Exception e2) {
 			e2.printStackTrace();
 			
-		}finally {
-			dbUtil.close(conn);
 		}
 	}
 
