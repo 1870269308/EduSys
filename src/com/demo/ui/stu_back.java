@@ -72,7 +72,7 @@ public class stu_back {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("\u5B66\u751F\u754C\u9762");
-		frame.setBounds(100, 100, 641, 368);
+		frame.setBounds(100, 100, 641, 398);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -97,7 +97,7 @@ public class stu_back {
 				stu.getFrame().setVisible(true);
 			}
 		});
-		button.setBounds(44, 124, 93, 23);
+		button.setBounds(52, 45, 93, 23);
 		frame.getContentPane().add(button);
 
 		JButton button_1 = new JButton("\u53CD\u9988");
@@ -115,7 +115,7 @@ public class stu_back {
 				msg.getFrame().setVisible(true);
 			}
 		});
-		button_1.setBounds(138, 124, 93, 23);
+		button_1.setBounds(52, 102, 93, 23);
 		frame.getContentPane().add(button_1);
 
 		JTextPane textPane = new JTextPane();
@@ -128,10 +128,10 @@ public class stu_back {
 //			e.printStackTrace();
 //		}
 //		textPane.setText("\u53EF\u4EE5\u6DFB\u52A0\u56FE\u7247");
-		textPane.setBounds(288, 45, 274, 241);
+		textPane.setBounds(211, 23, 355, 304);
 		frame.getContentPane().add(textPane);
 		JLabel lable = new JLabel();
-		ImageIcon img = new ImageIcon("src/images/feedback.jpg");
+		ImageIcon img = new ImageIcon("src/images/feedback1.jpg");
 		lable.setIcon(img);
 		lable.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
 		lable.setVisible(true);
@@ -147,7 +147,7 @@ public class stu_back {
 				idx.getFrame().setVisible(true);
 			}
 		});
-		button_2.setBounds(90, 157, 93, 23);
+		button_2.setBounds(52, 154, 93, 23);
 		frame.getContentPane().add(button_2);
 	}
 }

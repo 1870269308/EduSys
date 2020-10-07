@@ -96,6 +96,7 @@ public class feedback {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fillFeedback();
+				
 			}
 		});
 		button.setBounds(63, 59, 93, 23);

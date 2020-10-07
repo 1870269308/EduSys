@@ -69,7 +69,7 @@ public class stu_back_msg {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("\u5B66\u751F\u53CD\u9988\u4FE1\u606F");
-		frame.setBounds(100, 100, 662, 358);
+		frame.setBounds(100, 100, 662, 399);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -79,11 +79,11 @@ public class stu_back_msg {
 
 		JButton button = new JButton("\u63D0\u4EA4");
 
-		button.setBounds(24, 109, 93, 23);
+		button.setBounds(167, 24, 76, 23);
 		frame.getContentPane().add(button);
 
 		textArea = new JTextArea();
-		textArea.setBounds(176, 44, 446, 246);
+		textArea.setBounds(97, 66, 446, 246);
 		frame.getContentPane().add(textArea);
 		// 窗口居中
 		frame.setLocationRelativeTo(null);
@@ -99,7 +99,7 @@ public class stu_back_msg {
 				bk.getFrame().setVisible(true);
 			}
 		});
-		button_1.setBounds(24, 228, 93, 23);
+		button_1.setBounds(370, 24, 76, 23);
 		frame.getContentPane().add(button_1);
 
 		button.addActionListener(new ActionListener() {
@@ -111,14 +111,16 @@ public class stu_back_msg {
 				}
 				String msg = textArea.getText();// 获取文本域的内容
 				String username = userMessage.getUserName();// 获取用户名信息
+//				String fbmsg=FeedMessage.getUserName();
 				System.out.println(username);
-				if (FeedMessage.getFeedback() != msg) {
+//				System.out.println(fbmsg);
+				if (FeedMessage.getFeedback() == msg) {
+					JOptionPane.showMessageDialog(null, "反馈问题重复！！！");
+					return;
+				} else {
 					String result = "反馈信息为：" + msg;
 					System.out.println(result);
 					transferTable();// 调用下面的插入方法
-				} else {
-					JOptionPane.showMessageDialog(null, "反馈问题重复！！！");
-					return;
 				}
 
 			}
@@ -139,4 +141,5 @@ public class stu_back_msg {
 		System.out.println(sql);
 		new QueryRunner().execute(sql, obj);
 	}
+
 }
