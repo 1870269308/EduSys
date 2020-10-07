@@ -101,6 +101,7 @@ public class total {
 		 */
 		filltable(); 
 		
+		
 		//´°Ìå¾ÓÖÐ
 		frame.setLocationRelativeTo(null);
 	}

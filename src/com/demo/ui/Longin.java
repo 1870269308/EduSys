@@ -106,46 +106,6 @@ public class Longin {
 		lblNewLabel_1_1.setBounds(155, 149, 78, 23);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
-//		rdbtnNewRadioButton_stu.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				if(rdbtnNewRadioButton_stu.isSelected()){
-//				  String radioText = rdbtnNewRadioButton_stu.getText();
-//				  System.out.println(radioText);
-//				}
-//			}
-//		});
-		
-		//按钮监听事件
-		rdbtnNewRadioButton_man.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				/*
-				 * 登录按钮
-				 */
-				btnNewButton_login.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						loginAction(e); 
-						
-					}
-				});
-			}
-		});
-		
-		
-		//登录按钮监听事件
-		rdbtnNewRadioButton_stu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				/*
-				 * 登录按钮
-				 */
-				btnNewButton_login.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						loginAction(e);
-					}
-				});
-			}
-		});
-		
-		
 		
 		
 		rdbtnNewRadioButton_stu.setBounds(230, 203, 78, 27);
@@ -162,6 +122,14 @@ public class Longin {
 		ButtonGroup group=new ButtonGroup();
 		group.add(rdbtnNewRadioButton_man);
 		group.add(rdbtnNewRadioButton_stu);
+		/**
+		 * 登录按钮
+		 */
+		btnNewButton_login.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				loginAction(e);
+			}
+		});
 		
 		
 		//btnNewButton_login.setBackground(Color.GRAY);
@@ -232,11 +200,11 @@ public class Longin {
 			return;
 		}
 		
-		
+		//当管理员被选中
 		if(rdbtnNewRadioButton_man.isSelected()){
+			//获得角色按钮的文本
 			  String role = rdbtnNewRadioButton_man.getText();
 			  System.out.println(role);
-
 			  User user = new User(0,userName, password, role); 
 				Connection con = null; 
 				try {
@@ -261,7 +229,8 @@ public class Longin {
 				}
 		}
 		if(rdbtnNewRadioButton_stu.isSelected()) {
-			String role = rdbtnNewRadioButton_stu.getText();			  
+			
+			String role = rdbtnNewRadioButton_stu.getText();	
 			  User user = new User(0,userName, password, role); 
 
 				Connection con = null; 
@@ -271,6 +240,7 @@ public class Longin {
 					
 					//这里将用户输入的信息和数据库中的信息比对
 					User currentUser = userDao.login(con, user);
+					//如果数据库中返回的对象存在则证明登录成功
 					if(currentUser!=null) {
 						JOptionPane.showMessageDialog(null, "登录成功");
 						
