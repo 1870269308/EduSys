@@ -27,8 +27,13 @@ public class ExcelExporter {
         for(int i=0; i< model.getRowCount(); i++) {
             for(int j=0; j < model.getColumnCount(); j++) {
             	//获取到某行某列的值，并写入字符输出流
-                bWriter.write(model.getValueAt(i,j).toString());
-                bWriter.write("\t");
+            	//非空判断
+				if(model.getValueAt(i, j)==null) {
+					bWriter.write("\t");
+				}else {
+                	bWriter.write(model.getValueAt(i,j).toString());
+                	bWriter.write("\t");
+                }	
             }
             bWriter.newLine();
         }

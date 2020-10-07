@@ -86,7 +86,8 @@ public class stu_back {
 				//关闭当前界面
 				frame.dispose();
 				//跳转到学生选择的试题界面
-				new StuSelectUi(userMessage).getFrame().setVisible(true);
+				StuSelectUi stu=new StuSelectUi(userMessage);
+				stu.getFrame().setVisible(true);
 			}
 		});
 		button.setBounds(44, 124, 93, 23);
