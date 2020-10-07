@@ -86,10 +86,10 @@ public class feedback {
 			}
 		);
 		
-		JButton button = new JButton("\u67E5\u770B");
+		JButton button = new JButton("\u5237\u65B0");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fillScore();
+				fillFeedback();
 			}
 		});
 		button.setBounds(3, 20, 93, 23);
@@ -121,7 +121,8 @@ public class feedback {
 		));
 		scrollPane.setViewportView(table);
 	}
-	private void fillScore() {
+	//填充表格
+	private void fillFeedback() {
 		// 表格模型
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);// 表格清空
