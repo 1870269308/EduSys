@@ -4,11 +4,13 @@ import java.awt.EventQueue;
 import java.awt.Window;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
 
+import com.demo.pojo.FeedBack;
 import com.demo.pojo.User;
 import com.demo.pojo.UserManage;
 import com.demo.utils.QueryRunner;
@@ -21,6 +23,7 @@ public class stu_back_msg {
 
 	private JFrame frame;
 	private static User userMessage = new User();
+	private static FeedBack FeedMessage=new FeedBack();
 	private String name;
 	private String textmsg;
 	private JTextArea textArea;
@@ -58,7 +61,7 @@ public class stu_back_msg {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("\u5B66\u751F\u53CD\u9988\u4FE1\u606F");
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 662, 358);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -72,7 +75,7 @@ public class stu_back_msg {
 		frame.getContentPane().add(button);
 		
 		textArea = new JTextArea();
-		textArea.setBounds(176, 44, 191, 170);
+		textArea.setBounds(176, 44, 446, 246);
 		frame.getContentPane().add(textArea);
 		
 		JButton button_1 = new JButton("\u8FD4\u56DE");
@@ -88,17 +91,24 @@ public class stu_back_msg {
 		frame.getContentPane().add(button_1);
 		
 		button.addActionListener(new ActionListener() {
+			//提交按钮监听
 			public void actionPerformed(ActionEvent e) {
+				if ( null==userMessage.getUserName()) {
+					JOptionPane.showMessageDialog(null, "错误：请登录，再进行反馈");
+					return;
+				}
 				String msg=textArea.getText();//获取文本域的内容
 				String username=userMessage.getUserName();//获取用户名信息
 				System.out.println(username);
-				if(null==msg) {
-					System.out.println("default");
-				}else {
-					String result="反馈信息为："+msg;
-					System.out.println(result);
-				}
+//				if(FeedMessage.getFeedback()!=msg) {
+				String result="反馈信息为："+msg;
+				System.out.println(result);
 				transferTable();//调用下面的插入方法
+//				}else {
+//					JOptionPane.showMessageDialog(null, "反馈问题重复！！！");
+//					return;
+//				}
+				
 			}
 			
 		});
