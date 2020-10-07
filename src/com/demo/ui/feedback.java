@@ -12,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import com.demo.dao.FeedbackDao;
+import com.demo.pojo.FeedBack;
 import com.demo.pojo.User;
 import com.demo.utils.JdbcUtil;
 
@@ -29,6 +30,7 @@ public class feedback {
 	private DefaultTableModel dtm;
 	private JTable table;
 	private static User userMessage = new User();
+	private static FeedBack FeedMessage=new FeedBack();
 	JdbcUtil dbUtil = new JdbcUtil();
 	FeedbackDao FeedbackDao = new FeedbackDao();
 	
@@ -68,13 +70,17 @@ public class feedback {
 		this.userMessage = userMessage;
 		initialize();
 	}
+	public feedback(FeedBack FeedMessage) {
 
+		this.FeedMessage = FeedMessage;
+		initialize();
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 647, 344);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		dtm =new DefaultTableModel(
@@ -86,13 +92,13 @@ public class feedback {
 			}
 		);
 		
-		JButton button = new JButton("\u67E5\u770B");
+		JButton button = new JButton("\u5237\u65B0");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fillScore();
+				fillFeedback();
 			}
 		});
-		button.setBounds(3, 20, 93, 23);
+		button.setBounds(63, 59, 93, 23);
 		frame.getContentPane().add(button);
 
 		JButton button_1 = new JButton("\u8FD4\u56DE");
@@ -103,11 +109,11 @@ public class feedback {
 				new Index().getFrame().setVisible(true);
 			}
 		});
-		button_1.setBounds(3, 192, 93, 23);
+		button_1.setBounds(63, 202, 93, 23);
 		frame.getContentPane().add(button_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(127, 40, 283, 188);
+		scrollPane.setBounds(260, 30, 334, 265);
 		frame.getContentPane().add(scrollPane);
 		
 		table = new JTable();
@@ -120,8 +126,11 @@ public class feedback {
 			}
 		));
 		scrollPane.setViewportView(table);
+		//窗口居中
+		frame.setLocationRelativeTo(null);
 	}
-	private void fillScore() {
+	//填充表格
+	private void fillFeedback() {
 		// 表格模型
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);// 表格清空
