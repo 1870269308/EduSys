@@ -29,6 +29,7 @@ import com.demo.utils.JdbcUtil;
 
 import lombok.Getter;
 import lombok.Setter;
+import javax.swing.ImageIcon;
 
 @Setter
 @Getter
@@ -105,25 +106,16 @@ public class StuSelectUi {
 		textField.setBounds(187, 49, 98, 24);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
-		// 查询按钮
-		JButton btnNewButton = new JButton("\u67E5\u8BE2");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				selectPerformed();
-			}
-		});
-		btnNewButton.setFont(new Font("宋体", Font.PLAIN, 18));
-		btnNewButton.setBounds(357, 48, 113, 27);
-		frame.getContentPane().add(btnNewButton);
 		// 开始考试
 		JButton btnNewButton_1 = new JButton("\u5F00\u59CB\u8003\u8BD5");
+		btnNewButton_1.setIcon(new ImageIcon(StuSelectUi.class.getResource("/images/pen.png")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				startPerformed();
 			}
 		});
 		btnNewButton_1.setFont(new Font("宋体", Font.PLAIN, 18));
-		btnNewButton_1.setBounds(502, 48, 113, 27);
+		btnNewButton_1.setBounds(373, 46, 125, 27);
 		frame.getContentPane().add(btnNewButton_1);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -229,40 +221,5 @@ public class StuSelectUi {
 			}
 
 		});
-	}
-
-	/**
-	 * 查询事件——>显示查询语句
-	 */
-	private void selectPerformed() {
-		// TableModel用于询问表格式数据模型的方法。
-		TableModel tm = table.getModel();
-		// DefaultTableModel这是 TableModel 的一个实现，它使用一个 Vector 来存储单元格的值对象
-		DefaultTableModel model = (DefaultTableModel) tm;
-		// 清空表中的数据
-		model.setRowCount(0);
-		// 拿到放在结果集中的数据
-		// 传递一个查询的值进去
-		// 定义一个变量获取的是文本的内容
-		selectId = textField.getText();
-		// 判断是否为空
-		if (selectId.equals("")) {
-			fillTable();
-			System.out.println(selectId);
-			return;
-		}
-		int selectNum = Integer.parseInt(selectId);
-		List<Paper> datas = pd.getSelectDatas(selectNum);
-		for (Paper p : datas) {
-			Vector lineData = new Vector();
-			lineData.add(p.getId());
-			lineData.add(p.getPaperName());
-			lineData.add(p.getJionDate());
-			model.addRow(lineData);
-		}
-		System.out.println("刷新成功");
-		// 表格内的鼠标点击事件鼠标
-		mouseClicked();
-
 	}
 }

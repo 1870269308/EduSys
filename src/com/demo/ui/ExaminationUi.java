@@ -21,6 +21,7 @@ import com.demo.utils.BeanListResultSethandler;
 import com.demo.utils.QueryRunner;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class ExaminationUi {
 
@@ -164,6 +165,7 @@ public class ExaminationUi {
 		// TODO
 		// 下一题
 		JButton nextButton = new JButton("\u4E0B\u4E00\u9898");
+		nextButton.setIcon(new ImageIcon(ExaminationUi.class.getResource("/images/right.png")));
 		nextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				p++;
@@ -194,6 +196,7 @@ public class ExaminationUi {
 		// TODO
 				// 上一题
 				JButton prevButton = new JButton("\u4E0A\u4E00\u9898");
+				prevButton.setIcon(new ImageIcon(ExaminationUi.class.getResource("/images/left.png")));
 				prevButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						p--;
@@ -235,6 +238,7 @@ public class ExaminationUi {
 		anwertext.setColumns(10);
 		// 开始考试
 		JButton begin = new JButton("\u5F00\u59CB\u8003\u8BD5");
+		begin.setIcon(new ImageIcon(ExaminationUi.class.getResource("/images/pen.png")));
 		begin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (examId == null) {
@@ -259,6 +263,7 @@ public class ExaminationUi {
 
 		// 提交试卷
 		JButton submitButton = new JButton("\u63D0\u4EA4\u8BD5\u5377");
+		submitButton.setIcon(new ImageIcon(ExaminationUi.class.getResource("/images/tijiao.png")));
 		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				int value = JOptionPane.showConfirmDialog(ExaminationUi.this, "确认提交？");
@@ -288,6 +293,7 @@ public class ExaminationUi {
 		mt = new ClockDispaly(realTimeLabel, 60);
 		
 		JButton exitBtn = new JButton("\u9000\u51FA\u8003\u8BD5");
+		exitBtn.setIcon(new ImageIcon(ExaminationUi.class.getResource("/images/out.png")));
 		exitBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//关闭当前界面

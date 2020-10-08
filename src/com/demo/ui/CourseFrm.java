@@ -149,6 +149,8 @@ public class CourseFrm {
 		btnNewButton_2.addActionListener(ri);
 		btnNewButton_2.setBounds(629, 316, 113, 27);
 		frame.getContentPane().add(btnNewButton_2);
+		//设置窗体居中
+		frame.setLocationRelativeTo(null);
 	}
 
 	// 以查询到的姓名填充表格

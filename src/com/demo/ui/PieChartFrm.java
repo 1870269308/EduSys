@@ -59,7 +59,9 @@ public class PieChartFrm {
 		// frame.add(new TimeSeriesChart().getChartPanel()); //添加折线图
 		frame.setBounds(50, 50, 800, 600);
 		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);		
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	
+		//设置窗体居中
+		frame.setLocationRelativeTo(null);
 	}
 
 }

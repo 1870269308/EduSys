@@ -120,6 +120,8 @@ public class CouScheUpdate {
 		btnNewButton_1.addActionListener(rc);
 		btnNewButton_1.setBounds(344, 253, 113, 27);
 		frame.getContentPane().add(btnNewButton_1);
+		//…Ë÷√¥∞ÃÂæ”÷–
+		frame.setLocationRelativeTo(null);
 	}
 
 	private void fillTable() {
