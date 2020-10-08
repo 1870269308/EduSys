@@ -133,6 +133,8 @@ public class BarChartFrm {
 		frame.getContentPane().add(btnNewButton, gbc_btnNewButton);
 		listenerRate lr = new listenerRate(frame,UserMessage);
 		btnNewButton.addActionListener(lr);
+		//…Ë÷√¥∞ÃÂæ”÷–
+		frame.setLocationRelativeTo(null);
 	}
 
 }
