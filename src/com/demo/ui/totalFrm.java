@@ -1,4 +1,4 @@
-package com.demo.test;
+package com.demo.ui;
 
 import java.awt.EventQueue;
 import java.awt.FileDialog;
@@ -18,11 +18,12 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-import com.demo.ui.AdminFrm;
+import com.demo.dao.TotalDao;
+import com.demo.dao.impl.TotalDaoImpl;
 import com.demo.utils.ExcelExporter;
 import com.demo.utils.JdbcUtils;
 
-public class total {
+public class totalFrm {
 
 	private JFrame frame;
 	private JTable table;
@@ -44,7 +45,7 @@ public class total {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					total window = new total();
+					totalFrm window = new totalFrm();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,7 +57,7 @@ public class total {
 	/**
 	 * Create the application.
 	 */
-	public total() {
+	public totalFrm() {
 		initialize();
 	}
 
@@ -84,9 +85,7 @@ public class total {
 		btnNewButton.setBounds(393, 331, 113, 27);
 		frame.getContentPane().add(btnNewButton);
 		
-		/**
-		 * 导出表格按钮
-		 */
+		//查看图表按钮
 		JButton btnNewButton_1 = new JButton("\u56FE\u8868\u663E\u793A");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -124,31 +123,8 @@ public class total {
 	 * @param e
 	 */
 	private void exportTableAction(ActionEvent e) {
-//		/**
-//		 * FileDialog(parent, title, mode)
-//		 * parent: 对话框的所有者
-//		 * title: 对话框的标题
-//		 * mode: 对话框的模式  FileDialog.SAVE 
-//		 */
-//		//指定窗体，可以选择导出位置
-//		FileDialog fd = new FileDialog(frame, "成绩信息保存", FileDialog.SAVE);
-//		
-//		//设置窗体大小
-//		fd.setLocation(500, 350);
-//		//显示
-//		fd.setVisible(true);
-//		/**
-//		 * getDirectory()-获取此文件对话框的目录
-//		 * getFile()-获取此文件对话框的选定文件
-//		 */
-//		String stringFile = fd.getDirectory() + fd.getFile() + ".xls";
-//		try {
-//			ExcelExporter export = new ExcelExporter(); 
-//			//传入表格和文件地址
-//			export.exportTable(table, new File(stringFile));
-//		} catch (IOException e1) {
-//			e1.printStackTrace();
-//		} 
+		PieChartFrm csu = new PieChartFrm();
+		csu.getFrame().setVisible(true);
 	}
 	
 	/*
