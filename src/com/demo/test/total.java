@@ -18,6 +18,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+import com.demo.ui.AdminFrm;
 import com.demo.utils.ExcelExporter;
 import com.demo.utils.JdbcUtils;
 
@@ -75,6 +76,9 @@ public class total {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//DOTO 
+				AdminFrm admin = new AdminFrm(); 
+				admin.getFrame().setVisible(true);
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton.setBounds(393, 331, 113, 27);
