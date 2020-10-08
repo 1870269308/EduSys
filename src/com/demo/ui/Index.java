@@ -66,7 +66,7 @@ public class Index {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("欢迎您登录教务管理系统");
 		frame.setBounds(100, 100, 938, 542);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
