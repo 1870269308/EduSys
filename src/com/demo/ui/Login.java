@@ -181,7 +181,7 @@ public class Login {
 		frame.getContentPane().add(pswtext);
 		// 背景图片
 	     ImageIcon background = new ImageIcon(
-	                 this.getClass().getResource("/images/bkgm.jpg"));
+	     this.getClass().getResource("/images/bkgm.jpg"));
 	     // 把背景图片显示在一个标签里面
 	     JLabel label = new JLabel(background);
 	     // 设置标签大小

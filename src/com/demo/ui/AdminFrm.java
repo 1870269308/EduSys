@@ -18,6 +18,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import com.demo.dao.ScoreDao;
 import com.demo.dao.impl.ScoreDaoImpl;
+import com.demo.test.total;
 import com.demo.utils.ExcelExporter;
 import lombok.Getter;
 import lombok.Setter;
@@ -220,6 +221,18 @@ public class AdminFrm {
 		btnNewButton_1.setFont(new Font("宋体", Font.PLAIN, 18));
 		btnNewButton_1.setBounds(855, 93, 113, 27);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_3 = new JButton("\u5206\u6570\u6392\u5E8F");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				total to = new total(); 
+				to.getFrame().setVisible(true);
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_3.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/\u6392\u5E8F.png")));
+		btnNewButton_3.setBounds(38, 190, 152, 27);
+		frame.getContentPane().add(btnNewButton_3);
 		// 设置窗体居中
 		frame.setLocationRelativeTo(null);
 		fillScore();

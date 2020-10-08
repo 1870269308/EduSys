@@ -26,6 +26,15 @@ public class total {
 	private JFrame frame;
 	private JTable table;
 	TotalDao tatalDao =new TotalDaoImpl();  
+	
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
 
 	/**
 	 * Launch the application.
@@ -74,7 +83,7 @@ public class total {
 		/**
 		 * 导出表格按钮
 		 */
-		JButton btnNewButton_1 = new JButton("\u5BFC\u51FA\u8868\u683C");
+		JButton btnNewButton_1 = new JButton("\u56FE\u8868\u663E\u793A");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				exportTableAction(e); 
@@ -101,42 +110,41 @@ public class total {
 		 */
 		filltable(); 
 		
-		
 		//窗体居中
 		frame.setLocationRelativeTo(null);
 	}
 
 	
 	/**
-	 * 导出表格功能
+	 * 图表导出
 	 * @param e
 	 */
 	private void exportTableAction(ActionEvent e) {
-		/**
-		 * FileDialog(parent, title, mode)
-		 * parent: 对话框的所有者
-		 * title: 对话框的标题
-		 * mode: 对话框的模式  FileDialog.SAVE 
-		 */
-		//指定窗体，可以选择导出位置
-		FileDialog fd = new FileDialog(frame, "成绩信息保存", FileDialog.SAVE);
-		
-		//设置窗体大小
-		fd.setLocation(500, 350);
-		//显示
-		fd.setVisible(true);
-		/**
-		 * getDirectory()-获取此文件对话框的目录
-		 * getFile()-获取此文件对话框的选定文件
-		 */
-		String stringFile = fd.getDirectory() + fd.getFile() + ".xls";
-		try {
-			ExcelExporter export = new ExcelExporter(); 
-			//传入表格和文件地址
-			export.exportTable(table, new File(stringFile));
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		} 
+//		/**
+//		 * FileDialog(parent, title, mode)
+//		 * parent: 对话框的所有者
+//		 * title: 对话框的标题
+//		 * mode: 对话框的模式  FileDialog.SAVE 
+//		 */
+//		//指定窗体，可以选择导出位置
+//		FileDialog fd = new FileDialog(frame, "成绩信息保存", FileDialog.SAVE);
+//		
+//		//设置窗体大小
+//		fd.setLocation(500, 350);
+//		//显示
+//		fd.setVisible(true);
+//		/**
+//		 * getDirectory()-获取此文件对话框的目录
+//		 * getFile()-获取此文件对话框的选定文件
+//		 */
+//		String stringFile = fd.getDirectory() + fd.getFile() + ".xls";
+//		try {
+//			ExcelExporter export = new ExcelExporter(); 
+//			//传入表格和文件地址
+//			export.exportTable(table, new File(stringFile));
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		} 
 	}
 	
 	/*
