@@ -1,6 +1,7 @@
 package com.demo.ui;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.TextArea;
 
 import javax.swing.JFrame;
@@ -16,6 +17,7 @@ import com.demo.pojo.FeedBack;
 import com.demo.pojo.User;
 import com.demo.utils.JdbcUtil;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -91,18 +93,22 @@ public class feedback {
 				"\u7528\u6237\u540D", "\u53CD\u9988\u4FE1\u606F"
 			}
 		);
+		//刷新
 		
 		JButton button = new JButton("\u5237\u65B0");
+		button.setIcon(new ImageIcon(feedback.class.getResource("/images/de.png")));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fillFeedback();
 				
 			}
 		});
-		button.setBounds(10, 10, 93, 23);
+		button.setFont(new Font("宋体", Font.PLAIN, 18));
+		button.setBounds(10, 10, 100, 27);
 		frame.getContentPane().add(button);
-
+//返回
 		JButton button_1 = new JButton("\u8FD4\u56DE");
+		button_1.setIcon(new ImageIcon(feedback.class.getResource("/images/out.png")));
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//返回到index页面
@@ -110,7 +116,8 @@ public class feedback {
 				new Index().getFrame().setVisible(true);
 			}
 		});
-		button_1.setBounds(130, 10, 93, 23);
+		button_1.setFont(new Font("宋体", Font.PLAIN, 18));
+		button_1.setBounds(130, 10, 100, 27);
 		frame.getContentPane().add(button_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
