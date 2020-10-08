@@ -3,26 +3,16 @@ package com.demo.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.List;
 
+import com.demo.base.BaseDaoImpl;
 import com.demo.dao.CourseDao;
 import com.demo.pojo.Course;
-import com.demo.pojo.User;
-<<<<<<< HEAD
-import com.demo.base.BaseDaoImpl;
-
-public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
-	private User userMessage = new User();
-
-=======
 import com.demo.pojo.UserManage;
-import com.demo.utils.BeanListResultSethandler;
-import com.demo.base.BaseDaoImpl;
 
 public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
 	private UserManage userMessage=new UserManage();
 	
->>>>>>> 180047d14f9805113830dcd5732b9b5fb4879e09
+
 	public CourseDaoImpl() {
 	}
 
@@ -31,20 +21,11 @@ public class CourseDaoImpl extends BaseDaoImpl<Course> implements CourseDao {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public ResultSet getDatas(Connection conn, String foreign_id) throws Exception {
 		String sql = "select id,section,time,Mon,Tues,Wednes,Thurs,Fri from Course where teacher_id=?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, foreign_id);
 		return pstmt.executeQuery();
-=======
-	public List<Course> getDatas() {
-		int foreignId=userMessage.getId();
-		String sql = "select id,section,time,Monday,Tuesday,Wednesday,Thursday,Friday from Course where teacher_id="+foreignId;
-		Object[] params = null;
-		List<Course> list = (List<Course>) qr.query(sql, params, new BeanListResultSethandler<Course>(Course.class));
-		return list;
->>>>>>> 180047d14f9805113830dcd5732b9b5fb4879e09
 	}
 	
 	@Override

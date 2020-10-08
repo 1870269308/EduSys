@@ -48,14 +48,11 @@ public class CourseFrm {
 
 	private JFrame frame;
 	private JTable table;
-<<<<<<< HEAD
-	private static User UserMessage = new User();
-=======
-	private UserManage UserMessage=new UserManage();
->>>>>>> 180047d14f9805113830dcd5732b9b5fb4879e09
+	private static UserManage UserMessage=new UserManage();
 	private DefaultTableModel model;
 	private JdbcUtil dbUtil = new JdbcUtil();
 	private CourseDao cs= new CourseDaoImpl();
+	
 	public JFrame getFrame() {
 		return frame;
 	}
@@ -86,20 +83,12 @@ public class CourseFrm {
 	public CourseFrm() {
 		initialize();
 	}
-<<<<<<< HEAD
 
-	public CourseFrm(User UserMessage) {
-		this.UserMessage = UserMessage;
-=======
 	public CourseFrm(UserManage UserMessage) {
 		this.UserMessage=UserMessage;
->>>>>>> 180047d14f9805113830dcd5732b9b5fb4879e09
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 836, 421);
@@ -163,7 +152,7 @@ public class CourseFrm {
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);// 表格清空
 		Connection conn = null;
-		String foreign_id=UserMessage.getId().toString();
+		String foreign_id=String.valueOf(UserMessage.getId());
 
 		try {
 			conn = dbUtil.getConnection();
@@ -210,9 +199,9 @@ class returnIndex implements ActionListener {
 //保存事件监听
 class updateCourse implements ActionListener {
 	private DefaultTableModel model;
-	private User UserMessage;
+	private UserManage UserMessage;
 	private JdbcUtil dbUtil=new JdbcUtil();
-	public updateCourse(DefaultTableModel model,User UserMessage) {
+	public updateCourse(DefaultTableModel model,UserManage UserMessage) {
 		this.model = model;
 		this.UserMessage=UserMessage;
 	}
@@ -221,7 +210,7 @@ class updateCourse implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		int count=0;
 		Connection conn = null;
-		String foreign_id=UserMessage.getId().toString();
+		String foreign_id=String.valueOf(UserMessage.getId());
 		ArrayList<Object> x = new ArrayList<Object>();
 		for (int i = 0; i < 7; i++) {
 			x.add(model.getValueAt(i, 0));
@@ -310,8 +299,8 @@ class exportCourse implements ActionListener {
 //课程进度事件监听
 class couSche implements ActionListener {
 	private JFrame frame;
-	private User Usermessage;
-	public couSche(JFrame frame,User Usermessage) {
+	private UserManage Usermessage;
+	public couSche(JFrame frame,UserManage Usermessage) {
 		this.frame = frame;
 		this.Usermessage=Usermessage;
 	}

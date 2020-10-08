@@ -32,7 +32,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import com.demo.dao.CourScheDao;
 import com.demo.dao.impl.CourScheDaoImpl;
-import com.demo.pojo.User;
+import com.demo.pojo.UserManage;
 import com.demo.utils.JdbcUtil;
 
 import lombok.Getter;
@@ -41,7 +41,7 @@ public class BarChartFrm {
 
 	private JFrame frame;
 	private JTextField textField;
-	private User UserMessage=new User();
+	private UserManage UserMessage=new UserManage();
 
 	/**
 	 * Launch the application.
@@ -65,7 +65,7 @@ public class BarChartFrm {
 	public BarChartFrm() {
 		initialize();
 	}
-	public BarChartFrm(User UserMessage) {
+	public BarChartFrm(UserManage UserMessage) {
 		this.UserMessage=UserMessage;
 		initialize();
 	}
@@ -127,8 +127,8 @@ public class BarChartFrm {
 
 class BarChart {
 	ChartPanel frame1;
-	private User UserMessage=new User();
-	public BarChart(User UserMessage) {
+	private UserManage UserMessage=new UserManage();
+	public BarChart(UserManage UserMessage) {
 		this.UserMessage=UserMessage;
 		CategoryDataset dataset = getDataSet(UserMessage);
 		JFreeChart chart = ChartFactory.createBarChart3D("java课程", // 图表标题
@@ -159,11 +159,11 @@ class BarChart {
 
 	}
 
-	private static CategoryDataset getDataSet(User UserMessage) {
+	private static CategoryDataset getDataSet(UserManage UserMessage) {
 		JdbcUtil dbUtil = new JdbcUtil();
 		CourScheDao csd = new CourScheDaoImpl();
 		Vector rates = new Vector();
-		String foreign_id = UserMessage.getId().toString();
+		String foreign_id=String.valueOf(UserMessage.getId());
 		Connection conn=null;
 		try {
 			conn = dbUtil.getConnection();
@@ -219,8 +219,8 @@ class listenerReturn implements ActionListener {
 //修改课程进度
 class listenerRate implements ActionListener{
 	private JFrame frame;
-	private User UserMessage;
-	public listenerRate(JFrame frame,User UserMessage) {
+	private UserManage UserMessage;
+	public listenerRate(JFrame frame,UserManage UserMessage) {
 		this.frame = frame;
 		this.UserMessage=UserMessage;
 	}

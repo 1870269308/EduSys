@@ -28,13 +28,8 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.UIManager;
 
-<<<<<<< HEAD:src/com/demo/ui/Longin.java
-public class Longin {
-=======
 
 public class Login {
-
->>>>>>> 180047d14f9805113830dcd5732b9b5fb4879e09:src/com/demo/ui/Login.java
 	
 	private JFrame frame;
 	private JTextField usertext;
@@ -205,7 +200,7 @@ public class Login {
 			return;
 		}
 		
-		//当管理员被选中
+		//当老师被选中
 		if(rdbtnNewRadioButton_man.isSelected()){
 			//获得角色按钮的文本
 			  UserManage userManage = new UserManage(0,userName, password); 

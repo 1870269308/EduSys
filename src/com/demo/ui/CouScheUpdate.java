@@ -20,6 +20,7 @@ import com.demo.dao.impl.CourseDaoImpl;
 import com.demo.pojo.CouSche;
 import com.demo.pojo.Course;
 import com.demo.pojo.User;
+import com.demo.pojo.UserManage;
 import com.demo.utils.JdbcUtil;
 
 import lombok.Getter;
@@ -33,7 +34,7 @@ import javax.swing.table.TableModel;
 public class CouScheUpdate {
 
 	private JFrame frame;
-	private User UserMessage = new User();
+	private UserManage UserMessage = new UserManage();
 	private JTable table;
 
 	/**
@@ -59,7 +60,7 @@ public class CouScheUpdate {
 		initialize();
 	}
 
-	public CouScheUpdate(User UserMessage) {
+	public CouScheUpdate(UserManage UserMessage) {
 		this.UserMessage = UserMessage;
 		initialize();
 	}
@@ -111,7 +112,7 @@ public class CouScheUpdate {
 	private void fillTable() {
 		TableModel jmodel = table.getModel();
 		DefaultTableModel model = (DefaultTableModel) jmodel;
-		String foreign_id = UserMessage.getId().toString();
+		String foreign_id=String.valueOf(UserMessage.getId());
 		Connection conn=null;
 		// 清空一下数据
 		model.setRowCount(0);
@@ -138,9 +139,9 @@ public class CouScheUpdate {
 //保存事件监听
 class updateCourseSche implements ActionListener {
 	private DefaultTableModel model;
-	private User UserMessage;
+	private UserManage UserMessage;
 
-	public updateCourseSche(DefaultTableModel model, User UserMessage) {
+	public updateCourseSche(DefaultTableModel model, UserManage UserMessage) {
 		this.model = model;
 		this.UserMessage = UserMessage;
 	}
@@ -150,7 +151,7 @@ class updateCourseSche implements ActionListener {
 		JdbcUtil dbUtil = new JdbcUtil();
 		CourScheDao csd = new CourScheDaoImpl();
 		ArrayList<Object> x = new ArrayList<Object>();
-		String foreign_id = UserMessage.getId().toString();
+		String foreign_id=String.valueOf(UserMessage.getId());
 		int count = 0;// 验证保存是否成功
 		Connection conn = null;
 		for (int i = 0; i < 5; i++) {
@@ -178,9 +179,9 @@ class updateCourseSche implements ActionListener {
 //退出按钮事件监听:返回课程进度图界面
 class returnCourse implements ActionListener {
 	private JFrame frame;
-	private User UserMessage;
+	private UserManage UserMessage;
 
-	public returnCourse(JFrame frame,User UserMessage) {
+	public returnCourse(JFrame frame,UserManage UserMessage) {
 		this.frame = frame;
 		this.UserMessage=UserMessage;
 	}
