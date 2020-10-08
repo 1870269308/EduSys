@@ -28,9 +28,9 @@ public class BeanListResultSethandler<T> implements ResultSetHandler<T> {
 					f.setAccessible(true);
 					//获取成员变量的名字
 					String columnLabel=f.getName();
-					//以 J Object 的形式获取此 ResultSet 对象的当前行中指定列的值。
+					//以 J Object 的形式获取此 ResultSet 对象的当前行中指定列的值
 					Object value=rs.getObject(columnLabel);
-					//将指定对象变量上此 Field 对象表示的字段设置为指定的新值。
+					//将指定对象变量上此 Field 对象表示的字段设置为指定的新值
 					f.set(obj, value);
 				}
 				list.add(obj);

@@ -11,13 +11,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Course {
+public class CouSche {
 	private int id;
-	private String section;
-	private String time;
-	private String Mon;
-	private String Tues;
-	private String Wednes;
-	private String Thurs;
-	private String Fri;
+	private String content;
+	private int rate;	
 }

@@ -125,7 +125,7 @@ public class registerFrm{
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();//窗体消失
 				//返回登录界面
-				Longin login=new Longin();
+				Login login=new Login();
 				login.getFrame().setVisible(true);
 			}
 		});
@@ -162,13 +162,13 @@ public class registerFrm{
 //		}
 		UserDao userDao=new UserDaoImpl();
 
-		userDao.register(new User(0,userName,passwordOne,"用户"));//TODO
+		userDao.register(new User(0,userName,passwordOne,"学生"));//TODO
 		
 		resetValueActionPerformed(e);
 		int result=JOptionPane.showConfirmDialog(null,"注册成功，是否返回登录界面");
 		if(result==0) {
 			frame.dispose();//界面消失
-			new Longin().getFrame().setVisible(true);//显示新界面
+			new Login().getFrame().setVisible(true);//显示新界面
 		}
 	}
 

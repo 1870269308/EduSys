@@ -90,9 +90,9 @@ public class AddUserFrm {
 		lblNewLabel_2.setBounds(126, 216, 87, 32);
 		panel.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("\u662F\u5426\u53C2\u52A0\u8003\u8BD5\uFF1A");
+		JLabel lblNewLabel_3 = new JLabel("\u79D1  \u76EE\uFF1A");
 		lblNewLabel_3.setFont(new Font("宋体", Font.PLAIN, 20));
-		lblNewLabel_3.setBounds(73, 297, 140, 32);
+		lblNewLabel_3.setBounds(126, 297, 87, 32);
 		panel.add(lblNewLabel_3);
 		
 		idText = new JTextField();
@@ -149,14 +149,14 @@ public class AddUserFrm {
 		String id=idText.getText().trim();
 		String name=nameText.getText().trim();
 		String password=pwText.getText().trim();
-		String isExam=isText.getText().trim();
+		String subject=isText.getText().trim();
 		//判断是否为空
 		if(StringUtils.isEmpty(id)) {
 			JOptionPane.showMessageDialog(null, "请输入完整信息！");
 			return;
 		}else {//如果不是空
 			UserManageDao userManageDao=new UserManageDaoImpl();
-			userManageDao.add(new UserManage(Integer.parseInt(id),name,password,isExam));
+			userManageDao.add(new UserManage(Integer.parseInt(id),name,password,subject));
 			JOptionPane.showMessageDialog(null, "添加成功！");
 		}
 	}

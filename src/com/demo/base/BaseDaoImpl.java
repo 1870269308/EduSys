@@ -113,7 +113,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 			// 首先还是设置可访问
 			field.setAccessible(true);
 			if("id".equals(field.getName())) {
-				continue;
+				continue;//当是id字段时，跳出本次循环，id字段不添加到tempStr字符串中
 			}
 			tempStr += field.getName() + "=?, ";
 		}
@@ -263,7 +263,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 
 		String sql = sb.toString();
 		// System.out.println(sql);
-		// 对象的getter方法的调用,把每个字段的值填入params中，最后一个放id
+		// 对象的getter方法的调用,把每个字段的值填入params中
 		for (int i = 0; i < fs.length; i++) {
 			try {
 				fs[i].setAccessible(true);

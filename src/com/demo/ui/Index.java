@@ -9,9 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.demo.pojo.User;
+import com.demo.pojo.UserManage;
 import com.demo.ui.AdminFrm;
 import com.demo.ui.CourseFrm;
-import com.demo.ui.Longin;
+import com.demo.ui.Login;
 import com.demo.ui.RandomCall;
 import com.demo.ui.feedback;
 import com.demo.ui.myCalendar;
@@ -21,7 +22,7 @@ import javax.swing.JDesktopPane;
 public class Index {
 
 	private JFrame frame;
-	private static User userMessage = new User();
+	private static UserManage userMessage = new UserManage();
 
 	public JFrame getFrame() {
 		return frame;
@@ -54,7 +55,7 @@ public class Index {
 		initialize();
 	}
 
-	public Index(User userMessage) {
+	public Index(UserManage userMessage) {
 
 		this.userMessage = userMessage;
 		initialize();
@@ -111,7 +112,7 @@ public class Index {
 		JButton btnNewButton_3 = new JButton("\u9000\u51FA\u767B\u5F55");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Longin login = new Longin();
+				Login login = new Login();
 				login.getFrame().setVisible(true);
 				frame.setVisible(false);
 			}
@@ -133,10 +134,10 @@ public class Index {
 
 //øŒ≥Ã…Ë÷√º‡Ã˝
 class ListenerCourse implements ActionListener {
-	private User userMessage = new User();
+	private UserManage userMessage = new UserManage();
 	private JFrame frame;
 
-	public ListenerCourse(JFrame frame, User userMessage) {
+	public ListenerCourse(JFrame frame, UserManage userMessage) {
 		this.frame = frame;
 		this.userMessage = userMessage;
 
@@ -173,7 +174,7 @@ class listenerExit implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		Longin window1 = new Longin();
+		Login window1 = new Login();
 		frame.setVisible(false);
 		window1.getFrame().setVisible(true);
 	}
