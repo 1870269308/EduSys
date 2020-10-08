@@ -5,7 +5,25 @@ public class UserManage {
 	private int id;//±àºÅ
 	private String name;//ÐÕÃû
 	private String password;//ÃÜÂë
-	private String isExam;//ÊÇ·ñ¿¼ÊÔ
+	private String subject;//¿ÆÄ¿
+	
+	public UserManage() {
+		super();
+	}
+	
+	public UserManage(int id, String name, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+	}
+	public UserManage(int id, String name, String password, String subject) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.subject = subject;
+	}
 	public int getId() {
 		return id;
 	}
@@ -24,22 +42,15 @@ public class UserManage {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getIsExam() {
-		return isExam;
+	public String getSubject() {
+		return subject;
 	}
-	public void setIsExam(String isExam) {
-		this.isExam = isExam;
-	}
-	public UserManage(int id, String name, String password, String isExam) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.password = password;
-		this.isExam = isExam;
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 	@Override
 	public String toString() {
-		return "UserManage [id=" + id + ", name=" + name + ", password=" + password + ", isExam=" + isExam + "]";
+		return "UserManage [id=" + id + ", name=" + name + ", password=" + password + ", subject=" + subject + "]";
 	}
 	
 

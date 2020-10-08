@@ -274,5 +274,55 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		}
 		qr.execute1(sql, params);		
 	}
+
+
+	@Override
+	public ResultSet query(int id) {
+		//字符串拼接
+		StringBuilder sb=new StringBuilder("");
+		String preStr="select * from ";
+		sb.append(preStr);
+		String tableName=this.clazz.getSimpleName().toLowerCase();
+		sb.append("`"+tableName+"` ");
+		//delete from 表名
+		sb.append("where id=?");
+		String sql=sb.toString();
+		Connection conn=null;
+		try {
+			conn=dbUtil.getConnection();
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rsm=ps.executeQuery();
+			return rsm;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+
+	@Override
+	public ResultSet query(String name) {
+		//字符串拼接
+		StringBuilder sb=new StringBuilder("");
+		String preStr="select * from ";
+		sb.append(preStr);
+		String tableName=this.clazz.getSimpleName().toLowerCase();
+		sb.append("`"+tableName+"` ");
+		//delete from 表名
+		sb.append("where name=?");
+		String sql=sb.toString();
+		Connection conn=null;
+		try {
+			conn=dbUtil.getConnection();
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setString(1, name);
+			ResultSet rsm=ps.executeQuery();
+			return rsm;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
 

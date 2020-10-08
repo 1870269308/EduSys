@@ -8,6 +8,7 @@ import java.awt.Color;
 import javax.swing.JMenu;
 import java.awt.Font;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -15,11 +16,9 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
-import com.demo.dao.QuestionDao;
 import com.demo.dao.ScoreDao;
+import com.demo.dao.impl.ScoreDaoImpl;
 import com.demo.utils.ExcelExporter;
-import com.demo.utils.JdbcUtil;
 import lombok.Getter;
 import lombok.Setter;
 import java.awt.event.ActionListener;
@@ -39,8 +38,7 @@ public class AdminFrm {
 	private JTextField textField;
 	private JTable table;
 	private JComboBox comboBox;
-	JdbcUtil dbUtil = new JdbcUtil();
-	ScoreDao scoreDao = new ScoreDao();
+
 
 	
 	public JFrame getFrame() {
@@ -123,12 +121,12 @@ public class AdminFrm {
 		mntmNewMenuItem_1.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
 		mnNewMenu.add(mntmNewMenuItem_1);
 
-		JMenu mnNewMenu_1 = new JMenu("\u7528\u6237\u7BA1\u7406");
+		JMenu mnNewMenu_1 = new JMenu("\u6559\u5E08\u8D26\u53F7\u7BA1\u7406");
 		mnNewMenu_1.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/user.png")));
 		mnNewMenu_1.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 20));
 		menuBar.add(mnNewMenu_1);
 
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("\u6DFB\u52A0\u7528\u6237");
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("\u6DFB\u52A0\u6559\u5E08\u8D26\u53F7");
 		//添加用户
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -141,7 +139,7 @@ public class AdminFrm {
 		mntmNewMenuItem_2.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
 		mnNewMenu_1.add(mntmNewMenuItem_2);
 
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("\u5220\u9664\u7528\u6237");
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("\u5220\u9664\u6559\u5E08\u8D26\u53F7");
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//跳转删除界面
@@ -221,6 +219,7 @@ public class AdminFrm {
 			public void actionPerformed(ActionEvent e) {
 				//导出表格方法
 				jButtonActionPerformed();
+				JOptionPane.showMessageDialog(null, "导出成功，请前往本地查看！");
 			}
 		});
 		btnD.setFont(new Font("宋体", Font.PLAIN, 18));
@@ -290,70 +289,57 @@ public class AdminFrm {
 		Object object = comboBox.getSelectedItem();
 		System.out.println(object);
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
-		
 		// Object getSelectedItem()-返回当前所选项。
 		if (object == "考生id") {
-			
 			String id = textField.getText();
 			dtm.setRowCount(0);// 表格清空
-			Connection conn = null;
-			System.out.println(id);
-			// JdbcUtils dbUtils=new JdbcUtils();
+			ScoreDao scoreDao=null;
 			try {
-				conn = dbUtil.getConnection();
-				ResultSet rs = scoreDao.query(conn, id);
+				scoreDao=new ScoreDaoImpl();
+				ResultSet rs = scoreDao.query(id);
 				while(rs.next()) {
 				// 设置一个集合
-				Vector v = new Vector();
-				v.add(rs.getString("id"));
-				v.add(rs.getString("name"));
-				v.add(rs.getString("scScore"));
-				v.add(rs.getString("mcScore"));
-				v.add(rs.getString("sumScore"));
-				v.add(rs.getString("examdate"));
-				// 一行一行的加
-				dtm.addRow(v);
+					Vector v = new Vector();
+					v.add(rs.getString("id"));
+					v.add(rs.getString("name"));
+					v.add(rs.getString("scScore"));
+					v.add(rs.getString("mcScore"));
+					v.add(rs.getString("sumScore"));
+					v.add(rs.getString("examdate"));
+					// 一行一行的加
+					dtm.addRow(v);
 				//fillScore();
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				dbUtil.close(conn);
-			}
-			//fillScore();
+				//e.printStackTrace();
+			} 
 			fillScore1();
 
 		} else if (object == "考生姓名") {
 			String id = textField.getText();
 			dtm.setRowCount(0);// 表格清空
-			Connection conn = null;
-			System.out.println(id);
-			// JdbcUtils dbUtils=new JdbcUtils();
+			ScoreDao scoreDao=null;
 			try {
-				conn = dbUtil.getConnection();
-				ResultSet rs = scoreDao.query(conn, id);
+				scoreDao=new ScoreDaoImpl();
+				ResultSet rs = scoreDao.query(id);
 				while(rs.next()) {
 				// 设置一个集合
-				Vector v = new Vector();
-				v.add(rs.getString("id"));
-				v.add(rs.getString("name"));
-				v.add(rs.getString("scScore"));
-				v.add(rs.getString("mcScore"));
-				v.add(rs.getString("sumScore"));
-				v.add(rs.getString("examdate"));
-				// 一行一行的加
-				dtm.addRow(v);
+					Vector v = new Vector();
+					v.add(rs.getString("id"));
+					v.add(rs.getString("name"));
+					v.add(rs.getString("scScore"));
+					v.add(rs.getString("mcScore"));
+					v.add(rs.getString("sumScore"));
+					v.add(rs.getString("examdate"));
+					// 一行一行的加
+					dtm.addRow(v);
 				//fillScore();
 				}
-			} catch (Exception e) {
+			}  catch (Exception e) {
 				e.printStackTrace();
-			} finally {
-				dbUtil.close(conn);
-			}
-			//fillScore();
+			} 
 			fillScore2();
-		}
-		
+		}		
 	}
 
 	// 填充表格
@@ -361,13 +347,14 @@ public class AdminFrm {
 		// 表格模型
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);// 表格清空
-		Connection conn = null;
-		// JdbcUtils dbUtils=new JdbcUtils();
+		ScoreDao scoreDao=null;
 		try {
-			conn = dbUtil.getConnection();
-			ResultSet rs = scoreDao.query(conn);
+			scoreDao=new ScoreDaoImpl();
+			ResultSet rs = scoreDao.query();
+			//System.out.println(rs);
+			//com.mysql.jdbc.JDBC42ResultSet@7c767388
 			while (rs.next()) {
-				// 设置一个集合
+			// 设置一个集合
 				Vector v = new Vector();
 				v.add(rs.getString("id"));
 				v.add(rs.getString("name"));
@@ -380,8 +367,6 @@ public class AdminFrm {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			dbUtil.close(conn);
 		}
 	}
 	
@@ -391,13 +376,12 @@ public class AdminFrm {
 		// 表格模型
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		dtm.setRowCount(0);// 表格清空
-		Connection conn = null;
 		String id = textField.getText();
 		int ids=Integer.valueOf(id);
-		// JdbcUtils dbUtils=new JdbcUtils();
+		ScoreDao scoreDao=null;
 		try {
-			conn = dbUtil.getConnection();
-			ResultSet rs = scoreDao.query(conn,ids);
+			scoreDao=new ScoreDaoImpl();
+			ResultSet rs = scoreDao.query(ids);
 			while (rs.next()) {
 				// 设置一个集合
 				Vector v = new Vector();
@@ -412,9 +396,7 @@ public class AdminFrm {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			dbUtil.close(conn);
-		}
+		} 
 	}
 	//以查询到的姓名填充表格
 	private void fillScore2() {
@@ -423,10 +405,10 @@ public class AdminFrm {
 		dtm.setRowCount(0);// 表格清空
 		Connection conn = null;
 		String id = textField.getText();
-		// JdbcUtils dbUtils=new JdbcUtils();
+		ScoreDao scoreDao=null;
 		try {
-			conn = dbUtil.getConnection();
-			ResultSet rs = scoreDao.query(conn,id);
+			scoreDao=new ScoreDaoImpl();
+			ResultSet rs = scoreDao.query(id);
 			while (rs.next()) {
 				// 设置一个集合
 				Vector v = new Vector();
@@ -441,8 +423,6 @@ public class AdminFrm {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			dbUtil.close(conn);
-		}
+		} 
 	}
 }

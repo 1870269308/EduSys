@@ -7,9 +7,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import com.demo.dao.QuestionDao;
 import com.demo.dao.QuestionDao1;
+import com.demo.dao.UserManageDao;
 import com.demo.dao.impl.QuestionDao1Impl;
+import com.demo.dao.impl.UserManageDaoImpl;
 import com.demo.pojo.Question;
 import com.demo.utils.JdbcUtil;
 import com.demo.utils.StringUtils;
@@ -34,6 +35,7 @@ import javax.swing.JTextArea;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.awt.Color;
 @Setter
 @Getter
 public class testPaperFrm {
@@ -41,7 +43,6 @@ public class testPaperFrm {
 	private JFrame frame;
 	private JTable questionTable;
 	JdbcUtil dbUtil=new JdbcUtil();
-	QuestionDao questionDao=new QuestionDao();
 	private JTextField idText;
 	private JTextField keyAText;
 	private JTextField keyBText;
@@ -50,6 +51,7 @@ public class testPaperFrm {
 	private JTextField keyvalueText;
 	private JTextField remarksText;
 	private JTextArea titleArea;
+	private JTextField subjectText;
 
 	public JFrame getFrame() {
 		return frame;
@@ -92,7 +94,7 @@ public class testPaperFrm {
 		frame.getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(14, 0, 956, 356);
+		scrollPane.setBounds(14, 0, 956, 337);
 		frame.getContentPane().add(scrollPane);
 		
 		questionTable = new JTable();
@@ -109,10 +111,10 @@ public class testPaperFrm {
 			new Object[][] {
 			},
 			new String[] {
-				"\u8BD5\u9898\u7F16\u53F7", "\u8BD5\u9898\u9898\u76EE", "\u8BD5\u9898\u6B63\u786E\u7B54\u6848", "\u7B54\u6848A", "\u7B54\u6848B", "\u7B54\u6848C", "\u7B54\u6848D", "\u5907\u6CE8"
+				"\u8BD5\u9898\u79D1\u76EE", "\u8BD5\u9898\u7F16\u53F7", "\u8BD5\u9898\u9898\u76EE", "\u8BD5\u9898\u6B63\u786E\u7B54\u6848", "\u7B54\u6848A", "\u7B54\u6848B", "\u7B54\u6848C", "\u7B54\u6848D", "\u5907\u6CE8"
 			}
 		));
-		questionTable.getColumnModel().getColumn(2).setPreferredWidth(113);
+		questionTable.getColumnModel().getColumn(3).setPreferredWidth(113);
 		scrollPane.setViewportView(questionTable);
 		fillTable();//初始化表格
 		JButton btnNewButton = new JButton("\u4FEE\u6539");
@@ -231,6 +233,22 @@ public class testPaperFrm {
 		titleArea = new JTextArea();
 		titleArea.setBounds(86, 89, 426, 197);
 		panel.add(titleArea);
+		
+		subjectText = new JTextField();
+		subjectText.setEditable(false);
+		subjectText.setColumns(10);
+		subjectText.setBounds(266, 32, 86, 24);
+		panel.add(subjectText);
+		
+		JLabel lblNewLabel_2 = new JLabel("\u8BD5\u9898\u79D1\u76EE\uFF1A");
+		lblNewLabel_2.setBounds(186, 35, 80, 18);
+		panel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("\u8BD5\u9898\u79D1\u76EE\uFF1A1\u4E3A\u6570\u5B66\uFF0C2\u4E3A\u8BED\u6587\uFF0C3\u4E3A\u82F1\u8BED");
+		lblNewLabel_3.setForeground(Color.RED);
+		lblNewLabel_3.setFont(new Font("宋体", Font.PLAIN, 20));
+		lblNewLabel_3.setBounds(304, 350, 368, 18);
+		frame.getContentPane().add(lblNewLabel_3);
 		//设置窗体居中
 		frame.setLocationRelativeTo(null);
 		
@@ -241,6 +259,7 @@ public class testPaperFrm {
 	 */
 	private void updateQuestionAction(ActionEvent e) {
 		String id=idText.getText();
+		String subject=subjectText.getText();
 		String title=titleArea.getText();
 		String keyvalue=keyvalueText.getText();
 		String keyA=keyAText.getText();
@@ -254,7 +273,7 @@ public class testPaperFrm {
 			return;
 		}
 		QuestionDao1 questionDao=new QuestionDao1Impl();
-		questionDao.udpate(new Question(Integer.parseInt(id),title,keyvalue,keyA,keyB,keyC,keyD,remarks));
+		questionDao.udpate(new Question(Integer.parseInt(id),Integer.parseInt(subject),title,keyvalue,keyA,keyB,keyC,keyD,remarks));
 		JOptionPane.showMessageDialog(null, "修改成功！");
 		resetValue();//重置
 		fillTable();//刷新 表格
@@ -268,15 +287,16 @@ public class testPaperFrm {
 		//获取选中行
 		int row=questionTable.getSelectedRow();
 		//把获取到的id赋值给修改域的idtext
-		idText.setText((String)questionTable.getValueAt(row, 0));
+		subjectText.setText((String)questionTable.getValueAt(row, 0));
+		idText.setText((String)questionTable.getValueAt(row, 1));
 		//试题题目
-		titleArea.setText((String)questionTable.getValueAt(row, 1));
-		keyvalueText.setText((String)questionTable.getValueAt(row,2));
-		keyAText.setText((String)questionTable.getValueAt(row,3));
-		keyBText.setText((String)questionTable.getValueAt(row,4));
-		keyCText.setText((String)questionTable.getValueAt(row,5));
-		keyDText.setText((String)questionTable.getValueAt(row,6));
-		remarksText.setText((String)questionTable.getValueAt(row,7));
+		titleArea.setText((String)questionTable.getValueAt(row, 2));
+		keyvalueText.setText((String)questionTable.getValueAt(row,3));
+		keyAText.setText((String)questionTable.getValueAt(row,4));
+		keyBText.setText((String)questionTable.getValueAt(row,5));
+		keyCText.setText((String)questionTable.getValueAt(row,6));
+		keyDText.setText((String)questionTable.getValueAt(row,7));
+		remarksText.setText((String)questionTable.getValueAt(row,8));
 		
 	}
 	//表单重置
@@ -299,13 +319,14 @@ public class testPaperFrm {
 		Connection conn=null;
 		//JdbcUtils dbUtils=new JdbcUtils();
 		try {
-			conn=dbUtil.getConnection();
-			ResultSet rs=questionDao.query(conn);
+			QuestionDao1 questionDao=new QuestionDao1Impl();
+			ResultSet rs = questionDao.query();
 			//System.out.println(rs);
 			//com.mysql.jdbc.JDBC42ResultSet@5e75ddd3
 			while(rs.next()) {
 				//设置一个集合
 				Vector v=new Vector();
+				v.add(rs.getString("subjectId"));
 				v.add(rs.getString("id"));
 				v.add(rs.getString("title"));
 				v.add(rs.getString("keyvalue"));
@@ -314,6 +335,7 @@ public class testPaperFrm {
 				v.add(rs.getString("keyC"));
 				v.add(rs.getString("keyD"));
 				v.add(rs.getString("remarks"));
+				
 				//一行一行的加
 				dtm.addRow(v);
 			}
@@ -346,20 +368,16 @@ public class testPaperFrm {
 		//表格模型
 		DefaultTableModel dtm=(DefaultTableModel) questionTable.getModel();
 
-		Connection conn=null;
+		QuestionDao1 questionDao=null;
 		try {
-			conn=dbUtil.getConnection();
-			//删除数据库的内容
-			//选中表格id删除
-			questionDao.delete(conn,id);
+			questionDao=new QuestionDao1Impl();
+			questionDao.delete(id);
 			JOptionPane.showMessageDialog(null, "删除成功！");
 			//删除表格一行数据
 			dtm.removeRow(ids);
 		}catch(Exception e2) {
 			e2.printStackTrace();
 			
-		}finally {
-			dbUtil.close(conn);
 		}
 	}
 
