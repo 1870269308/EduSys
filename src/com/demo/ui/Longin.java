@@ -27,9 +27,7 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.UIManager;
 
-
 public class Longin {
-
 	
 	private JFrame frame;
 	private JTextField usertext;

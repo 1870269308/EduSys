@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.List;
 
-import com.demo.base.BaseDao;
-import com.demo.pojo.Course;
+import com.demo.pojo.CouSche;
 
-public interface CourseDao extends BaseDao<Course>{
+
+public interface CourScheDao {
 	public ResultSet getDatas(Connection conn,String name) throws Exception;
 	public int updCourse(Connection conn, String foreign_id,Object[] params) throws Exception;
 }
