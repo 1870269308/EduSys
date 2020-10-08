@@ -18,7 +18,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import com.demo.dao.ScoreDao;
 import com.demo.dao.impl.ScoreDaoImpl;
-import com.demo.test.total;
 import com.demo.utils.ExcelExporter;
 import lombok.Getter;
 import lombok.Setter;
@@ -226,7 +225,7 @@ public class AdminFrm {
 		btnNewButton_3.setFont(new Font("ËÎÌו", Font.PLAIN, 20));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				total to = new total(); 
+				totalFrm to = new totalFrm(); 
 				to.getFrame().setVisible(true);
 				frame.setVisible(false);
 			}
