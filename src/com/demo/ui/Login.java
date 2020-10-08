@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 
 import com.demo.dao.impl.UserLoginDao;
 import com.demo.pojo.User;
+import com.demo.pojo.UserManage;
 import com.demo.utils.JdbcUtils;
 import com.demo.utils.StringUtils;
 
@@ -28,7 +29,7 @@ import java.awt.Color;
 import javax.swing.UIManager;
 
 
-public class Longin {
+public class Login {
 
 	
 	private JFrame frame;
@@ -36,8 +37,8 @@ public class Longin {
 	
 	private JdbcUtils dbutil = new JdbcUtils();
 	private UserLoginDao userDao = new UserLoginDao(); 
-	private JRadioButton rdbtnNewRadioButton_man = new JRadioButton("\u7BA1\u7406\u5458");
-	private JRadioButton rdbtnNewRadioButton_stu = new JRadioButton("\u7528\u6237");
+	private JRadioButton rdbtnNewRadioButton_man = new JRadioButton("\u8001\u5E08");
+	private JRadioButton rdbtnNewRadioButton_stu = new JRadioButton("\u5B66\u751F");
 	private JButton btnNewButton_login = new JButton("\u767B\u5F55");
 	private JPasswordField pswtext;
 
@@ -57,7 +58,7 @@ public class Longin {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Longin window = new Longin();
+					Login window = new Login();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -69,7 +70,7 @@ public class Longin {
 	/**
 	 * Create the application.
 	 */
-	public Longin() {
+	public Login() {
 		initialize();
 	}
 
@@ -86,13 +87,13 @@ public class Longin {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("\u6559\u52A1\u7BA1\u7406\u7CFB\u7EDF");
-		lblNewLabel.setIcon(new ImageIcon(Longin.class.getResource("/images/\u6559\u52A1\u7CFB\u7EDF.png")));
+		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/images/\u6559\u52A1\u7CFB\u7EDF.png")));
 		lblNewLabel.setFont(new Font("宋体", Font.BOLD, 20));
 		lblNewLabel.setBounds(202, 34, 201, 36);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u7528\u6237\u540D\uFF1A");
-		lblNewLabel_1.setIcon(new ImageIcon(Longin.class.getResource("/images/\u7528\u6237.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(Login.class.getResource("/images/\u7528\u6237.png")));
 		lblNewLabel_1.setBounds(155, 98, 96, 23);
 		frame.getContentPane().add(lblNewLabel_1);
 		
@@ -102,7 +103,7 @@ public class Longin {
 		usertext.setColumns(10);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("\u5BC6 \u7801\uFF1A");
-		lblNewLabel_1_1.setIcon(new ImageIcon(Longin.class.getResource("/images/\u5BC6\u7801 (1).png")));
+		lblNewLabel_1_1.setIcon(new ImageIcon(Login.class.getResource("/images/\u5BC6\u7801 (1).png")));
 		lblNewLabel_1_1.setBounds(155, 149, 78, 23);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
@@ -133,7 +134,7 @@ public class Longin {
 		
 		
 		//btnNewButton_login.setBackground(Color.GRAY);
-		btnNewButton_login.setIcon(new ImageIcon(Longin.class.getResource("/images/\u767B\u5F55.png")));
+		btnNewButton_login.setIcon(new ImageIcon(Login.class.getResource("/images/\u767B\u5F55.png")));
 		
 		
 		btnNewButton_login.setBounds(101, 258, 113, 27);
@@ -144,7 +145,7 @@ public class Longin {
 		 * 重置按钮
 		 */
 		JButton btnNewButton_reset = new JButton("\u91CD\u7F6E");
-		btnNewButton_reset.setIcon(new ImageIcon(Longin.class.getResource("/images/\u91CD\u7F6E.png")));
+		btnNewButton_reset.setIcon(new ImageIcon(Login.class.getResource("/images/\u91CD\u7F6E.png")));
 		btnNewButton_reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				resetValueAction(e);
@@ -159,7 +160,7 @@ public class Longin {
 		 * 注册按钮
 		 */
 		JButton btnNewButton_register = new JButton("\u5B66\u751F\u6CE8\u518C");
-		btnNewButton_register.setIcon(new ImageIcon(Longin.class.getResource("/images/\u6CE8\u518C.png")));
+		btnNewButton_register.setIcon(new ImageIcon(Login.class.getResource("/images/\u6CE8\u518C.png")));
 		
 		btnNewButton_register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -203,16 +204,16 @@ public class Longin {
 		//当管理员被选中
 		if(rdbtnNewRadioButton_man.isSelected()){
 			//获得角色按钮的文本
-			  String role = rdbtnNewRadioButton_man.getText();
-			  System.out.println(role);
-			  User user = new User(0,userName, password, role); 
+			  String subject ="老师";
+			  System.out.println(subject);
+			  UserManage userManage = new UserManage(0,userName, password, subject); 
 				Connection con = null; 
 				try {
 					//这里获取连接
 					con =  dbutil.getConnection();
 					
 					//这里将用户输入的信息和数据库中的信息比对
-					User currentUser = userDao.login(con, user);
+					UserManage currentUser = userDao.loginManage(con, userManage);
 					if(currentUser!=null) {
 												
 						JOptionPane.showMessageDialog(null, "登录成功");

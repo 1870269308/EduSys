@@ -12,6 +12,7 @@ import javax.swing.table.TableModel;
 
 import com.demo.pojo.Course;
 import com.demo.pojo.User;
+import com.demo.pojo.UserManage;
 
 import lombok.Getter;
 import com.demo.ui.Index;
@@ -44,7 +45,7 @@ public class CourseFrm {
 
 	private JFrame frame;
 	private JTable table;
-	private User UserMessage=new User();
+	private UserManage UserMessage=new UserManage();
 	private DefaultTableModel model;
 
 	public JFrame getFrame() {
@@ -77,7 +78,7 @@ public class CourseFrm {
 	public CourseFrm() {
 		initialize();
 	}
-	public CourseFrm(User UserMessage) {
+	public CourseFrm(UserManage UserMessage) {
 		this.UserMessage=UserMessage;
 		initialize();
 	}

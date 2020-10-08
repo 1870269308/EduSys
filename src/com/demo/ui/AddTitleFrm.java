@@ -79,15 +79,15 @@ public class AddTitleFrm {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("添加试题");
 		frame.setBounds(100, 100, 779, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel(
-				"!!!\u589E\u52A0\u591A\u9009\u9898\u8981\u586B\u6EE1\u4EE5\u4E0B\u6240\u6709\u9009\u9879");
+				"\u8BD5\u9898\u79D1\u76EE\uFF1A1\u4E3A\u6570\u5B66\uFF0C2\u4E3A\u8BED\u6587\uFF0C3\u4E3A\u82F1\u8BED");
 		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 18));
-		lblNewLabel.setBounds(210, 13, 286, 38);
+		lblNewLabel.setBounds(179, 13, 395, 38);
 		frame.getContentPane().add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("\u9898\u76EE\u7F16\u53F7");
@@ -269,7 +269,7 @@ public class AddTitleFrm {
 		QuestionDao1 questionDao=new QuestionDao1Impl();
 		
 		questionDao.register(new Question(Integer.valueOf(id),Integer.valueOf(subjectId),title,keyvalue,keyA,keyB,keyC,keyD,remarks));
-		
+		JOptionPane.showMessageDialog(null, "添加试题成功！");
 	}
 	
 	

@@ -157,7 +157,7 @@ public class DeleteUserFrm {
 				lineRow.add(rs.getInt("id"));
 				lineRow.add(rs.getString("name"));
 				lineRow.add(rs.getString("password"));
-				lineRow.add(rs.getInt("isExam"));
+				lineRow.add(rs.getInt("subject"));
 				dtm.addRow(lineRow);
 			}
 		} catch (Exception e) {

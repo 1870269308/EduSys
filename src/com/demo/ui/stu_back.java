@@ -143,7 +143,7 @@ public class stu_back {
 			public void actionPerformed(ActionEvent e) {
 				// ·µ»ØÖ÷Ò³Ãæ
 				frame.dispose();
-				Longin idx = new Longin();
+				Login idx = new Login();
 				idx.getFrame().setVisible(true);
 			}
 		});
