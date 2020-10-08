@@ -29,6 +29,7 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.ImageIcon;
 
 @Getter
 public class CouScheUpdate {
@@ -79,7 +80,7 @@ public class CouScheUpdate {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("修改课程进度");
 		frame.setBounds(100, 100, 547, 374);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -106,6 +107,7 @@ public class CouScheUpdate {
 
 		// 保存按钮
 		JButton btnNewButton = new JButton("\u4FDD\u5B58");
+		btnNewButton.setIcon(new ImageIcon(CouScheUpdate.class.getResource("/images/de.png")));
 		updateCourseSche ucs = new updateCourseSche(model, UserMessage);
 		btnNewButton.addActionListener(ucs);
 		btnNewButton.setBounds(49, 253, 113, 27);
@@ -113,6 +115,7 @@ public class CouScheUpdate {
 
 		// 退出按钮
 		JButton btnNewButton_1 = new JButton("返回");
+		btnNewButton_1.setIcon(new ImageIcon(CouScheUpdate.class.getResource("/images/out.png")));
 		returnCourse rc = new returnCourse(frame,UserMessage);
 		btnNewButton_1.addActionListener(rc);
 		btnNewButton_1.setBounds(344, 253, 113, 27);

@@ -64,7 +64,7 @@ public class AddUserFrm {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("ÃÌº”ΩÃ ¶’À∫≈");
 		frame.setBounds(100, 100, 724, 589);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);

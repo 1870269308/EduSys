@@ -42,6 +42,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 @Getter
 public class CourseFrm {
@@ -90,7 +91,7 @@ public class CourseFrm {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("课程表");
 		frame.setBounds(100, 100, 836, 421);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -119,6 +120,7 @@ public class CourseFrm {
 
 		// 保存按钮
 		JButton btnNewButton = new JButton("\u4FDD\u5B58");
+		btnNewButton.setIcon(new ImageIcon(CourseFrm.class.getResource("/images/de.png")));
 		updateCourse uc = new updateCourse(model,UserMessage);
 		btnNewButton.addActionListener(uc);
 		btnNewButton.setBounds(49, 316, 113, 27);
@@ -126,6 +128,7 @@ public class CourseFrm {
 
 		// 导出按钮
 		JButton btnNewButton_1 = new JButton("\u5BFC\u51FA");
+		btnNewButton_1.setIcon(new ImageIcon(CourseFrm.class.getResource("/images/exporter.png")));
 		exportCourse ec = new exportCourse(frame, table);
 		btnNewButton_1.addActionListener(ec);
 		btnNewButton_1.setBounds(235, 316, 113, 27);
@@ -133,13 +136,15 @@ public class CourseFrm {
 
 		// 课程进度按钮
 		JButton btnNewButton_4 = new JButton("\u8BFE\u7A0B\u8FDB\u5EA6\u56FE");
+		btnNewButton_4.setIcon(new ImageIcon(CourseFrm.class.getResource("/images/kebiao.png")));
 		couSche cs = new couSche(frame,UserMessage);
 		btnNewButton_4.addActionListener(cs);
-		btnNewButton_4.setBounds(420, 316, 113, 27);
+		btnNewButton_4.setBounds(420, 316, 127, 27);
 		frame.getContentPane().add(btnNewButton_4);
 
 		// 退出按钮
 		JButton btnNewButton_2 = new JButton("\u8FD4\u56DE");
+		btnNewButton_2.setIcon(new ImageIcon(CourseFrm.class.getResource("/images/out.png")));
 		returnIndex ri = new returnIndex(frame);
 		btnNewButton_2.addActionListener(ri);
 		btnNewButton_2.setBounds(629, 316, 113, 27);

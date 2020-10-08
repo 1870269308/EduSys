@@ -68,7 +68,7 @@ public class DeleteUserFrm {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("É¾³ý½ÌÊ¦ÕËºÅ");
 		frame.setBounds(100, 100, 770, 460);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -82,7 +82,7 @@ public class DeleteUserFrm {
 			new Object[][] {
 			},
 			new String[] {
-				"\u7F16\u53F7", "\u59D3\u540D", "\u5BC6\u7801", "\u662F\u5426\u53C2\u52A0\u8003\u8BD5"
+				"\u7F16\u53F7", "\u59D3\u540D", "\u5BC6\u7801", "\u6267\u6559\u79D1\u76EE"
 			}
 		));
 		userTable.getColumnModel().getColumn(3).setPreferredWidth(126);
