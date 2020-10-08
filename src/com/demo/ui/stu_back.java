@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
+import com.demo.pojo.FeedBack;
 import com.demo.pojo.User;
 
 import lombok.Getter;
@@ -28,7 +29,6 @@ public class stu_back {
 
 	private JFrame frame;
 	private static User userMessage = new User();
-
 	public JFrame getFrame() {
 		return frame;
 	}

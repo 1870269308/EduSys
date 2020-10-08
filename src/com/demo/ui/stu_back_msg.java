@@ -111,9 +111,9 @@ public class stu_back_msg {
 				}
 				String msg = textArea.getText();// 获取文本域的内容
 				String username = userMessage.getUserName();// 获取用户名信息
-//				String fbmsg=FeedMessage.getUserName();
+				String fbmsg=FeedMessage.getUserName();
 				System.out.println(username);
-//				System.out.println(fbmsg);
+				System.out.println(fbmsg);
 				if (FeedMessage.getFeedback() == msg) {
 					JOptionPane.showMessageDialog(null, "反馈问题重复！！！");
 					return;
