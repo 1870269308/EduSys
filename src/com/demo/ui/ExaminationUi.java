@@ -19,6 +19,8 @@ import com.demo.pojo.Question;
 import com.demo.pojo.User;
 import com.demo.utils.BeanListResultSethandler;
 import com.demo.utils.QueryRunner;
+import java.awt.Font;
+import java.awt.Color;
 
 public class ExaminationUi {
 
@@ -42,9 +44,9 @@ public class ExaminationUi {
 	// 设置题目的初始值
 	int p = 0;
 	// 题目的总数记录
-	int num = 4;
+	int num = 10;
     private int nowNumber = 0;//当前题号
-    private int totalCount = 4;//题目总数
+    private int totalCount = 10;//题目总数
     private int answerCount = 0;//已答
     private int unanswerCount = totalCount;//未答
 	// 使用来保存试题信息
@@ -297,6 +299,12 @@ public class ExaminationUi {
 		});
 		exitBtn.setBounds(722, 461, 113, 27);
 		frame.getContentPane().add(exitBtn);
+		
+		JLabel lblNewLabel_1 = new JLabel("1-5\u4E3A\u5355\u9009\u9898\uFF0C6-10\u4E3A\u591A\u9009\u9898");
+		lblNewLabel_1.setForeground(Color.RED);
+		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(86, 21, 299, 18);
+		frame.getContentPane().add(lblNewLabel_1);
 		//窗口居中
 		frame.setLocationRelativeTo(null);
 	}

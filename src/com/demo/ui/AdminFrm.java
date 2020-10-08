@@ -222,6 +222,7 @@ public class AdminFrm {
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_3 = new JButton("\u5206\u6570\u6392\u5E8F");
+		btnNewButton_3.setFont(new Font("ËÎÌו", Font.PLAIN, 20));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				totalFrm to = new totalFrm(); 

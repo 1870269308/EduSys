@@ -36,6 +36,7 @@ import com.demo.pojo.UserManage;
 import com.demo.utils.JdbcUtil;
 
 import lombok.Getter;
+import javax.swing.ImageIcon;
 @Getter
 public class BarChartFrm {
 
@@ -83,7 +84,7 @@ public class BarChartFrm {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("课程进度");
 		frame.setBounds(100, 100, 619, 384);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -108,6 +109,7 @@ public class BarChartFrm {
 
 		// 返回课程表按钮
 		JButton btnNewButton_2 = new JButton("返回");
+		btnNewButton_2.setIcon(new ImageIcon(BarChartFrm.class.getResource("/images/out.png")));
 		btnNewButton_2.setSize(100, 100);
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
 		gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
@@ -121,6 +123,7 @@ public class BarChartFrm {
 		
 		//设置课程进度按钮
 		JButton btnNewButton = new JButton("修改课程进度");
+		btnNewButton.setIcon(new ImageIcon(BarChartFrm.class.getResource("/images/de.png")));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.gridheight = 3;
 		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
