@@ -123,25 +123,7 @@ public class stu_back {
 		});
 		button_1.setBounds(52, 166, 127, 33);
 		frame.getContentPane().add(button_1);
-
-		JTextPane textPane = new JTextPane();
-
-//		java.net.URL url;
-//		try {
-//			url = new File("src/images/Ëæ»úÓÃ»§.png").toURI().toURL();
-//			textPane.setPage(url);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		textPane.setText("\u53EF\u4EE5\u6DFB\u52A0\u56FE\u7247");
-		textPane.setBounds(211, 23, 400, 400);
-		frame.getContentPane().add(textPane);
-		JLabel lable = new JLabel();
 		ImageIcon img = new ImageIcon("src/images/feedback1.jpg");
-		lable.setIcon(img);
-		lable.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
-		lable.setVisible(true);
-		textPane.add(lable);
 		
 		JButton button_1_1 = new JButton("\u9000\u51FA\u767B\u5F55");
 		button_1_1.addActionListener(new ActionListener() {
@@ -153,5 +135,10 @@ public class stu_back {
 		button_1_1.setIcon(new ImageIcon(stu_back.class.getResource("/images/out.png")));
 		button_1_1.setBounds(52, 263, 127, 33);
 		frame.getContentPane().add(button_1_1);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setIcon(new ImageIcon(stu_back.class.getResource("/images/feedback1.jpg")));
+		btnNewButton.setBounds(226, 70, 404, 339);
+		frame.getContentPane().add(btnNewButton);
 	}
 }
