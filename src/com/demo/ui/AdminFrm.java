@@ -39,8 +39,6 @@ public class AdminFrm {
 	private JTable table;
 	private JComboBox comboBox;
 
-
-	
 	public JFrame getFrame() {
 		return frame;
 	}
