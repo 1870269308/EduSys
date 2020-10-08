@@ -121,7 +121,7 @@ public class stu_back {
 				msg.getFrame().setVisible(true);
 			}
 		});
-		button_1.setBounds(52, 137, 127, 33);
+		button_1.setBounds(52, 166, 127, 33);
 		frame.getContentPane().add(button_1);
 
 		JTextPane textPane = new JTextPane();
@@ -142,23 +142,16 @@ public class stu_back {
 		lable.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
 		lable.setVisible(true);
 		textPane.add(lable);
-
-		JButton button_2 = new JButton("\u9000\u51FA\u767B\u5F55");
-		button_2.setIcon(new ImageIcon(stu_back.class.getResource("/images/out.png")));
-		// 退出登录按钮监听
-		button_2.addActionListener(new ActionListener() {
+		
+		JButton button_1_1 = new JButton("\u9000\u51FA\u767B\u5F55");
+		button_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// 返回主页面
-				frame.dispose();
-				Login idx = new Login();
-				idx.getFrame().setVisible(true);
+				frame.setVisible(false);
+				new Login().getFrame().setVisible(true);
 			}
 		});
-
-		button_2.setBounds(52, 199, 127, 43);
-
-		button_2.setBounds(52, 156, 101, 23);
-
-		frame.getContentPane().add(button_2);
+		button_1_1.setIcon(new ImageIcon(stu_back.class.getResource("/images/out.png")));
+		button_1_1.setBounds(52, 263, 127, 33);
+		frame.getContentPane().add(button_1_1);
 	}
 }
