@@ -115,7 +115,7 @@ public class StuSelectUi {
 			}
 		});
 		btnNewButton_1.setFont(new Font("ËÎÌו", Font.PLAIN, 18));
-		btnNewButton_1.setBounds(373, 46, 125, 27);
+		btnNewButton_1.setBounds(373, 46, 141, 27);
 		frame.getContentPane().add(btnNewButton_1);
 
 		JScrollPane scrollPane = new JScrollPane();

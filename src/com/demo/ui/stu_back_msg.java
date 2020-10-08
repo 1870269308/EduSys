@@ -81,7 +81,7 @@ public class stu_back_msg {
 		frame.getContentPane().add(scrollPane);
 //Ã·Ωª
 		JButton button = new JButton("\u63D0\u4EA4");
-		button.setIcon(new ImageIcon(feedback.class.getResource("/images/exporter.png")));
+		button.setIcon(new ImageIcon(stu_back_msg.class.getResource("/images/tijiao.png")));
 		button.setFont(new Font("ÀŒÃÂ", Font.PLAIN, 18));
 		button.setBounds(167, 24, 100, 27);
 		frame.getContentPane().add(button);

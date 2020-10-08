@@ -80,7 +80,7 @@ public class Login {
 	 */
 	private void initialize() {
 		frame = new JFrame("教务管理系统");
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/images/backgroud.jpg")));
+		
 		frame.getContentPane().setBackground(UIManager.getColor("Button.background"));
 		frame.setBackground(Color.LIGHT_GRAY);
 		frame.setType(Type.UTILITY);
