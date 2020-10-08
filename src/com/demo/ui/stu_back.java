@@ -72,7 +72,7 @@ public class stu_back {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("\u5B66\u751F\u754C\u9762");
-		frame.setBounds(100, 100, 641, 398);
+		frame.setBounds(100, 100, 700, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -128,7 +128,7 @@ public class stu_back {
 //			e.printStackTrace();
 //		}
 //		textPane.setText("\u53EF\u4EE5\u6DFB\u52A0\u56FE\u7247");
-		textPane.setBounds(211, 23, 355, 304);
+		textPane.setBounds(211, 23, 400, 400);
 		frame.getContentPane().add(textPane);
 		JLabel lable = new JLabel();
 		ImageIcon img = new ImageIcon("src/images/feedback1.jpg");
