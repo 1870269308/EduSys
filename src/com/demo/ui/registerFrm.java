@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.demo.dao.UserDao;
@@ -66,6 +67,7 @@ public class registerFrm{
 	 */
 	private void initialize() {
 		frame = new JFrame("注册界面");
+		frame.setResizable(false);
 		frame.setBounds(100, 100, 653, 485);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -131,6 +133,19 @@ public class registerFrm{
 		});
 		btnNewButton_1_1.setBounds(441, 352, 148, 27);
 		frame.getContentPane().add(btnNewButton_1_1);
+		 // 背景图片
+	     ImageIcon background = new ImageIcon(
+	                 this.getClass().getResource("/images/bkgm.jpg"));
+	     // 把背景图片显示在一个标签里面
+	     JLabel label = new JLabel(background);
+	     // 设置标签大小
+	     label.setBounds(0, 0, 653, 485);
+	     // 把内容窗格转化为JPanel，否则不能用方法setOpaque()来使内容窗格透明
+	     JPanel imagePanel = (JPanel) frame.getContentPane();
+	     imagePanel.setOpaque(false);
+	     frame.getLayeredPane().setLayout(null);
+	     // 把背景图片添加到分层窗格的最底层作为背景
+	     frame.getLayeredPane().add(label, new Integer(Integer.MIN_VALUE));
 		
 		//设置窗体居中
 		frame.setLocationRelativeTo(null);

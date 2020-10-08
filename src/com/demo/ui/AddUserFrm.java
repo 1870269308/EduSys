@@ -131,7 +131,7 @@ public class AddUserFrm {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				new AdminFrm().getFrame().setVisible(true);
+				new Index().getFrame().setVisible(true);
 			}
 		});
 		btnNewButton_1.setIcon(new ImageIcon(AddUserFrm.class.getResource("/images/out.png")));

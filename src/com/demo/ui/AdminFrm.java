@@ -121,36 +121,6 @@ public class AdminFrm {
 		mntmNewMenuItem_1.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
 		mnNewMenu.add(mntmNewMenuItem_1);
 
-		JMenu mnNewMenu_1 = new JMenu("\u6559\u5E08\u8D26\u53F7\u7BA1\u7406");
-		mnNewMenu_1.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/user.png")));
-		mnNewMenu_1.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 20));
-		menuBar.add(mnNewMenu_1);
-
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("\u6DFB\u52A0\u6559\u5E08\u8D26\u53F7");
-		//添加用户
-		mntmNewMenuItem_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//跳转到添加用户界面AddUser
-				frame.setVisible(false);
-				new AddUserFrm().getFrame().setVisible(true);
-			}
-		});
-		mntmNewMenuItem_2.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/add.png")));
-		mntmNewMenuItem_2.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
-		mnNewMenu_1.add(mntmNewMenuItem_2);
-
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("\u5220\u9664\u6559\u5E08\u8D26\u53F7");
-		mntmNewMenuItem_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//跳转删除界面
-				frame.setVisible(false);
-				new DeleteUserFrm().getFrame().setVisible(true);
-			}
-		});
-		mntmNewMenuItem_3.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/dl.png")));
-		mntmNewMenuItem_3.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
-		mnNewMenu_1.add(mntmNewMenuItem_3);
-
 		JLabel lblNewLabel = new JLabel("\u67E5\u8BE2\u6761\u4EF6\uFF1A");
 		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 18));
 		lblNewLabel.setBounds(207, 96, 90, 21);
@@ -219,7 +189,7 @@ public class AdminFrm {
 			public void actionPerformed(ActionEvent e) {
 				//导出表格方法
 				jButtonActionPerformed();
-				JOptionPane.showMessageDialog(null, "导出成功，请前往本地查看！");
+				
 			}
 		});
 		btnD.setFont(new Font("宋体", Font.PLAIN, 18));
@@ -279,6 +249,7 @@ public class AdminFrm {
         	 ExcelExporter export = new ExcelExporter();
         	 //传入表格和文件地址
         	 export.exportTable(table, new File(stringfile));
+        	 JOptionPane.showMessageDialog(null, "导出成功，请前往本地查看！");
          } catch (IOException ex) {
              ex.printStackTrace();
          }

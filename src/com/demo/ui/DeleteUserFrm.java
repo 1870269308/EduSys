@@ -104,7 +104,7 @@ public class DeleteUserFrm {
 			public void actionPerformed(ActionEvent e) {
 				// ·µ»Ø
 				frame.setVisible(false);
-				new AdminFrm().getFrame().setVisible(true);
+				new Index().getFrame().setVisible(true);
 			}
 		});
 		btnNewButton_1.setIcon(new ImageIcon(DeleteUserFrm.class.getResource("/images/out.png")));
@@ -157,7 +157,7 @@ public class DeleteUserFrm {
 				lineRow.add(rs.getInt("id"));
 				lineRow.add(rs.getString("name"));
 				lineRow.add(rs.getString("password"));
-				lineRow.add(rs.getInt("subject"));
+				lineRow.add(rs.getString("subject"));
 				dtm.addRow(lineRow);
 			}
 		} catch (Exception e) {

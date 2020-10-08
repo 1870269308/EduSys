@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -27,6 +28,7 @@ import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.UIManager;
+import java.awt.Toolkit;
 
 
 public class Login {
@@ -78,6 +80,7 @@ public class Login {
 	 */
 	private void initialize() {
 		frame = new JFrame("教务管理系统");
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/images/backgroud.jpg")));
 		frame.getContentPane().setBackground(UIManager.getColor("Button.background"));
 		frame.setBackground(Color.LIGHT_GRAY);
 		frame.setType(Type.UTILITY);
@@ -176,6 +179,19 @@ public class Login {
 		pswtext = new JPasswordField();
 		pswtext.setBounds(265, 144, 166, 28);
 		frame.getContentPane().add(pswtext);
+		// 背景图片
+	     ImageIcon background = new ImageIcon(
+	                 this.getClass().getResource("/images/bkgm.jpg"));
+	     // 把背景图片显示在一个标签里面
+	     JLabel label = new JLabel(background);
+	     // 设置标签大小
+	     label.setBounds(0, 0, 632, 368);
+	     // 把内容窗格转化为JPanel，否则不能用方法setOpaque()来使内容窗格透明
+	     JPanel imagePanel = (JPanel) frame.getContentPane();
+	     imagePanel.setOpaque(false);
+	     frame.getLayeredPane().setLayout(null);
+	     // 把背景图片添加到分层窗格的最底层作为背景
+	     frame.getLayeredPane().add(label, new Integer(Integer.MIN_VALUE));
 		
 		//设置窗体居中
 		frame.setLocationRelativeTo(null);
