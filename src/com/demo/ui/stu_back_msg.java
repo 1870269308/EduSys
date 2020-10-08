@@ -127,6 +127,7 @@ public class stu_back_msg {
 				String result = "反馈信息为：" + msg;
 				System.out.println(result);
 				transferTable();// 调用下面的插入方法
+				
 //				}
 
 			}
@@ -146,6 +147,7 @@ public class stu_back_msg {
 		Object[] obj = { name, textmsg };
 		System.out.println(sql);
 		new QueryRunner().execute(sql, obj);
+		JOptionPane.showMessageDialog(null, "提交成功！");
 	}
 
 }

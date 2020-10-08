@@ -144,7 +144,8 @@ public class myCalendar extends JInternalFrame {
 	}
 	//显示日历
 	private static void kalendar(Calendar calendar) {
-		link.clear();
+		link.clear();//清空
+		//获取月份
 		String[] month = { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" };
 		str = "* * * * * * * * * *  " + calendar.get(Calendar.YEAR) + "年" + month[calendar.get(Calendar.MONTH)]
 				+ "月  * * * * * * * * * *";
