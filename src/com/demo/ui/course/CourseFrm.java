@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.course;
 
 import java.awt.EventQueue;
 import java.awt.FileDialog;
@@ -16,7 +16,8 @@ import com.demo.pojo.UserManage;
 
 import lombok.Getter;
 
-import com.demo.ui.Index;
+import com.demo.ui.chart.BarChartFrm;
+import com.demo.ui.main.Index;
 import com.demo.utils.JdbcUtil;
 
 import com.demo.base.BaseDao;

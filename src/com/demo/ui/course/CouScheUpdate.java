@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.course;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -21,6 +21,7 @@ import com.demo.pojo.CouSche;
 import com.demo.pojo.Course;
 import com.demo.pojo.User;
 import com.demo.pojo.UserManage;
+import com.demo.ui.chart.BarChartFrm;
 import com.demo.utils.JdbcUtil;
 
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.stu;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -16,6 +16,7 @@ import javax.swing.JTextPane;
 import com.demo.pojo.FeedBack;
 import com.demo.pojo.User;
 import com.demo.pojo.UserManage;
+import com.demo.ui.main.feedback;
 import com.demo.utils.QueryRunner;
 
 import java.awt.event.ActionListener;

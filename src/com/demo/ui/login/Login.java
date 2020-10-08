@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.login;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -20,6 +20,8 @@ import javax.swing.JTextField;
 import com.demo.dao.impl.UserLoginDaoImpl;
 import com.demo.pojo.User;
 import com.demo.pojo.UserManage;
+import com.demo.ui.main.Index;
+import com.demo.ui.stu.stu_back;
 import com.demo.utils.JdbcUtils;
 import com.demo.utils.StringUtils;
 

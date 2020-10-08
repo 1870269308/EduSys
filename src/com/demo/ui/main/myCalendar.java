@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.main;
 
 import java.awt.BorderLayout;
 import java.awt.Component;

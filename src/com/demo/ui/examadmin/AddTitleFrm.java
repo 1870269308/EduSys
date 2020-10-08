@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.examadmin;
 
 import java.awt.EventQueue;
 import java.awt.Font;

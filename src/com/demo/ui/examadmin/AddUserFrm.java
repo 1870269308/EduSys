@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.examadmin;
 
 import java.awt.EventQueue;
 
@@ -9,6 +9,7 @@ import javax.swing.border.TitledBorder;
 import com.demo.dao.UserManageDao;
 import com.demo.dao.impl.UserManageDaoImpl;
 import com.demo.pojo.UserManage;
+import com.demo.ui.main.Index;
 import com.demo.utils.StringUtils;
 
 import javax.swing.JLabel;

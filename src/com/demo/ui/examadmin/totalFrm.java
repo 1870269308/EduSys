@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.examadmin;
 
 import java.awt.EventQueue;
 import java.awt.FileDialog;
@@ -20,6 +20,7 @@ import javax.swing.table.TableModel;
 
 import com.demo.dao.TotalDao;
 import com.demo.dao.impl.TotalDaoImpl;
+import com.demo.ui.chart.PieChartFrm;
 import com.demo.utils.ExcelExporter;
 import com.demo.utils.JdbcUtils;
 

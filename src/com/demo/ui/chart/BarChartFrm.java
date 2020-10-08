@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.chart;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -33,6 +33,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import com.demo.dao.CourScheDao;
 import com.demo.dao.impl.CourScheDaoImpl;
 import com.demo.pojo.UserManage;
+import com.demo.ui.course.CouScheUpdate;
+import com.demo.ui.course.CourseFrm;
 import com.demo.utils.JdbcUtil;
 
 import lombok.Getter;

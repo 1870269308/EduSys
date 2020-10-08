@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.login;
 
 import java.awt.EventQueue;
 

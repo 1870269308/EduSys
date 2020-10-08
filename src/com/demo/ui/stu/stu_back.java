@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.stu;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -19,6 +19,8 @@ import javax.swing.JTextPane;
 
 import com.demo.pojo.FeedBack;
 import com.demo.pojo.User;
+import com.demo.ui.login.Login;
+import com.demo.ui.stu.examstu.StuSelectUi;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.demo.ui;
+package com.demo.ui.main;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -10,6 +10,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import com.demo.pojo.UserManage;
+import com.demo.ui.course.CourseFrm;
+import com.demo.ui.examadmin.AddUserFrm;
+import com.demo.ui.examadmin.AdminFrm;
+import com.demo.ui.examadmin.DeleteUserFrm;
+import com.demo.ui.login.Login;
+
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JMenuBar;
