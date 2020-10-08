@@ -13,7 +13,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserLoginDao {
+public class UserLoginDaoImpl {
 	public User login(Connection con, User user) throws SQLException {
 		
 		User resultUser = null;
@@ -41,7 +41,7 @@ public class UserLoginDao {
 		return resultUser; 
 	}
 	
-public UserManage loginManage(Connection con, UserManage user) throws SQLException {
+	public UserManage loginManage(Connection con, UserManage user) throws SQLException {
 		
 		UserManage resultUser = null;
 		

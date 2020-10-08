@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import com.demo.dao.impl.UserLoginDao;
+import com.demo.dao.impl.UserLoginDaoImpl;
 import com.demo.pojo.User;
 import com.demo.pojo.UserManage;
 import com.demo.utils.JdbcUtils;
@@ -35,7 +35,7 @@ public class Login {
 	private JTextField usertext;
 	
 	private JdbcUtils dbutil = new JdbcUtils();
-	private UserLoginDao userDao = new UserLoginDao(); 
+	private UserLoginDaoImpl userDao = new UserLoginDaoImpl(); 
 	private JRadioButton rdbtnNewRadioButton_man = new JRadioButton("\u8001\u5E08");
 	private JRadioButton rdbtnNewRadioButton_stu = new JRadioButton("\u5B66\u751F");
 	private JButton btnNewButton_login = new JButton("\u767B\u5F55");

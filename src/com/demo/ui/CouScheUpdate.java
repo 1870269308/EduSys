@@ -36,6 +36,16 @@ public class CouScheUpdate {
 	private JFrame frame;
 	private UserManage UserMessage = new UserManage();
 	private JTable table;
+	
+	
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
 
 	/**
 	 * Launch the application.
