@@ -10,6 +10,13 @@ public class UserManage {
 	public UserManage() {
 		super();
 	}
+	
+	public UserManage(int id, String name, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+	}
 	public UserManage(int id, String name, String password, String subject) {
 		super();
 		this.id = id;

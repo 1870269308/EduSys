@@ -204,9 +204,7 @@ public class Login {
 		//当管理员被选中
 		if(rdbtnNewRadioButton_man.isSelected()){
 			//获得角色按钮的文本
-			  String subject ="老师";
-			  System.out.println(subject);
-			  UserManage userManage = new UserManage(0,userName, password, subject); 
+			  UserManage userManage = new UserManage(0,userName, password); 
 				Connection con = null; 
 				try {
 					//这里获取连接
