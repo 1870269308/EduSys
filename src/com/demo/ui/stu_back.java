@@ -83,6 +83,7 @@ public class stu_back {
 		frame.setLocationRelativeTo(null);
 		//°´Å¥ÊÂ¼þ
 		JButton button = new JButton("\u8003\u8BD5");
+		button.setIcon(new ImageIcon(stu_back.class.getResource("/images/question.png")));
 		// ¿¼ÊÔ°´Å¥¼àÌý
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -138,6 +139,7 @@ public class stu_back {
 		textPane.add(lable);
 
 		JButton button_2 = new JButton("\u9000\u51FA\u767B\u5F55");
+		button_2.setIcon(new ImageIcon(stu_back.class.getResource("/images/out.png")));
 		// ÍË³öµÇÂ¼°´Å¥¼àÌý
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -147,7 +149,7 @@ public class stu_back {
 				idx.getFrame().setVisible(true);
 			}
 		});
-		button_2.setBounds(52, 154, 93, 23);
+		button_2.setBounds(52, 156, 101, 23);
 		frame.getContentPane().add(button_2);
 	}
 }
