@@ -83,7 +83,11 @@ public class stu_back {
 		frame.setLocationRelativeTo(null);
 		//按钮事件
 		JButton button = new JButton("\u8003\u8BD5");
+
 		button.setIcon(new ImageIcon(stu_back.class.getResource("/images/pen.png")));
+
+		button.setIcon(new ImageIcon(stu_back.class.getResource("/images/question.png")));
+
 		// 考试按钮监听
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -150,7 +154,11 @@ public class stu_back {
 				idx.getFrame().setVisible(true);
 			}
 		});
+
 		button_2.setBounds(52, 199, 127, 43);
+
+		button_2.setBounds(52, 156, 101, 23);
+
 		frame.getContentPane().add(button_2);
 	}
 }
