@@ -5,19 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-
-import com.demo.pojo.User;
-import com.demo.pojo.UserManage;
-import com.demo.ui.AdminFrm;
-import com.demo.ui.CourseFrm;
-import com.demo.ui.Login;
-import com.demo.ui.RandomCall;
-import com.demo.ui.feedback;
-import com.demo.ui.myCalendar;
-
 import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+
+import com.demo.pojo.UserManage;
 
 public class Index {
 
