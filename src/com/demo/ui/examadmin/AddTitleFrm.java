@@ -31,7 +31,6 @@ import javax.swing.ImageIcon;
 public class AddTitleFrm {
 
 	private JFrame frame;
-	private JTextField textId;
 	private JTextField keya;
 	private JTextField keyb;
 	private JTextField keyc;
@@ -83,22 +82,6 @@ public class AddTitleFrm {
 		frame.setBounds(100, 100, 779, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		JLabel lblNewLabel = new JLabel(
-				"\u8BD5\u9898\u79D1\u76EE\uFF1A1\u4E3A\u6570\u5B66\uFF0C2\u4E3A\u8BED\u6587\uFF0C3\u4E3A\u82F1\u8BED");
-		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 18));
-		lblNewLabel.setBounds(179, 13, 395, 38);
-		frame.getContentPane().add(lblNewLabel);
-
-		JLabel lblNewLabel_1 = new JLabel("\u9898\u76EE\u7F16\u53F7");
-		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 18));
-		lblNewLabel_1.setBounds(45, 57, 91, 38);
-		frame.getContentPane().add(lblNewLabel_1);
-
-		textId = new JTextField();
-		textId.setBounds(150, 64, 172, 24);
-		frame.getContentPane().add(textId);
-		textId.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("\u9898   \u76EE");
 		lblNewLabel_2.setFont(new Font("宋体", Font.PLAIN, 18));
@@ -219,12 +202,12 @@ public class AddTitleFrm {
 		
 		JLabel lblNewLabel_1_1 = new JLabel("\u8BD5\u9898\u79D1\u76EE");
 		lblNewLabel_1_1.setFont(new Font("宋体", Font.PLAIN, 18));
-		lblNewLabel_1_1.setBounds(336, 57, 91, 38);
+		lblNewLabel_1_1.setBounds(45, 55, 91, 38);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
 		subjectText = new JTextField();
 		subjectText.setColumns(10);
-		subjectText.setBounds(441, 64, 172, 24);
+		subjectText.setBounds(150, 64, 172, 24);
 		frame.getContentPane().add(subjectText);
 		//设置窗体居中
 		frame.setLocationRelativeTo(null);
@@ -238,7 +221,6 @@ public class AddTitleFrm {
 	protected void addAction(ActionEvent e) {
 		// 获取文本框内容
 		
-		String id=textId.getText();
 		//获取科目信息
 		String subjectId=subjectText.getText().trim();		
 		// 获取题目
@@ -268,7 +250,7 @@ public class AddTitleFrm {
 //		System.out.println(title+"--"+keyvalue+"--"+keyA+"--"+keyB+"--"+keyC+"--"+keyD+"--"+remarks);
 		QuestionDao1 questionDao=new QuestionDao1Impl();
 		
-		questionDao.register(new Question(Integer.valueOf(id),Integer.valueOf(subjectId),title,keyvalue,keyA,keyB,keyC,keyD,remarks));
+		questionDao.register(new Question(subjectId,title,keyvalue,keyA,keyB,keyC,keyD,remarks));
 		JOptionPane.showMessageDialog(null, "添加试题成功！");
 	}
 	
@@ -278,7 +260,7 @@ public class AddTitleFrm {
 	 * @param e
 	 */
 	protected void resetValueActionPerformed(ActionEvent e) {
-		this.textId.setText("");
+		
 		this.subjectText.setText("");
 		this.titleText.setText("");
 		this.key.setText("");

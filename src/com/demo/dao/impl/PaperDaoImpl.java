@@ -2,14 +2,17 @@ package com.demo.dao.impl;
 
 import java.util.List;
 
+import com.demo.base.BaseDaoImpl;
 import com.demo.dao.PaperDao;
+import com.demo.dao.UserManageDao;
 import com.demo.pojo.Paper;
+import com.demo.pojo.UserManage;
 import com.demo.utils.BeanListResultSethandler;
 import com.demo.utils.QueryRunner;
 
 
 
-public class PaperDaoImpl implements PaperDao{
+public class PaperDaoImpl extends BaseDaoImpl<Paper> implements PaperDao{
 	//查询全表数据
 	@Override
 	public List<Paper> gettableDatas() {

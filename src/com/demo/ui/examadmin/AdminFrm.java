@@ -103,6 +103,17 @@ public class AdminFrm {
 				new AddTitleFrm().getFrame().setVisible(true);
 			}
 		});
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("\u6DFB\u52A0\u8BD5\u5377");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				new AddpaperFrm().getFrame().setVisible(true);
+			}
+		});
+		mntmNewMenuItem_2.setIcon(new ImageIcon(AdminFrm.class.getResource("/images/add.png")));
+		mntmNewMenuItem_2.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
+		mnNewMenu.add(mntmNewMenuItem_2);
 		mntmNewMenuItem.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 18));
 		mnNewMenu.add(mntmNewMenuItem);
 		// ÐÞ¸Ä É¾³ý

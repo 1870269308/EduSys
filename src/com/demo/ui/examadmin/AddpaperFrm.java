@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Vector;
 
@@ -20,7 +22,11 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import com.demo.dao.PaperDao;
+import com.demo.dao.QuestionDao1;
+import com.demo.dao.UserManageDao;
 import com.demo.dao.impl.PaperDaoImpl;
+import com.demo.dao.impl.QuestionDao1Impl;
+import com.demo.dao.impl.UserManageDaoImpl;
 import com.demo.pojo.Paper;
 import com.demo.utils.QueryRunner;
 
@@ -29,12 +35,19 @@ import com.demo.utils.QueryRunner;
 public class AddpaperFrm {
 
 	private JFrame frame;
-	private JTextField textField;
 	private JTable table;
 	private PaperDao pd=new PaperDaoImpl();
 	private String selectId;
 	private JTextField paperIdtext;
 	private JTextField paperNametext;
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
 
 	/**
 	 * Launch the application.
@@ -68,28 +81,11 @@ public class AddpaperFrm {
 		frame.setBounds(100, 100, 829, 743);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		JLabel lblNewLabel = new JLabel(
-				"\u8BD5\u5377\u8BF4\u660E\uFF1A1\u662F\u6570\u5B66\u30012\u662F\u8BED\u6587\u30013\u662F\u82F1\u8BED");
-		lblNewLabel.setFont(new Font("宋体", Font.BOLD, 15));
-		lblNewLabel.setBounds(34, 13, 362, 18);
-		frame.getContentPane().add(lblNewLabel);
-
-		JLabel lblNewLabel_1 = new JLabel("\u8BD5\u5377\u7F16\u53F7");
-		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(105, 44, 107, 32);
-		frame.getContentPane().add(lblNewLabel_1);
-
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(187, 49, 98, 24);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
 		// 刷新按钮
 		JButton btnNewButton = new JButton("\u5237\u65B0");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				selectPerformed();
+				fillTable();
 			}
 		});
 		btnNewButton.setFont(new Font("宋体", Font.PLAIN, 18));
@@ -101,15 +97,21 @@ public class AddpaperFrm {
 		frame.getContentPane().add(scrollPane);
 
 		table = new JTable();
-		table.setModel(new DefaultTableModel(new Object[][] { { null, null, null }, },
-				new String[] { "\u8BD5\u5377Id", "\u8BD5\u5377\u540D\u79F0", "\u5F00\u59CB\u65F6\u95F4" }));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+			},
+			new String[] {
+				"\u8BD5\u5377\u79D1\u76EE", "\u8BD5\u5377\u540D\u79F0", "\u5F00\u59CB\u65F6\u95F4"
+			}
+		));
 		scrollPane.setViewportView(table);
 		
 		JLabel lblNewLabel_2 = new JLabel("\u6DFB\u52A0\u8BD5\u5377");
 		lblNewLabel_2.setBounds(34, 433, 123, 32);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("\u8BD5\u5377\u7F16\u53F7");
+		JLabel lblNewLabel_3 = new JLabel("\u8BD5\u5377\u79D1\u76EE");
 		lblNewLabel_3.setBounds(61, 493, 72, 18);
 		frame.getContentPane().add(lblNewLabel_3);
 		
@@ -149,6 +151,8 @@ public class AddpaperFrm {
 		JButton btnNewButton_4 = new JButton("\u8FD4\u56DE\u4E0A\u4E00\u7EA7");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				new AdminFrm().getFrame().setVisible(true);
 			}
 		});
 		btnNewButton_4.setBounds(434, 622, 113, 27);
@@ -157,6 +161,9 @@ public class AddpaperFrm {
 		JButton btnNewButton_1 = new JButton("\u6DFB\u52A0\u9898\u76EE");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//添加试题
+				frame.dispose();
+				new AddTitleFrm().getFrame().setVisible(true);
 			}
 		});
 		btnNewButton_1.setFont(new Font("宋体", Font.PLAIN, 18));
@@ -183,9 +190,9 @@ public class AddpaperFrm {
 	private void addpaperFormend() {
 		
 		String sql="insert into paper value(null,now(),?,?)";
-		String paperId=paperIdtext.getText();
+		String subjectId=paperIdtext.getText();
 		String paperName=paperNametext.getText();
-		Object[] obj= {paperName,paperId};
+		Object[] obj= {paperName,subjectId};
 		System.out.println(sql);
 		new QueryRunner().execute(sql, obj);
 		JOptionPane.showMessageDialog(null, "添加试卷成功！");
@@ -194,78 +201,79 @@ public class AddpaperFrm {
 	/**
 	 * 将表格中的ID内容取出来
 	 */
+	// 初始化表格
 	private void fillTable() {
-		// TableModel用于询问表格式数据模型的方法。
-		TableModel tm = table.getModel();
-		// DefaultTableModel这是 TableModel 的一个实现，它使用一个 Vector 来存储单元格的值对象
-		DefaultTableModel model = (DefaultTableModel) tm;
-		// 清空表中的数据
-		model.setRowCount(0);
-		//取到结果集中的数据
-		//取出表中的id内容
-		List<Paper> datas=pd.gettableDatas();
-		for(Paper p:datas) {
-			Vector lineData=new Vector();
-			lineData.add(p.getId());
-			lineData.add(p.getPaperName());
-			lineData.add(p.getJionDate());
-			model.addRow(lineData);
+		//表格模型
+		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+		dtm.setRowCount(0);// 表格清空
+		PaperDao paperDao=null;
+		try {
+			paperDao=new PaperDaoImpl();
+			ResultSet rs = paperDao.query();
+			//System.out.println(rs);
+			//com.mysql.jdbc.JDBC42ResultSet@7c767388
+			while(rs.next()) {
+				Vector lineRow=new Vector();
+				lineRow.add(rs.getString("subjectId"));
+				lineRow.add(rs.getString("paperName"));
+				lineRow.add(rs.getString("joinDate"));
+				dtm.addRow(lineRow);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		System.out.println("刷新成功");
-		//表格上的点击事件
-		mouseClicked();
 	}
-	//鼠标点击事件
-	private void mouseClicked() {
-		table.addMouseListener(new MouseListener() {
-			//重写表格点击事件
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//获取单元格
-				//列数
-				int columnCount=table.getSelectedColumn();
-				//行数
-				int rowCount=table.getSelectedRow();
-				//得到单元格内容
-				Object value =table.getValueAt(rowCount, columnCount);
-				//获取行信息
-				DefaultTableModel model=(DefaultTableModel) table.getModel();
-				//获取到表中所有的数据
-				Vector v=model.getDataVector();
-				//行数据转换为字符串
-				String str =v.get(rowCount).toString();
-				//得到这一行的试卷名称
-				String examNamestr=str.split(",")[0].substring(1);
-				//将得到的字段传到文本框中
-				textField.setText(examNamestr);
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-		});
-	}
+//	//鼠标点击事件
+//	private void mouseClicked() {
+//		table.addMouseListener(new MouseListener() {
+//			//重写表格点击事件
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				//获取单元格
+//				//列数
+//				int columnCount=table.getSelectedColumn();
+//				//行数
+//				int rowCount=table.getSelectedRow();
+//				//得到单元格内容
+//				Object value =table.getValueAt(rowCount, columnCount);
+//				//获取行信息
+//				DefaultTableModel model=(DefaultTableModel) table.getModel();
+//				//获取到表中所有的数据
+//				Vector v=model.getDataVector();
+//				//行数据转换为字符串
+//				String str =v.get(rowCount).toString();
+//				//得到这一行的试卷名称
+//				String examNamestr=str.split(",")[0].substring(1);
+//				//将得到的字段传到文本框中
+//				textField.setText(examNamestr);
+//			}
+//
+//			@Override
+//			public void mousePressed(MouseEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//
+//			@Override
+//			public void mouseReleased(MouseEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//
+//			@Override
+//			public void mouseEntered(MouseEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//
+//			@Override
+//			public void mouseExited(MouseEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//
+//		});
+//	}
 
 	/**
 	 * 查询事件——>显示查询语句
@@ -280,7 +288,7 @@ public class AddpaperFrm {
 		// 拿到放在结果集中的数据
 		// 传递一个查询的值进去
 		// 定义一个变量获取的是文本的内容
-		selectId = textField.getText();
+//		selectId = textField.getText();
 		// 判断是否为空
 		if (selectId.equals("")) {
 			fillTable();
@@ -298,7 +306,7 @@ public class AddpaperFrm {
 		}
 		System.out.println("刷新成功");
 		//表格内的鼠标点击事件鼠标
-		mouseClicked();
+//		mouseClicked();
 
 	}
 }

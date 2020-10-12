@@ -96,7 +96,7 @@ public class StuSelectUi {
 		lblNewLabel.setBounds(34, 13, 362, 18);
 		frame.getContentPane().add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("\u8BD5\u5377\u7F16\u53F7");
+		JLabel lblNewLabel_1 = new JLabel("\u8003\u8BD5\u79D1\u76EE");
 		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 16));
 		lblNewLabel_1.setBounds(105, 44, 107, 32);
 		frame.getContentPane().add(lblNewLabel_1);
@@ -123,8 +123,14 @@ public class StuSelectUi {
 		frame.getContentPane().add(scrollPane);
 
 		table = new JTable();
-		table.setModel(new DefaultTableModel(new Object[][] { { null, null, null }, },
-				new String[] { "\u8BD5\u5377Id", "\u8BD5\u5377\u540D\u79F0", "\u5F00\u59CB\u65F6\u95F4" }));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+			},
+			new String[] {
+				"\u8BD5\u5377\u79D1\u76EE", "\u8BD5\u5377\u540D\u79F0", "\u5F00\u59CB\u65F6\u95F4"
+			}
+		));
 		scrollPane.setViewportView(table);
 		// 初始化表数据
 		fillTable();
@@ -141,7 +147,7 @@ public class StuSelectUi {
 		}
 		// 关闭当前窗口
 		frame.dispose();
-		ExaminationUi.examId = Integer.parseInt(textField.getText());
+		ExaminationUi.examId = textField.getText();
 		ExaminationUi window = new ExaminationUi(userMessage);
 		window.frame.setVisible(true);
 	}
@@ -161,7 +167,7 @@ public class StuSelectUi {
 		List<Paper> datas = pd.gettableDatas();
 		for (Paper p : datas) {
 			Vector lineData = new Vector();
-			lineData.add(p.getId());
+			lineData.add(p.getSubjectId());
 			lineData.add(p.getPaperName());
 			lineData.add(p.getJionDate());
 			model.addRow(lineData);

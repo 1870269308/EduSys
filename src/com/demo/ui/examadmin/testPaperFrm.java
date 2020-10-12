@@ -273,7 +273,7 @@ public class testPaperFrm {
 			return;
 		}
 		QuestionDao1 questionDao=new QuestionDao1Impl();
-		questionDao.udpate(new Question(Integer.parseInt(id),Integer.parseInt(subject),title,keyvalue,keyA,keyB,keyC,keyD,remarks));
+		questionDao.udpate(new Question(Integer.parseInt(id),subject,title,keyvalue,keyA,keyB,keyC,keyD,remarks));
 		JOptionPane.showMessageDialog(null, "修改成功！");
 		resetValue();//重置
 		fillTable();//刷新 表格

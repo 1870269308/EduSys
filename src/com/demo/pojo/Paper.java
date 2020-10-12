@@ -6,8 +6,15 @@ public class Paper {
 	private int id;
 	private Date joinDate;
 	private String paperName;
+	private String subjectId;
+	public String getSubjectId() {
+		return subjectId;
+	}
+	public void setSubjectId(String subjectId) {
+		this.subjectId = subjectId;
+	}
 	public Paper() {
-		super();
+	
 	}
 	public Paper(int id, Date joinDate, String paperName) {
 		super();

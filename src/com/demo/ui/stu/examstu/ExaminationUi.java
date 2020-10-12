@@ -38,7 +38,7 @@ public class ExaminationUi {
 	private JLabel realTimeLabel = new JLabel();
 	private JTextField anwertext;
 	// 设置从StuSelectUi传递过来的试卷id
-	public static Integer examId;
+	public static String examId;
 	// 设置分数的变量
 	public Integer score,singleScore,moreScore;
 	//设置时间
@@ -48,7 +48,7 @@ public class ExaminationUi {
 	// 题目的总数记录
 	int num = 10;
     private int nowNumber = 0;//当前题号
-    private int totalCount = 10;//题目总数
+    private int totalCount = 9;//题目总数
     private int answerCount = 0;//已答
     private int unanswerCount = totalCount;//未答
 	// 使用来保存试题信息
@@ -169,13 +169,14 @@ public class ExaminationUi {
 		nextButton.setIcon(new ImageIcon(ExaminationUi.class.getResource("/images/right.png")));
 		nextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				p++;
-				if (p == num) {
+				//p++;
+				if (p == num-1) {
 					JOptionPane.showMessageDialog(null, "已经是最后一题了");
-					p--;
+					return;
 				}
 				// 刷出下一题
 				showQuestion();
+				p++;
 				// 将回答的答案传入集合中
 				answerResponse.add(anwertext.getText());
 				System.out.println(answerResponse);
@@ -187,6 +188,7 @@ public class ExaminationUi {
 				////修改当前已答题 未答题
 				nowNumField.setText(nowNumber+1+"");
 				answerCountField.setText(++answerCount+"");
+				unanswerCountField.setText(--unanswerCount+"");
 				unanswerCountField.setText(--unanswerCount+"");
 				
 			}
@@ -334,7 +336,7 @@ public class ExaminationUi {
 		int moreRight = 0;
 		// 单选错误的题数
 		int moreError = 0;
-		for (int i = 0; i < num; i++) {
+		for (int i = 0; i < num-1; i++) {
 			//equals进行内容比较
 			if (remak.get(i).equals("单选")) {
 				if (answer.get(i).equals(answerResponse.get(i))) {
