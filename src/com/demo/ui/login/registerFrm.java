@@ -176,14 +176,17 @@ public class registerFrm{
 //			return;
 //		}
 		UserDao userDao=new UserDaoImpl();
-
-		userDao.register(new User(0,userName,passwordOne,"学生"));//TODO
-		
-		resetValueActionPerformed(e);
-		int result=JOptionPane.showConfirmDialog(null,"注册成功，是否返回登录界面");
-		if(result==0) {
-			frame.dispose();//界面消失
-			new Login().getFrame().setVisible(true);//显示新界面
+		if(passwordOne.equals(passwordTwo)) {
+			userDao.register(new User(0,userName,passwordOne,"学生"));//TODO
+			
+			resetValueActionPerformed(e);
+			int result=JOptionPane.showConfirmDialog(null,"注册成功，是否返回登录界面");
+			if(result==0) {
+				frame.dispose();//界面消失
+				new Login().getFrame().setVisible(true);//显示新界面
+			}
+		}else {
+			JOptionPane.showConfirmDialog(null,"两次密码不同，请重新输入");
 		}
 	}
 
