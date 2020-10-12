@@ -188,8 +188,7 @@ public class ExaminationUi {
 				////修改当前已答题 未答题
 				nowNumField.setText(nowNumber+1+"");
 				answerCountField.setText(++answerCount+"");
-				unanswerCountField.setText(--unanswerCount+"");
-				unanswerCountField.setText(--unanswerCount+"");
+				unanswerCountField.setText(--totalCount+"");
 				
 			}
 		});
