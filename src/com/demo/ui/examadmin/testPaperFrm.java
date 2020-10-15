@@ -89,12 +89,12 @@ public class testPaperFrm {
 	 */
 	private void initialize() {
 		frame = new JFrame("修改/删除试题");
-		frame.setBounds(100, 100, 1003, 814);
+		frame.setBounds(100, 100, 1003, 626);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(14, 0, 956, 337);
+		scrollPane.setBounds(14, 0, 956, 238);
 		frame.getContentPane().add(scrollPane);
 		
 		questionTable = new JTable();
@@ -126,7 +126,7 @@ public class testPaperFrm {
 			}
 		});
 		btnNewButton.setFont(new Font("宋体", Font.PLAIN, 20));
-		btnNewButton.setBounds(169, 719, 113, 35);
+		btnNewButton.setBounds(192, 533, 113, 35);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("\u5220\u9664");
@@ -139,7 +139,7 @@ public class testPaperFrm {
 			}
 		});
 		btnNewButton_1.setFont(new Font("宋体", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(405, 719, 113, 35);
+		btnNewButton_1.setBounds(426, 533, 113, 35);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("\u9000\u51FA");
@@ -153,12 +153,12 @@ public class testPaperFrm {
 			}
 		});
 		btnNewButton_2.setFont(new Font("宋体", Font.PLAIN, 20));
-		btnNewButton_2.setBounds(640, 719, 113, 35);
+		btnNewButton_2.setBounds(649, 533, 113, 35);
 		frame.getContentPane().add(btnNewButton_2);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "\u4FEE\u6539\u64CD\u4F5C", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(14, 379, 956, 327);
+		panel.setBounds(14, 261, 956, 238);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -173,65 +173,65 @@ public class testPaperFrm {
 		idText.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u8BD5\u9898\u9898\u76EE\uFF1A");
-		lblNewLabel_1.setBounds(14, 85, 86, 18);
+		lblNewLabel_1.setBounds(14, 66, 86, 18);
 		panel.add(lblNewLabel_1);
 		
 		JLabel lbla = new JLabel("\u7B54\u6848A:");
-		lbla.setBounds(560, 85, 72, 18);
+		lbla.setBounds(560, 35, 72, 18);
 		panel.add(lbla);
 		
 		keyAText = new JTextField();
-		keyAText.setBounds(613, 82, 258, 24);
+		keyAText.setBounds(613, 29, 258, 24);
 		panel.add(keyAText);
 		keyAText.setColumns(10);
 		
 		JLabel lblb = new JLabel("\u7B54\u6848B:");
-		lblb.setBounds(560, 116, 72, 18);
+		lblb.setBounds(560, 66, 72, 18);
 		panel.add(lblb);
 		
 		JLabel lblc = new JLabel("\u7B54\u6848C:");
-		lblc.setBounds(560, 147, 72, 18);
+		lblc.setBounds(560, 97, 72, 18);
 		panel.add(lblc);
 		
 		JLabel lbld = new JLabel("\u7B54\u6848D:");
-		lbld.setBounds(560, 176, 72, 18);
+		lbld.setBounds(560, 130, 72, 18);
 		panel.add(lbld);
 		
 		JLabel lbla_4 = new JLabel("\u6B63\u786E\u7B54\u6848\uFF1A");
-		lbla_4.setBounds(538, 231, 94, 18);
+		lbla_4.setBounds(538, 161, 94, 18);
 		panel.add(lbla_4);
 		
 		JLabel lbla_5 = new JLabel("\u5907\u6CE8\uFF1A");
-		lbla_5.setBounds(560, 262, 72, 18);
+		lbla_5.setBounds(560, 192, 72, 18);
 		panel.add(lbla_5);
 		
 		keyBText = new JTextField();
 		keyBText.setColumns(10);
-		keyBText.setBounds(613, 113, 258, 24);
+		keyBText.setBounds(613, 60, 258, 24);
 		panel.add(keyBText);
 		
 		keyCText = new JTextField();
 		keyCText.setColumns(10);
-		keyCText.setBounds(613, 147, 258, 24);
+		keyCText.setBounds(613, 91, 258, 24);
 		panel.add(keyCText);
 		
 		keyDText = new JTextField();
 		keyDText.setColumns(10);
-		keyDText.setBounds(613, 178, 258, 24);
+		keyDText.setBounds(613, 122, 258, 24);
 		panel.add(keyDText);
 		
 		keyvalueText = new JTextField();
 		keyvalueText.setColumns(10);
-		keyvalueText.setBounds(613, 228, 258, 24);
+		keyvalueText.setBounds(613, 155, 258, 24);
 		panel.add(keyvalueText);
 		
 		remarksText = new JTextField();
 		remarksText.setColumns(10);
-		remarksText.setBounds(613, 262, 258, 24);
+		remarksText.setBounds(613, 189, 258, 24);
 		panel.add(remarksText);
 		
 		titleArea = new JTextArea();
-		titleArea.setBounds(86, 89, 426, 197);
+		titleArea.setBounds(86, 64, 426, 108);
 		panel.add(titleArea);
 		
 		subjectText = new JTextField();
@@ -243,12 +243,6 @@ public class testPaperFrm {
 		JLabel lblNewLabel_2 = new JLabel("\u8BD5\u9898\u79D1\u76EE\uFF1A");
 		lblNewLabel_2.setBounds(186, 35, 80, 18);
 		panel.add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("\u8BD5\u9898\u79D1\u76EE\uFF1A1\u4E3A\u6570\u5B66\uFF0C2\u4E3A\u8BED\u6587\uFF0C3\u4E3A\u82F1\u8BED");
-		lblNewLabel_3.setForeground(Color.RED);
-		lblNewLabel_3.setFont(new Font("宋体", Font.PLAIN, 20));
-		lblNewLabel_3.setBounds(304, 350, 368, 18);
-		frame.getContentPane().add(lblNewLabel_3);
 		//设置窗体居中
 		frame.setLocationRelativeTo(null);
 		

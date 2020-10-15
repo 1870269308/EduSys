@@ -308,7 +308,7 @@ public class ExaminationUi {
 		exitBtn.setBounds(722, 461, 113, 27);
 		frame.getContentPane().add(exitBtn);
 		
-		JLabel lblNewLabel_1 = new JLabel("1-5\u4E3A\u5355\u9009\u9898\uFF0C6-10\u4E3A\u591A\u9009\u9898");
+		JLabel lblNewLabel_1 = new JLabel("1-5\u4E3A\u5355\u9009\u9898\uFF0C6-9\u4E3A\u591A\u9009\u9898");
 		lblNewLabel_1.setForeground(Color.RED);
 		lblNewLabel_1.setFont(new Font("ËÎÌו", Font.PLAIN, 20));
 		lblNewLabel_1.setBounds(86, 21, 299, 18);

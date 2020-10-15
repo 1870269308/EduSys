@@ -16,8 +16,8 @@ public final class JdbcUtil {
 	static{
 		//¼ÓÔØÇý¶¯
 		try {
-			Properties prop=new Properties();
-			prop.load(new BufferedInputStream(new FileInputStream("src//com//demo//db.properties")));
+			Properties prop = new Properties();
+			prop.load(new BufferedInputStream(new FileInputStream("src/com/demo/db.properties")));
 			url=prop.getProperty("url");
 			user=prop.getProperty("user");
 			password=prop.getProperty("password");

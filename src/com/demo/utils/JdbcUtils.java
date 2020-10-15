@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
+
 public final class JdbcUtils {
 
 	private static String url="";
@@ -44,8 +45,8 @@ public final class JdbcUtils {
 	static{
 		//¼ÓÔØÇý¶¯
 		try {
-			//EduSys/src/com/demo/db.properties
-			Properties prop=new Properties();
+			
+			Properties prop = new Properties();
 			prop.load(new BufferedInputStream(new FileInputStream("src/com/demo/db.properties")));
 			url=prop.getProperty("url");
 			user=prop.getProperty("user");

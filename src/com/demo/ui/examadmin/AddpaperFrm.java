@@ -29,6 +29,7 @@ import com.demo.dao.impl.QuestionDao1Impl;
 import com.demo.dao.impl.UserManageDaoImpl;
 import com.demo.pojo.Paper;
 import com.demo.utils.QueryRunner;
+import javax.swing.ImageIcon;
 
 
 
@@ -83,6 +84,7 @@ public class AddpaperFrm {
 		frame.getContentPane().setLayout(null);
 		// 刷新按钮
 		JButton btnNewButton = new JButton("\u5237\u65B0");
+		btnNewButton.setIcon(new ImageIcon(AddpaperFrm.class.getResource("/images/de.png")));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fillTable();
@@ -130,6 +132,7 @@ public class AddpaperFrm {
 		frame.getContentPane().add(paperNametext);
 		
 		JButton btnNewButton_2 = new JButton("\u6DFB\u52A0");
+		btnNewButton_2.setIcon(new ImageIcon(AddpaperFrm.class.getResource("/images/add.png")));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addpaperFormend();
@@ -140,6 +143,7 @@ public class AddpaperFrm {
 		frame.getContentPane().add(btnNewButton_2);
 		//重置
 		JButton btnNewButton_3 = new JButton("\u91CD\u7F6E");
+		btnNewButton_3.setIcon(new ImageIcon(AddpaperFrm.class.getResource("/images/de.png")));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				resetValueActionPerformed();
@@ -149,16 +153,18 @@ public class AddpaperFrm {
 		frame.getContentPane().add(btnNewButton_3);
 		//TODO
 		JButton btnNewButton_4 = new JButton("\u8FD4\u56DE\u4E0A\u4E00\u7EA7");
+		btnNewButton_4.setIcon(new ImageIcon(AddpaperFrm.class.getResource("/images/out.png")));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				new AdminFrm().getFrame().setVisible(true);
 			}
 		});
-		btnNewButton_4.setBounds(434, 622, 113, 27);
+		btnNewButton_4.setBounds(434, 622, 158, 27);
 		frame.getContentPane().add(btnNewButton_4);
 		//TODO
 		JButton btnNewButton_1 = new JButton("\u6DFB\u52A0\u9898\u76EE");
+		btnNewButton_1.setIcon(new ImageIcon(AddpaperFrm.class.getResource("/images/add.png")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//添加试题
@@ -167,10 +173,12 @@ public class AddpaperFrm {
 			}
 		});
 		btnNewButton_1.setFont(new Font("宋体", Font.PLAIN, 18));
-		btnNewButton_1.setBounds(607, 48, 113, 27);
+		btnNewButton_1.setBounds(607, 48, 131, 27);
 		frame.getContentPane().add(btnNewButton_1);
 		// 初始化表数据
 		fillTable();
+		//页面居中
+		frame.setLocationRelativeTo(null);
 	}
 	
 	/**
@@ -223,58 +231,6 @@ public class AddpaperFrm {
 			e.printStackTrace();
 		}
 	}
-//	//鼠标点击事件
-//	private void mouseClicked() {
-//		table.addMouseListener(new MouseListener() {
-//			//重写表格点击事件
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				//获取单元格
-//				//列数
-//				int columnCount=table.getSelectedColumn();
-//				//行数
-//				int rowCount=table.getSelectedRow();
-//				//得到单元格内容
-//				Object value =table.getValueAt(rowCount, columnCount);
-//				//获取行信息
-//				DefaultTableModel model=(DefaultTableModel) table.getModel();
-//				//获取到表中所有的数据
-//				Vector v=model.getDataVector();
-//				//行数据转换为字符串
-//				String str =v.get(rowCount).toString();
-//				//得到这一行的试卷名称
-//				String examNamestr=str.split(",")[0].substring(1);
-//				//将得到的字段传到文本框中
-//				textField.setText(examNamestr);
-//			}
-//
-//			@Override
-//			public void mousePressed(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//
-//			@Override
-//			public void mouseReleased(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//
-//			@Override
-//			public void mouseEntered(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//
-//			@Override
-//			public void mouseExited(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//
-//		});
-//	}
-
 	/**
 	 * 查询事件——>显示查询语句
 	 */

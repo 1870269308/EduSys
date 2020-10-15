@@ -90,12 +90,6 @@ public class StuSelectUi {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel(
-				"\u8BD5\u5377\u8BF4\u660E\uFF1A1\u662F\u6570\u5B66\u30012\u662F\u8BED\u6587\u30013\u662F\u82F1\u8BED");
-		lblNewLabel.setFont(new Font("ËÎÌו", Font.BOLD, 15));
-		lblNewLabel.setBounds(34, 13, 362, 18);
-		frame.getContentPane().add(lblNewLabel);
-
 		JLabel lblNewLabel_1 = new JLabel("\u8003\u8BD5\u79D1\u76EE");
 		lblNewLabel_1.setFont(new Font("ËÎÌו", Font.PLAIN, 16));
 		lblNewLabel_1.setBounds(105, 44, 107, 32);
