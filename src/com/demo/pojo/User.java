@@ -21,6 +21,21 @@ public class User {
 	private String password;
 	private String role;
 	
+	
+	
+	public User(Integer id, String userName, String password) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.password = password;
+	}
+
+	public User(String userName, String password) {
+		super();
+		this.userName = userName;
+		this.password = password;
+	}
+
 	public User(Integer id) {
 		super();
 		this.id = id;

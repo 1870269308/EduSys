@@ -247,5 +247,4 @@ class listenerRate implements ActionListener{
 		frame.setVisible(false);
 		cou.getFrame().setVisible(true);		
 	}
-	
 }

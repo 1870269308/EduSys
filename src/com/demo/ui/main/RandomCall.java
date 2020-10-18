@@ -23,6 +23,8 @@ public class RandomCall {
 	private JLabel lblNewLabel_1;
 	private Boolean isStop; 
 	private RandomThread rt;
+	private int count = 0; 
+	
 	
 	public JFrame getFrame() {
 		return frame;
@@ -86,9 +88,13 @@ public class RandomCall {
 		start = new JButton("\u5F00\u59CB");
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				startAction(e); 
+				count ++;
+				if(count==1) {
+					startAction(e); 
+				}
 			}
 		});
+		
 		start.setBounds(14, 198, 113, 27);
 		frame.getContentPane().add(start);
 		
@@ -98,10 +104,9 @@ public class RandomCall {
 		JButton stop = new JButton("\u6682\u505C");
 		stop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				count = count -1; 
 				stopAction(e); 
 			}
-
-			
 		});
 		stop.setBounds(165, 198, 113, 27);
 		frame.getContentPane().add(stop);

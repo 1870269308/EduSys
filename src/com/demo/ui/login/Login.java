@@ -44,7 +44,6 @@ public class Login {
 	private JRadioButton rdbtnNewRadioButton_stu = new JRadioButton("\u5B66\u751F");
 	private JButton btnNewButton_login = new JButton("\u767B\u5F55");
 	private JPasswordField pswtext;
-
 	
 	public JFrame getFrame() {
 		return frame;
@@ -111,12 +110,8 @@ public class Login {
 		lblNewLabel_1_1.setBounds(155, 149, 78, 23);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
-		
-		
 		rdbtnNewRadioButton_stu.setBounds(230, 203, 78, 27);
 		frame.getContentPane().add(rdbtnNewRadioButton_stu);
-		
-		
 		
 		
 		rdbtnNewRadioButton_man.setBounds(358, 203, 96, 27);
@@ -168,10 +163,9 @@ public class Login {
 		
 		btnNewButton_register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				LogOnFrm login=new LogOnFrm();
-				//	login.getFrame().setVisible(true);
 				registerFrm regist = new registerFrm(); 
 				regist.getFrame().setVisible(true);
+				frame.dispose();
 			}
 		});
 		
@@ -235,7 +229,7 @@ public class Login {
 						//跳转
 						Index index = new Index(currentUser); 
 						index.getFrame().setVisible(true);
-						frame.setVisible(false); 
+						frame.dispose(); 
 						
 					}else {
 						JOptionPane.showMessageDialog(null, "用户名或密码，角色有误");
@@ -246,8 +240,7 @@ public class Login {
 		}
 		if(rdbtnNewRadioButton_stu.isSelected()) {
 			
-			String role = rdbtnNewRadioButton_stu.getText();	
-			  User user = new User(0,userName, password, role); 
+			  User user = new User(0,userName, password); 
 
 				Connection con = null; 
 				try {
@@ -263,7 +256,7 @@ public class Login {
 						//TODO  这里跳转学生主页面
 						stu_back index = new stu_back(currentUser); 
 						index.getFrame().setVisible(true);
-						frame.setVisible(false); 
+						frame.dispose(); 
 					}else {
 						JOptionPane.showMessageDialog(null, "用户名或密码，角色有误");
 					}

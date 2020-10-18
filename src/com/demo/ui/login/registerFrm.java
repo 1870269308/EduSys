@@ -170,17 +170,17 @@ public class registerFrm{
 			JOptionPane.showMessageDialog(null, "密码不能为空");
 			return;
 		}
-//		if(Integer.valueOf(passwordOne)!=Integer.valueOf(passwordTwo)) {
-//			JOptionPane.showMessageDialog(null, "两次输入密码不一致，请重新输入");
-//			resetValueActionPerformed(e);
-//			return;
-//		}
+	
 		UserDao userDao=new UserDaoImpl();
+		//判断两次密码是否相等
 		if(passwordOne.equals(passwordTwo)) {
+			//调用注册方法
 			userDao.register(new User(0,userName,passwordOne,"学生"));//TODO
-			
 			resetValueActionPerformed(e);
+			
+			//弹框
 			int result=JOptionPane.showConfirmDialog(null,"注册成功，是否返回登录界面");
+			
 			if(result==0) {
 				frame.dispose();//界面消失
 				new Login().getFrame().setVisible(true);//显示新界面

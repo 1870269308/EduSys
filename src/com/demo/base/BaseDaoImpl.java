@@ -80,16 +80,15 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		for(int i=0;i<fs.length;i++) {
 			//给权限
 			fs[i].setAccessible(true);
-			try {
+			try {  
 				params[i]=fs[i].get(t);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		qr.execute(sql, params);
-		
-		
 	}
+	
 	@Override
 	public void udpate(T t) {//修改
 		//update person set name='老孟',age=104,pid='10086' where id=8;
